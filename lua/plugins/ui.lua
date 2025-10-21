@@ -4,7 +4,7 @@ return {
 		main = "ibl",
 		opts = {
 			indent = {
-				char = "┃",
+				char = "│",
 			},
 			scope = {
 				enabled = false,
@@ -22,7 +22,7 @@ return {
 		"echasnovski/mini.indentscope",
 		version = false,
 		opts = {
-			symbol = "┃",
+			symbol = "│",
 			options = { try_as_border = true },
 		},
 		init = function()

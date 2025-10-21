@@ -14,6 +14,7 @@ return {
 					typescript = { "prettier" },
 					json = { "prettier" },
 					python = { "isort", "black" },
+					php = { "php-cs-fixer" },
 				},
 				format_on_save = {
 					lsp_fallback = true,

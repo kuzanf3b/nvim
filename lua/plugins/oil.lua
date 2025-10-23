@@ -37,7 +37,7 @@ return {
 				max_width = 0.9,
 				max_height = 0.8,
 				border = "rounded",
-				win_options = { winblend = 8 },
+				win_options = { winblend = 45 },
 			},
 		})
 	end,

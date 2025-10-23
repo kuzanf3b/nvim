@@ -38,21 +38,6 @@ return {
 	},
 
 	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-		opts = {
-			presets = {
-				bottom_search = true,
-				command_palette = true,
-			},
-		},
-	},
-
-	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		dependencies = {
@@ -60,7 +45,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
-			preset = "helix",
+			preset = "modern",
 			notify = true,
 			win = {
 				border = "rounded",
@@ -150,9 +135,6 @@ return {
 				{ "<leader>cl", "<cmd>Lazy<cr>", desc = "Lazy" },
 				{ "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
 				{ "<leader>ci", "<cmd>Inspect<cr>", desc = "Inspect Highlight" },
-
-				--  FILE TREE / PROJECT
-				{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neo-tree" },
 
 				--  MULTICURSOR / MOTIONS
 				{ "<leader>m", group = "Multicursor" },

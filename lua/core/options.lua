@@ -14,16 +14,13 @@ opts.expandtab = true
 -- search settings
 opts.ignorecase = true
 opts.smartcase = true
+opts.incsearch = true -- highlight while typing search
 
 -- appearance
 opts.termguicolors = true
 opts.background = "dark"
 opts.signcolumn = "yes"
-
--- cursor line
 opts.cursorline = true
-
--- 80th column
 opts.colorcolumn = "120"
 
 -- clipboard
@@ -42,14 +39,20 @@ opts.iskeyword:append("-")
 -- keep cursor at least 8 rows from top/bot
 opts.scrolloff = 8
 
--- undo dir settings
+-- undo/swap/backup settings
 opts.swapfile = false
 opts.backup = false
 opts.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opts.undofile = true
 
--- incremental search
-opts.incsearch = true
-
 -- faster cursor hold
 opts.updatetime = 50
+
+opts.showmode = false
+opts.showcmd = false
+opts.ruler = false
+opts.laststatus = 3
+opts.cmdheight = 0
+
+opts.mouse = "a"
+opts.completeopt = { "menuone", "noselect" }

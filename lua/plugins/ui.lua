@@ -38,6 +38,45 @@ return {
 	},
 
 	{
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
+		config = function()
+			local notify = require("notify")
+
+			notify.setup({
+				stages = "fade_in_slide_out",
+				timeout = 3000,
+				render = "default",
+				fps = 60,
+				top_down = true,
+				background_colour = "#1e2030",
+				minimum_width = 40,
+				max_width = 60,
+			})
+
+			vim.notify = notify
+
+			vim.cmd([[
+          hi NotifyINFOBorder guifg=#7aa2f7 guibg=#1e2030
+          hi NotifyINFOTitle  guifg=#7aa2f7 guibg=#1e2030
+          hi NotifyINFOBody   guifg=#c0caf5 guibg=#1e2030
+
+          hi NotifyWARNBorder guifg=#e0af68 guibg=#1e2030
+          hi NotifyWARNTitle  guifg=#e0af68 guibg=#1e2030
+          hi NotifyWARNBody   guifg=#c0caf5 guibg=#1e2030
+
+          hi NotifyERRORBorder guifg=#f7768e guibg=#1e2030
+          hi NotifyERRORTitle  guifg=#f7768e guibg=#1e2030
+          hi NotifyERRORBody   guifg=#c0caf5 guibg=#1e2030
+
+          hi NotifyDEBUGBorder guifg=#565f89 guibg=#1e2030
+          hi NotifyDEBUGTitle  guifg=#565f89 guibg=#1e2030
+          hi NotifyDEBUGBody   guifg=#c0caf5 guibg=#1e2030
+    ]])
+		end,
+	},
+
+	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		dependencies = {

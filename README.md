@@ -22,55 +22,83 @@ Every feature is in its own file under `lua/plugins/`, making it easy to extend,
 |------|--------------|
 | 🧠 **LSP** | Language Server Protocol support with `nvim-lspconfig` + `mason.nvim` |
 | 🪄 **Completion** | Autocompletion via `nvim-cmp` and `LuaSnip` |
-| 🧹 **Formatting & Linting** | Automatic formatting and linting via `conform.nvim`, `nvim-lint`, `mason-conform.nvim` |
+| 🧹 **Formatting & Linting** | Automatic formatting and linting via `conform.nvim`, `nvim-lint` |
 | 🎥 **Smooth Animations** | Seamless scroll and cursor effects using `neoscroll.nvim` and `smear-cursor.nvim` |
-| 🚀 **Motion Enhancements** | Faster navigation with `flash.nvim`, multi-cursor editing via `nvim-multicursor`, easy add/delete/change bracket via `nvim-surround`, and highlight & search for comments with `todo-comments.nvim` |
-| 🪶 **UI Enhancements** | Beautiful command line, popups, key hints, and indentation guides with `noice.nvim`, `which-key.nvim`, and `indent-blankline.nvim`|
-| 🧭 **File Explorer** | File and git tree navigation using `neo-tree.nvim` |
-| 🔍 **Search Everything** | Fuzzy finding and live grep via `telescope.nvim` |
-| 🌳 **Syntax Tree** | Better syntax highlighting and parsing with `nvim-treesitter` |
-| 💾 **Quality of Life** | Git integration, color previews, undo history, and better PHP/HTML indentation |
+| 🚀 **Motion Enhancements** | Faster navigation with `flash.nvim`, multi-cursor editing via `multicursors.nvim`, smart window navigation via `smart-splits.nvim` |
+| 🪶 **UI Enhancements** | Clean statusline, notifications, indentation guides, and key hints with `lualine.nvim`, `nvim-notify`, `which-key.nvim`, and `indent-blankline.nvim` |
+| 🧭 **File Explorer** | Modern file manager using `oil.nvim` |
+| 🔍 **Search Everything** | Powerful fuzzy finder via `telescope.nvim` |
+| 🌳 **Syntax Tree** | Advanced syntax highlighting and textobjects using `nvim-treesitter` |
+| 💾 **Quality of Life** | Git tools, undo tree, Discord presence, and color highlighting |
 
 ---
 
 ## 🖱️ Plugin Highlights
 
 ### 🎬 Animations
-- **[neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)** → Smooth scrolling with easing functions.
-- **[smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)** → Subtle cursor smear effect when moving fast.
+- **[neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)** → Smooth scrolling with easing functions.  
+- **[smear-cursor.nvim](https://github.com/smoka7/smear-cursor.nvim)** → Subtle cursor smear animation for fast movements.
+
+---
 
 ### 🧹 Formatter & Linter
-- **[conform.nvim](https://github.com/stevearc/conform.nvim)** → Async universal formatter.
-- **[nvim-lint](https://github.com/mfussenegger/nvim-lint)** → On-the-fly linting.
+- **[conform.nvim](https://github.com/stevearc/conform.nvim)** → Lightweight async formatter.  
+- **[nvim-lint](https://github.com/mfussenegger/nvim-lint)** → On-the-fly linting.  
 - **[mason-conform.nvim](https://github.com/zeioth/mason-conform.nvim)** → Mason integration for Conform.
 
-### 🏃 Motions
-- **[nvim-multicursor](https://github.com/smoka7/multicursors.nvim)** → Multi-cursor editing.
-- **[flash.nvim](https://github.com/folke/flash.nvim)** → Enhanced motion & navigation.
-- **[nvim-surround](https://github.com/kylechui/nvim-surround)** → Add/delete/change surrounding pairs. 
-- **[todo-comments.nvim](https://github.com/folke/todo-comments.nvim)** → Highlight and search for todo comments.
+---
 
-### 🧩 One-Liners / Utilities
-- **[better-indent-support-for-php-html](https://github.com/Vimjas/vim-html-php-indent)** → Correct PHP/HTML indentation.
-- **[oscyank.nvim](https://github.com/ojroques/nvim-osc52)** → Copy to system clipboard over SSH.
-- **[vim-doge](https://github.com/kkoomen/vim-doge)** → Auto-documentation generator.
-- **[vim-fugitive](https://github.com/tpope/vim-fugitive)** → Git integration.
-- **[undotree](https://github.com/mbbill/undotree)** → Visualize undo history.
-- **[ts-comments.nvim](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)** → Context-aware commenting.
-- **[highlight-colors.nvim](https://github.com/brenoprata10/nvim-highlight-colors)** → Inline color preview.
+### 🏃 Motions
+- **[multicursors.nvim](https://github.com/smoka7/multicursors.nvim)** → Multi-cursor editing for faster refactoring.  
+- **[flash.nvim](https://github.com/folke/flash.nvim)** → Enhanced motion with visual hints.  
+- **[nvim-surround](https://github.com/kylechui/nvim-surround)** → Add/delete/change surrounding pairs easily.  
+- **[smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim)** → Intelligent window resizing and navigation.
+
+---
+
+### 🧩 Utilities
+- **[harpoon](https://github.com/ThePrimeagen/harpoon)** → Quick file navigation and marking.  
+- **[presence.nvim](https://github.com/andweeb/presence.nvim)** → Discord rich presence integration.  
+- **[vim-doge](https://github.com/kkoomen/vim-doge)** → Generate documentation automatically.  
+- **[undotree](https://github.com/mbbill/undotree)** → Visualize undo history.  
+- **[highlight-colors.nvim](https://github.com/brenoprata10/nvim-highlight-colors)** → Inline color previews.  
+- **[better-indent-support-for-php-html](https://github.com/Vimjas/vim-html-php-indent)** → Better PHP/HTML indentation.
+
+---
 
 ### 🪶 UI & Experience
-- **[noice.nvim](https://github.com/folke/noice.nvim)** → Modern command line, messages, and popup UI.
-- **[which-key.nvim](https://github.com/folke/which-key.nvim)** → Display available keybindings in popup.
-- **[indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)** → Indentation guides to Neovim.
-- **[mini-indentscope](https://github.com/echasnovski/mini.indentscope)** → Visualize scope with animated vertical line.
+- **[lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)** → Beautiful statusline.  
+- **[nvim-notify](https://github.com/rcarriga/nvim-notify)** → Popup notifications with animations.  
+- **[which-key.nvim](https://github.com/folke/which-key.nvim)** → Keybinding hints.  
+- **[indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)** → Indentation guides.  
+- **[dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)** → Custom startup dashboard.  
+- **[mini.indentscope](https://github.com/echasnovski/mini.indentscope)** → Visualize scope blocks with animation.
+
+---
 
 ### 🧠 LSP & Mason
-- **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)** → Built-in LSP configuration.
-- **[mason.nvim](https://github.com/williamboman/mason.nvim)** → Install/manage LSPs, DAPs, Linters, and Formatters.
+- **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)** → LSP configuration layer.  
+- **[mason.nvim](https://github.com/williamboman/mason.nvim)** → Installer and manager for LSP/DAP tools.  
+- **[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)** → Bridges Mason and LSP.
+
+---
+
+### 🔍 Search & Files
+- **[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)** → Fuzzy finder and live grep.  
+- **[telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)** → Native sorter for Telescope.  
+- **[telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)** → Replace default Vim UI with Telescope.  
+- **[oil.nvim](https://github.com/stevearc/oil.nvim)** → Lightweight floating file explorer.
+
+---
 
 ### 🎨 Theme
-- **[tokyonight.nvim](https://github.com/folke/tokyonight.nvim)** → Vibrant theme with night, storm, moon variants.
+- **[tokyonight.nvim](https://github.com/folke/tokyonight.nvim)** → Elegant and fast theme inspired by Tokyo nights.
+
+---
+
+### 🌳 Syntax & Treesitter
+- **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** → Better syntax highlighting and parsing.  
+- **[nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)** → Powerful text manipulation.
 
 ---
 

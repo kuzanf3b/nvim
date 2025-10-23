@@ -138,7 +138,7 @@ Every feature is in its own file under `lua/plugins/`, making it easy to extend,
 | `<leader>fb` | List buffers |
 | `<leader>fs` | Search current word |
 | `<leader>fi` | Find in `~/.config/nvim` |
-| `<leader>e` | Toggle Neo-tree |
+| `<leader>e` | Toggle Oil |
 | `<leader>ca` | Code action |
 | `gd` | Go to definition |
 | `gr` | List references |
@@ -180,7 +180,7 @@ Every feature is in its own file under `lua/plugins/`, making it easy to extend,
 │       ├── harpoon.lua
 │       ├── lualine.lua
 │       ├── motions.lua
-│       ├── neo-tree.lua
+│       ├── oil.lua
 │       ├── one-liners.lua
 │       ├── telescope.lua
 │       ├── treesitter.lua

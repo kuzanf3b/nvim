@@ -51,8 +51,7 @@ opts.updatetime = 50
 opts.showmode = false
 opts.showcmd = false
 opts.ruler = false
-opts.laststatus = 3
-opts.cmdheight = 0
 
 opts.mouse = "a"
+opts.wrap = false
 opts.completeopt = { "menuone", "noselect" }

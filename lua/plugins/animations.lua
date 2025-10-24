@@ -87,32 +87,4 @@ return {
 			})
 		end,
 	},
-
-	{
-		"mrjones2014/smart-splits.nvim",
-		event = "VeryLazy",
-		config = function()
-			local smart_splits = require("smart-splits")
-			local map = vim.keymap.set
-
-			smart_splits.setup({
-				ignored_buftypes = { "nofile", "prompt", "popup" },
-				ignored_filetypes = { "NvimTree", "neo-tree", "Outline" },
-				default_amount = 5,
-				at_edge = "wrap",
-			})
-
-			-- Navigasi antar split
-			map("n", "<C-h>", smart_splits.move_cursor_left, { desc = "Move to left split" })
-			map("n", "<C-j>", smart_splits.move_cursor_down, { desc = "Move to below split" })
-			map("n", "<C-k>", smart_splits.move_cursor_up, { desc = "Move to above split" })
-			map("n", "<C-l>", smart_splits.move_cursor_right, { desc = "Move to right split" })
-
-			-- Resize split (pakai Alt + arah)
-			map("n", "<A-h>", smart_splits.resize_left, { desc = "Resize split left" })
-			map("n", "<A-j>", smart_splits.resize_down, { desc = "Resize split down" })
-			map("n", "<A-k>", smart_splits.resize_up, { desc = "Resize split up" })
-			map("n", "<A-l>", smart_splits.resize_right, { desc = "Resize split right" })
-		end,
-	},
 }

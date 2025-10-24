@@ -26,7 +26,7 @@ Every feature is in its own file under `lua/plugins/`, making it easy to extend,
 | 🎥 **Smooth Animations** | Seamless scroll and cursor effects using `neoscroll.nvim` and `smear-cursor.nvim` |
 | 🚀 **Motion Enhancements** | Faster navigation with `flash.nvim`, multi-cursor editing via `multicursors.nvim`, smart window navigation via `smart-splits.nvim` |
 | 🪶 **UI Enhancements** | Clean statusline, notifications, indentation guides, and key hints with `lualine.nvim`, `nvim-notify`, `which-key.nvim`, and `indent-blankline.nvim` |
-| 🧭 **File Explorer** | Modern file manager using `oil.nvim` |
+| 🧭 **File Explorer** | Modern file manager using `neo-tree.nvim` |
 | 🔍 **Search Everything** | Powerful fuzzy finder via `telescope.nvim` |
 | 🌳 **Syntax Tree** | Advanced syntax highlighting and textobjects using `nvim-treesitter` |
 | 💾 **Quality of Life** | Git tools, undo tree, Discord presence, and color highlighting |
@@ -138,7 +138,7 @@ Every feature is in its own file under `lua/plugins/`, making it easy to extend,
 | `<leader>fb` | List buffers |
 | `<leader>fs` | Search current word |
 | `<leader>fi` | Find in `~/.config/nvim` |
-| `<leader>e` | Toggle Oil |
+| `<leader>e` | Toggle Neo-Tree |
 | `<leader>ca` | Code action |
 | `gd` | Go to definition |
 | `gr` | List references |
@@ -164,9 +164,10 @@ Every feature is in its own file under `lua/plugins/`, making it easy to extend,
 ├── init.lua
 ├── lua
 │   ├── core
-│   │   ├── options.lua
+│   │   ├── settings.lua
+│   │   ├── hooks.lua
 │   │   ├── lazy.lua
-│   │   └── keymaps.lua
+│   │   └── mappings.lua
 │   └── plugins
 │       │   ├── lsp-config/
 │       │   ├── lsp.lua
@@ -180,7 +181,7 @@ Every feature is in its own file under `lua/plugins/`, making it easy to extend,
 │       ├── harpoon.lua
 │       ├── lualine.lua
 │       ├── motions.lua
-│       ├── oil.lua
+│       ├── neo-tree.lua
 │       ├── one-liners.lua
 │       ├── telescope.lua
 │       ├── treesitter.lua

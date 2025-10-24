@@ -49,7 +49,6 @@ return {
 				render = "default",
 				fps = 60,
 				top_down = true,
-				background_colour = "#1e2030",
 				minimum_width = 40,
 				max_width = 60,
 			})

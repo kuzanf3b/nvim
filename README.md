@@ -26,7 +26,7 @@ Every feature is in its own file under `lua/plugins/`, making it easy to extend,
 | 🎥 **Smooth Animations** | Seamless scroll and cursor effects using `neoscroll.nvim` and `smear-cursor.nvim` |
 | 🚀 **Motion Enhancements** | Faster navigation with `flash.nvim`, multi-cursor editing via `multicursors.nvim`, smart window navigation via `smart-splits.nvim` |
 | 🪶 **UI Enhancements** | Clean statusline, notifications, indentation guides, and key hints with `lualine.nvim`, `nvim-notify`, `which-key.nvim`, and `indent-blankline.nvim` |
-| 🧭 **File Explorer** | Modern file manager using `neo-tree.nvim` |
+| 🧭 **File Explorer** | File and git tree navigation using `neo-tree.nvim` |
 | 🔍 **Search Everything** | Powerful fuzzy finder via `telescope.nvim` |
 | 🌳 **Syntax Tree** | Advanced syntax highlighting and textobjects using `nvim-treesitter` |
 | 💾 **Quality of Life** | Git tools, undo tree, Discord presence, and color highlighting |
@@ -87,7 +87,6 @@ Every feature is in its own file under `lua/plugins/`, making it easy to extend,
 - **[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)** → Fuzzy finder and live grep.  
 - **[telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)** → Native sorter for Telescope.  
 - **[telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)** → Replace default Vim UI with Telescope.  
-- **[oil.nvim](https://github.com/stevearc/oil.nvim)** → Lightweight floating file explorer.
 
 ---
 

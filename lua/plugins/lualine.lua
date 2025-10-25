@@ -4,17 +4,35 @@ return {
 	event = "VeryLazy",
 
 	config = function()
+		local function short_mode()
+			local map = {
+				n = "N",
+				i = "I",
+				v = "V",
+				V = "VL",
+				[""] = "VB",
+				c = "C",
+				s = "S",
+				S = "SL",
+				[""] = "SB",
+				R = "R",
+				Rv = "Rv",
+				t = "T",
+			}
+			return "" .. (map[vim.fn.mode()] or vim.fn.mode()) .. ""
+		end
+
 		require("lualine").setup({
 			options = {
 				theme = "auto",
 				globalstatus = true,
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "dashboard", "NvimTree", "alpha", "starter" },
 			},
 
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = { short_mode },
 				lualine_b = { "branch" },
 
 				lualine_c = {
@@ -47,14 +65,19 @@ return {
 				},
 
 				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_z = {
+					{
+						"location",
+						padding = { left = 0, right = 1 },
+					},
+				},
 			},
 
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { "filename" },
-				lualine_x = { "location" },
+				lualine_c = { { "filename", path = 1 } },
+				lualine_x = { { "location", padding = 0 } },
 				lualine_y = {},
 				lualine_z = {},
 			},

@@ -1,59 +1,92 @@
 -- OPTIONS
 local opts = vim.opt
 
--- line numbers
+-- Leader
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+-- Line numbers
 opts.number = true
 opts.relativenumber = true
 
--- indentation and tabs
+-- Tabs & indentation
 opts.tabstop = 4
 opts.shiftwidth = 4
-opts.autoindent = true
 opts.expandtab = true
+opts.autoindent = true
+opts.smartindent = true
+opts.shiftround = true
 
--- search settings
+-- Search
 opts.ignorecase = true
 opts.smartcase = true
-opts.incsearch = true -- highlight while typing search
+opts.incsearch = true
+opts.inccommand = "nosplit" -- modern live substitution preview
 
--- appearance
+-- Appearance
 opts.termguicolors = true
 opts.background = "dark"
-opts.signcolumn = "yes"
 opts.cursorline = true
 opts.colorcolumn = "120"
+opts.signcolumn = "yes"
+opts.scrolloff = 4
+opts.sidescrolloff = 8
+opts.wrap = false
 
--- clipboard
-opts.clipboard:append("unnamedplus")
-
--- backspace
-opts.backspace = "indent,eol,start"
-
--- split windows
-opts.splitbelow = true
-opts.splitright = true
-
--- dw/diw/ciw works on full-word
-opts.iskeyword:append("-")
-
--- keep cursor at least 8 rows from top/bot
-opts.scrolloff = 8
-
--- undo/swap/backup settings
-opts.swapfile = false
-opts.backup = false
-opts.undodir = os.getenv("HOME") .. "/.vim/undodir"
-opts.undofile = true
-
--- faster cursor hold
-opts.updatetime = 50
-
+-- Statusline / cmdline
+opts.laststatus = 3 -- global statusline
 opts.showmode = false
 opts.showcmd = false
 opts.ruler = false
-opts.laststatus = 3
-opts.cmdheight = 0
+opts.statuscolumn = "%s %C %=%{v:relnum?v:relnum:v:lnum} "
 
+-- Clipboard
+opts.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
+
+-- Undo / Swap / Backup
+opts.undofile = true
+opts.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opts.swapfile = false
+opts.backup = false
+opts.updatetime = 100 -- responsive CursorHold
+
+-- Mouse
 opts.mouse = "a"
-opts.wrap = false
+
+-- Completion
 opts.completeopt = { "menuone", "noselect" }
+opts.pumblend = 10
+opts.pumheight = 10
+
+-- Splits
+opts.splitbelow = true
+opts.splitright = true
+opts.splitkeep = "screen"
+
+-- Cursor & scrolling
+opts.virtualedit = "block"
+opts.scrolloff = 8
+opts.sidescrolloff = 8
+opts.jumpoptions = "view"
+
+-- Folding
+opts.foldmethod = "indent"
+opts.foldlevel = 99
+opts.foldtext = ""
+opts.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
+}
+
+-- Keywords
+opts.iskeyword:append("-")
+
+-- Backspace
+opts.backspace = "indent,eol,start"
+
+-- Spell
+opts.spelllang = { "en" }

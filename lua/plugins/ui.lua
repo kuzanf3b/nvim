@@ -1,39 +1,53 @@
 return {
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		opts = {
-			indent = {
-				char = "│",
-			},
-			scope = {
-				enabled = false,
-			},
-			exclude = {
-				filetypes = { "help", "dashboard", "lazy", "NvimTree", "Trouble" },
-			},
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
 		},
-		config = function(_, opts)
-			require("ibl").setup(opts)
-		end,
-	},
+		opts = function(_, opts)
+			opts = opts or {}
 
-	{
-		"echasnovski/mini.indentscope",
-		version = false,
-		opts = {
-			symbol = "│",
-			options = { try_as_border = true },
-		},
-		init = function()
-			local c = require("tokyonight.colors").setup()
-			vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = c.blue, bold = true })
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = { "help", "dashboard", "lazy", "mason", "NvimTree", "Trouble" },
+			-- Basic presets
+			opts.presets = vim.tbl_extend("force", opts.presets or {}, {
+				bottom_search = true,
+				command_palette = true,
+				lsp_doc_border = true,
+			})
+
+			opts.routes = opts.routes or {}
+			table.insert(opts.routes, {
+				filter = {
+					event = "notify",
+					find = "No information available",
+				},
+				opts = { skip = true },
+			})
+
+			local focused = true
+			vim.api.nvim_create_autocmd("FocusGained", {
 				callback = function()
-					vim.b.miniindentscope_disable = true
+					focused = true
 				end,
 			})
+			vim.api.nvim_create_autocmd("FocusLost", {
+				callback = function()
+					focused = false
+				end,
+			})
+
+			table.insert(opts.routes, 1, {
+				filter = {
+					cond = function()
+						return not focused
+					end,
+				},
+				view = "notify_send",
+				opts = { stop = false },
+			})
+
+			return opts
 		end,
 	},
 
@@ -45,142 +59,70 @@ return {
 
 			notify.setup({
 				stages = "fade_in_slide_out",
-				timeout = 3000,
-				render = "default",
+				timeout = 4000,
+				render = "wrapped-compact",
 				fps = 60,
 				top_down = true,
+				background_colour = "#000000",
 				minimum_width = 40,
 				max_width = 60,
+				level = vim.log.levels.INFO,
 			})
 
-			vim.notify = notify
-
-			vim.cmd([[
-          hi NotifyINFOBorder guifg=#7aa2f7 guibg=#1e2030
-          hi NotifyINFOTitle  guifg=#7aa2f7 guibg=#1e2030
-          hi NotifyINFOBody   guifg=#c0caf5 guibg=#1e2030
-
-          hi NotifyWARNBorder guifg=#e0af68 guibg=#1e2030
-          hi NotifyWARNTitle  guifg=#e0af68 guibg=#1e2030
-          hi NotifyWARNBody   guifg=#c0caf5 guibg=#1e2030
-
-          hi NotifyERRORBorder guifg=#f7768e guibg=#1e2030
-          hi NotifyERRORTitle  guifg=#f7768e guibg=#1e2030
-          hi NotifyERRORBody   guifg=#c0caf5 guibg=#1e2030
-
-          hi NotifyDEBUGBorder guifg=#565f89 guibg=#1e2030
-          hi NotifyDEBUGTitle  guifg=#565f89 guibg=#1e2030
-          hi NotifyDEBUGBody   guifg=#c0caf5 guibg=#1e2030
-    ]])
+			-- Override bawaan vim.notify biar seragam
+			vim.notify = function(msg, log_level, opts)
+				opts = opts or {}
+				opts.level = opts.level or log_level or vim.log.levels.INFO
+				notify(msg, opts.level, opts)
+			end
 		end,
 	},
 
 	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"echasnovski/mini.icons",
-			"nvim-tree/nvim-web-devicons",
-		},
-		opts = {
-			preset = "modern",
-			notify = true,
-			win = {
-				border = "rounded",
-				no_overlap = true,
-				padding = { 1, 1 },
-				zindex = 1000,
-				wo = { winblend = 10 },
-			},
-			layout = {
-				width = { min = 20, max = 50 },
-				spacing = 4,
-				align = "center",
-			},
-			plugins = {
-				marks = true,
-				registers = true,
-				spelling = {
-					enabled = true,
-					suggestions = 20,
+		"b0o/incline.nvim",
+		event = "BufReadPre",
+		priority = 1200,
+		config = function()
+			local devicons = require("nvim-web-devicons")
+
+			local function hl_color(name, field)
+				local hl = vim.api.nvim_get_hl(0, { name = name })
+				local color = hl[field]
+				if color then
+					return string.format("#%06x", color)
+				end
+				return nil
+			end
+
+			require("incline").setup({
+				window = {
+					placement = { horizontal = "right", vertical = "top" },
+					margin = { horizontal = 1, vertical = 0 },
+					padding = { left = 0, right = 0 },
+					winhighlight = {
+						Normal = "InclineNormal",
+						FloatBorder = "InclineNormal",
+					},
 				},
-				presets = {
-					operators = true,
-					motions = true,
-					text_objects = true,
-					windows = true,
-					nav = true,
-					z = true,
-					g = true,
-				},
-			},
-			icons = {
-				breadcrumb = "»",
-				separator = "➜",
-				group = "+",
-				ellipsis = "…",
-				mappings = true,
-				colors = true,
-				keys = {
-					Up = " ",
-					Down = " ",
-					Left = " ",
-					Right = " ",
-					C = "󰘴 ",
-					M = "󰘵 ",
-					D = "󰘳 ",
-					S = "󰘶 ",
-					CR = "󰌑 ",
-					Esc = "󱊷 ",
-					Space = "󱁐",
-					Tab = "󰌒 ",
-				},
-			},
-		},
-		config = function(_, opts)
-			local wk = require("which-key")
-			wk.setup(opts)
 
-			wk.add({
-				--  FIND
-				{ "<leader>f", group = "Find" },
-				{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-				{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
-				{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-				{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
+				render = function(props)
+					local buf = props.buf
+					local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
+					if filename == "" then
+						filename = "[No Name]"
+					end
 
-				--  LSP
-				{ "<leader>l", group = "LSP" },
-				{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
-				{ "<leader>lr", "<cmd>LspRestart<cr>", desc = "Restart" },
-				{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
-				{ "<leader>ld", "<cmd>Telescope lsp_definitions<cr>", desc = "Definitions" },
-				{ "<leader>lR", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+					local icon, icon_color = devicons.get_icon_color(filename)
+					local bg = hl_color("StatusLine", "background") or "#2E3440"
+					local fg = hl_color("StatusLine", "foreground") or "#D8DEE9"
 
-				--  DIAGNOSTICS
-				{ "<leader>d", group = "Diagnostics" },
-				{ "<leader>db", "<cmd>Telescope diagnostics<cr>", desc = "All Diagnostics" },
-				{ "<leader>dc", "<cmd>lua vim.diagnostic.open_float()<cr>", desc = "Current Line" },
-				{ "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next" },
-				{ "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev" },
-
-				--  RECENT
-				{ "<leader>r", group = "Recent" },
-				{ "<leader>rr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
-
-				--  CONFIG
-				{ "<leader>c", group = "Config" },
-				{ "<leader>cl", "<cmd>Lazy<cr>", desc = "Lazy" },
-				{ "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
-				{ "<leader>ci", "<cmd>Inspect<cr>", desc = "Inspect Highlight" },
-
-				--  MULTICURSOR / MOTIONS
-				{ "<leader>m", group = "Multicursor" },
-				{ "<leader>mm", "<cmd>MCstart<cr>", desc = "Start multicursor" },
-
-				--  UTILITIES
-				{ "<leader>x", "!chmod +x %<cr>", desc = "Make file executable" },
-				{ "<leader>y", '"+y', desc = "Yank to clipboard" },
+					return {
+						guibg = bg,
+						guifg = fg,
+						icon and { icon, " ", guifg = icon_color, guibg = bg } or "",
+						{ filename, gui = "bold" },
+					}
+				end,
 			})
 		end,
 	},

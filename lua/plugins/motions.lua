@@ -1,36 +1,33 @@
 return {
 	{
-		"smoka7/multicursors.nvim",
-		event = "VeryLazy",
+		"windwp/nvim-autopairs",
+		event = { "InsertEnter" },
 		dependencies = {
-			"nvimtools/hydra.nvim",
+			"hrsh7th/nvim-cmp",
 		},
-		opts = {},
-		cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-		keys = {
-			{
-				mode = { "v", "n" },
-				"<leader>m",
-				"<cmd>MCstart<cr>",
-				desc = "Create multicursor selection (normal/visual)",
-			},
-		},
-	},
+		config = function()
+			-- import nvim-autopairs
+			local autopairs = require("nvim-autopairs")
 
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		opts = {},
-		keys = {
-			{
-				"s",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").jump()
-				end,
-				desc = "Flash jump",
-			},
-		},
+			-- configure autopairs
+			autopairs.setup({
+				check_ts = true, -- enable treesitter
+				ts_config = {
+					lua = { "string" },
+					javascript = { "template_string" },
+					java = false,
+				},
+			})
+
+			-- import nvim-autopairs completion functionality
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+			-- import nvim-cmp plugin (completions plugin)
+			local cmp = require("cmp")
+
+			-- make autopairs and completion work together
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+		end,
 	},
 
 	{
@@ -42,36 +39,9 @@ return {
 	},
 
 	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			colors = {
-				error = { "DiagnosticError", "ErrorMsg", "#f7768e" },
-				warning = { "DiagnosticWarn", "WarningMsg", "#e0af68" },
-				info = { "DiagnosticInfo", "#7aa2f7" },
-				hint = { "DiagnosticHint", "#7dcfff" },
-				default = { "Identifier", "#bb9af7" },
-				test = { "Identifier", "#9ece6a" },
-			},
-		},
-		config = function(_, opts)
-			require("todo-comments").setup(opts)
-
-			vim.keymap.set("n", "]t", function()
-				require("todo-comments").jump_next()
-			end, { desc = "Next todo comment" })
-
-			vim.keymap.set("n", "[t", function()
-				require("todo-comments").jump_prev()
-			end, { desc = "Previous todo comment" })
-		end,
-	},
-
-	{
 		"andweeb/presence.nvim",
 		lazy = false,
 		opts = {
-			auto_update = true,
 			neovim_image_text = "Writing code, bending time.",
 			main_image = "neovim", -- "neovim" or "file"
 			client_id = "793271441293967371",

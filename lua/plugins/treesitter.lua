@@ -1,58 +1,63 @@
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-        },
-        config = function()
-            local configs = require("nvim-treesitter.configs")
-            ---@diagnostic disable-next-line: missing-fields
-            configs.setup({
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true,
-                        keymaps = {
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
-                        },
-                    },
-                },
-                -- enable syntax highlighting
-                highlight = {
-                    enable = true,
-                },
-                -- enable indentation
-                indent = { enable = true },
-                -- enable autotagging (w/ nvim-ts-autotag plugin)
-                autotag = { enable = true },
-                -- ensure these language parsers are installed
-                ensure_installed = {
-                    "json",
-                    "python",
-                    "javascript",
-                    "query",
-                    "typescript",
-                    "tsx",
-                    "php",
-                    "yaml",
-                    "html",
-                    "css",
-                    "markdown",
-                    "markdown_inline",
-                    "bash",
-                    "lua",
-                    "vim",
-                    "vimdoc",
-                    "c",
-                    "dockerfile",
-                    "gitignore",
-                    "astro",
-                },
-                -- auto install above language parsers
-                auto_install = false,
-            })
-        end
-    }
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/nvim-treesitter-context",
+	},
+	config = function()
+		local configs = require("nvim-treesitter.configs")
+
+		-- Treesitter setup
+		configs.setup({
+			textobjects = {
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["af"] = "@function.outer",
+						["if"] = "@function.inner",
+					},
+				},
+			},
+			highlight = { enable = true },
+			indent = { enable = true },
+			autotag = { enable = true },
+			ensure_installed = {
+				"json",
+				"python",
+				"javascript",
+				"query",
+				"typescript",
+				"tsx",
+				"php",
+				"yaml",
+				"html",
+				"css",
+				"markdown",
+				"markdown_inline",
+				"bash",
+				"lua",
+				"vim",
+				"vimdoc",
+				"c",
+				"dockerfile",
+				"gitignore",
+				"astro",
+			},
+			auto_install = false,
+		})
+
+		-- Treesitter Context setup
+		require("treesitter-context").setup({
+			enable = true,
+			max_lines = 3,
+			multiline_threshold = 4,
+			trim_scope = "outer",
+			mode = "cursor",
+			separator = nil,
+			line_numbers = false,
+			zindex = 20,
+		})
+	end,
 }

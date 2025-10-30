@@ -31,7 +31,7 @@ map("v", "<", "<gv", { desc = "Decrease indent stay" })
 map("v", ">", ">gv", { desc = "Increase indent stay" })
 map("x", "<leader>p", [["_dP]], { desc = "Paste keep buffer" })
 map({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete keep buffer" })
-map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { desc = "Replace word under cursor" })
+map("n", "<leader>S", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { desc = "Replace word under cursor" })
 map("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
 map("n", "Q", "<nop>", { desc = "Disable Ex mode" })
 
@@ -101,7 +101,7 @@ map("v", "<leader>y", "<Plug>OSCYankVisual", { desc = "Yank selection to clipboa
 map("n", "<leader>X", function()
 	local file = vim.fn.expand("%:p")
 	if file == "" then
-		vim.notify("⚠️ No file name. Save the buffer first!", vim.log.levels.WARN)
+		vim.notify(" No file name. Save the buffer first!", vim.log.levels.WARN)
 		return
 	end
 	local ok = os.execute("chmod +x " .. file)
@@ -145,7 +145,7 @@ map("n", "<leader>so", "<C-w>o", { desc = "Close other splits" })
 -- ╭──────────────────────────────────────────────╮
 -- │ PLUGIN INTEGRATIONS                          │
 -- ╰──────────────────────────────────────────────╯
-map("n", "<leader>l", vim.cmd.Lazy, { desc = "Lazy" })
+map("n", "<leader>ll", vim.cmd.Lazy, { desc = "Lazy" })
 map("n", "<leader>dg", "<cmd>DogeGenerate<cr>", { desc = "Generate Doc (Doge)" })
 map("n", "<leader>cc", "<cmd>!php-cs-fixer fix % --using-cache=no<cr>", { desc = "Run PHP-CS-Fixer" })
 map("n", "<leader>li", ":checkhealth vim.lsp<CR>", { desc = "LSP info" })

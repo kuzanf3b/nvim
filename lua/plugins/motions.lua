@@ -14,6 +14,16 @@ return {
 					lua = { "string" },
 					javascript = { "template_string" },
 					java = false,
+					php = { "string", "template_string" },
+					html = { "tag", "attribute" },
+					css = { "string" },
+					c = { "string", "character_literal" },
+					cpp = { "string", "character_literal" },
+					cs = { "string", "verbatim_string_literal" },
+					rust = { "string_literal", "raw_string_literal" },
+					typescript = { "template_string", "string" },
+					json = { "string" },
+					markdown = { "fenced_code_block" },
 				},
 			})
 

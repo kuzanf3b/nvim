@@ -66,15 +66,13 @@ return {
 
 			window = {
 				completion = cmp.config.window.bordered({
-					border = "rounded",
+					border = "none",
 					scrollbar = false,
 					side_padding = 1,
 					col_offset = -3,
-					max_width = 300,
 				}),
 				documentation = cmp.config.window.bordered({
 					border = "rounded",
-					max_width = 300,
 				}),
 			},
 
@@ -125,7 +123,7 @@ return {
 
 					vim_item = lspkind.cmp_format({
 						mode = "symbol",
-						maxwidth = 80,
+						maxwidth = 300,
 						ellipsis_char = "…",
 						show_labelDetails = true,
 						symbol_map = { Copilot = "" },

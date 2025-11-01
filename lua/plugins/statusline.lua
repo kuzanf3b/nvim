@@ -7,18 +7,17 @@ return {
 		config = function()
 			local function short_mode()
 				local map = {
-					n = "N", -- Normal
-					i = "I", -- Insert
-					v = "V", -- Visual
-					V = "V-L", -- Visual Line
-					[""] = "V-B", -- Visual Block (Ctrl+v)
-					c = "C", -- Command
-					s = "S", -- Select
-					S = "S-L", -- Select Line
-					[""] = "S-B", -- Select Block
-					R = "R", -- Replace
-					Rv = "R-V", -- Virtual Replace
-					t = "T", -- Terminal
+					n = "N",
+					i = "I",
+					v = "V",
+					V = "V-L",
+					["\22"] = "V-B",
+					c = "C",
+					s = "S",
+					S = "S-L",
+					R = "R",
+					Rv = "R-V",
+					t = "T",
 				}
 				return "" .. (map[vim.fn.mode()] or vim.fn.mode()) .. ""
 			end
@@ -63,6 +62,7 @@ return {
 							symbols = { added = " ", modified = " ", removed = " " },
 						},
 						{ "filetype" },
+						{ "encoding" },
 					},
 
 					lualine_y = { "progress" },

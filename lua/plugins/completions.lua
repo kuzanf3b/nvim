@@ -40,9 +40,6 @@ return {
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 
-		-- LSP capability binding ala LazyVim
-		vim.lsp.config("*", { capabilities = require("cmp_nvim_lsp").default_capabilities() })
-
 		-- Load snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
 		luasnip.config.setup({})

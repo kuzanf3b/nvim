@@ -29,11 +29,11 @@ return {
 				path_display = { "truncate" },
 				layout_strategy = "flex",
 				layout_config = {
-					prompt_position = "bottom",
+					prompt_position = "top",
 					horizontal = { preview_width = 0.55 },
 					vertical = { mirror = false },
 				},
-				sorting_strategy = "descending",
+				sorting_strategy = "ascending",
 				file_ignore_patterns = { "node_modules", "%.git/", "venv/", "build/" },
 				mappings = {
 					i = {
@@ -81,11 +81,14 @@ return {
 		map("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
 		map("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
 		map("n", "<leader>fq", builtin.quickfix, { desc = "Quickfix list" })
+		map("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
+		map("n", "<leader>fm", builtin.commands, { desc = "Find commands" })
+		map("n", "<leader>fc", builtin.colorscheme, { desc = "Find Colorscheme" })
 		map("n", "<leader>fg", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
 		end, { desc = "Live grep (manual input)" })
 
-		map("n", "<leader>fc", function()
+		map("n", "<leader>fp", function()
 			local filename = vim.fn.expand("%:t:r")
 			builtin.grep_string({ search = filename })
 		end, { desc = "Find current file name across project" })

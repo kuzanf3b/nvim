@@ -14,18 +14,18 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 
 ## ⚡ Core Features
 
-| Area | Description |
-|------|--------------|
-| 🧠 **LSP** | Language Server Protocol support with `nvim-lspconfig` + `mason.nvim` |
-| 🪄 **Completion** | Autocompletion via `nvim-cmp` and `LuaSnip` |
+| Area                        | Description |
+|-----------------------------|--------------|
+| 🧠 **LSP**                  | Language Server Protocol support with `nvim-lspconfig` + `mason.nvim` |
+| 🪄 **Completion**           | Autocompletion via `nvim-cmp` and `LuaSnip` |
 | 🧹 **Formatting & Linting** | Automatic formatting and linting via `conform.nvim`, `nvim-lint` |
-| 🎥 **Smooth Animations** | Seamless scroll and cursor effects using `neoscroll.nvim` and `smear-cursor.nvim` |
-| 🚀 **Motion Enhancements** | Faster navigation with `flash.nvim`, faster code with mini.nvim using `mini.ai`, `mini.operator`, `mini.surround` |
-| 🪶 **UI Enhancements** | Clean statusline, notifications, cmdline, and key hints with `lualine.nvim`, `nvim-notify`, `noice.nvim`, `mini.clue` |
-| 🧭 **File Jumper** | File and git tree navigation using `neo-tree.nvim` and jump between file using 'harpoon' |
-| 🔍 **Search Everything** | Powerful fuzzy finder via `telescope.nvim` |
-| 🌳 **Syntax Tree** | Advanced syntax highlighting and textobjects using `nvim-treesitter` |
-| 💾 **Quality of Life** | Git tools, undo tree, Discord presence, and color highlighting |
+| 🎥 **Smooth Animations**    | Seamless scroll and cursor effects using `neoscroll.nvim` and `smear-cursor.nvim` |
+| 🚀 **Motion Enhancements**  | Faster navigation with `flash.nvim`, faster code with mini.nvim using `mini.ai`, `mini.operator`, `mini.surround` |
+| 🪶 **UI Enhancements**      | Clean statusline, notifications, cmdline, and key hints with `lualine.nvim`, `nvim-notify`, `noice.nvim`, `mini.clue` |
+| 🧭 **File Jumper**          | File and git tree navigation using `neo-tree.nvim` and jump between file using 'harpoon' |
+| 🔍 **Search Everything**    | Powerful fuzzy finder via `telescope.nvim` |
+| 🌳 **Syntax Tree**          | Advanced syntax highlighting and textobjects using `nvim-treesitter` |
+| 💾 **Quality of Life**      | Git tools, undo tree, Discord presence, and color highlighting |
 
 ---
 
@@ -75,8 +75,8 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 
 ## 🔑 Mappings Overview
 
-| Key | Action |
-|-----|--------|
+| Key          | Action |
+|--------------|--------|
 | `<leader>ff` | Find files |
 | `<leader>fg` | Live grep |
 | `<leader>fb` | List buffers |
@@ -88,10 +88,10 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | `<leader>hn` | Next harpoon files |
 | `<leader>e`  | Toggle Neo-Tree |
 | `<leader>ca` | Code action |
-| `gd` | Go to definition |
-| `gr` | List references |
-| `<F2>` | Rename symbol |
-| `<leader>u` | Toggle undo history |
+| `gd`         | Go to definition |
+| `gr`         | List references |
+| `<F2>`       | Rename symbol |
+| `<leader>u`  | Toggle undo history |
 
 
 ---
@@ -139,6 +139,20 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       └── utils.lua
 └── README.md
 ```
+
+---
+
+## 🖱️ Screenshots
+
+| **Dashboard** | **Telescope** |
+|-----------|-----------|
+| <img src="assets/screenshots/dashboard.png" width="auto"/> | <img src="assets/screenshots/telescope.png" width="auto"/> | 
+
+| **Neo-Tree** | **Coding** |
+|-----------|-----------|
+| <img src="assets/screenshots/neotree.png" width="auto"/> | <img src="assets/screenshots/coding.png" width="auto"/> |
+
+
 
 ---
 

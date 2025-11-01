@@ -38,10 +38,6 @@ return {
 			toggle_telescope(require("harpoon"):list())
 		end, { desc = "List Harpoon files (Telescope)" })
 
-		vim.keymap.set("n", "<leader>hm", function()
-			require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
-		end, { desc = "Toggle Harpoon menu" })
-
 		vim.keymap.set("n", "<leader>hp", function()
 			require("harpoon"):list():prev()
 		end, { desc = "Previous Harpoon file" })

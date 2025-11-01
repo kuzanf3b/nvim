@@ -147,9 +147,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | **Dashboard** | **Telescope** |
 |-----------|-----------|
 | <img src="assets/screenshots/dashboard.png" width="auto"/> | <img src="assets/screenshots/telescope.png" width="auto"/> | 
-
 | **Neo-Tree** | **Coding** |
-|-----------|-----------|
 | <img src="assets/screenshots/neotree.png" width="auto"/> | <img src="assets/screenshots/coding.png" width="auto"/> |
 
 

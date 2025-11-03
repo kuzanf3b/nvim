@@ -18,7 +18,6 @@ return {
 		popup_border_style = "rounded",
 		enable_git_status = true,
 		enable_diagnostics = false,
-
 		default_component_configs = {
 			indent = {
 				with_expanders = true,
@@ -48,20 +47,11 @@ return {
 				highlight = "NeoTreeFileName",
 			},
 		},
-
 		window = {
-			position = "float",
-			popup = {
-				size = {
-					height = "80%",
-					width = "70%",
-				},
-				position = "50%",
-				border = "rounded",
-				win_options = {
-					winblend = 15,
-				},
-			},
+			position = "left",
+			width = 35,
+			number = false,
+			relativenumber = false,
 			mappings = {
 				["l"] = "open",
 				["h"] = "close_node",
@@ -82,7 +72,6 @@ return {
 				["q"] = "close_window",
 			},
 		},
-
 		filesystem = {
 			bind_to_cwd = false,
 			follow_current_file = { enabled = true },
@@ -93,18 +82,11 @@ return {
 				hide_hidden = true,
 			},
 		},
-
 		buffers = {
 			follow_current_file = { enabled = true },
 			group_empty_dirs = true,
 			show_unloaded = true,
 			window = {
-				position = "float",
-				popup = {
-					size = { height = "70%", width = "60%" },
-					border = "rounded",
-					win_options = { winblend = 15 },
-				},
 				mappings = {
 					["bd"] = "buffer_delete",
 					["l"] = "open",
@@ -113,15 +95,9 @@ return {
 				},
 			},
 		},
-
 		git_status = {
 			window = {
 				position = "float",
-				popup = {
-					size = { height = "70%", width = "60%" },
-					border = "rounded",
-					win_options = { winblend = 15 },
-				},
 				mappings = {
 					["A"] = "git_add_all",
 					["gu"] = "git_unstage_file",
@@ -134,8 +110,16 @@ return {
 			},
 		},
 	},
-
 	config = function(_, opts)
 		require("neo-tree").setup(opts)
+
+		vim.cmd([[
+      hi NeoTreeNormal guibg=#1a1b26
+      hi NeoTreeNormalNC guibg=#1a1b26
+      hi NeoTreeWinSeparator guifg=#1a1b26 guibg=#1a1b26
+      hi NeoTreeIndentMarker guifg=#3b4261
+      hi NeoTreeDirectoryIcon guifg=#7aa2f7
+      hi NeoTreeDirectoryName guifg=#c0caf5
+    ]])
 	end,
 }

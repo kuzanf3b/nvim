@@ -21,7 +21,6 @@ return {
 		local function set_transparency()
 			local lineNrColor = "#44415a"
 
-			-- TODO: Maybe fix later
 			vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 			vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE", fg = lineNrColor })

@@ -51,7 +51,7 @@ return {
 		-- Treesitter Context setup
 		require("treesitter-context").setup({
 			enable = true,
-			max_lines = 3,
+			max_lines = 2,
 			multiline_threshold = 4,
 			trim_scope = "outer",
 			mode = "cursor",

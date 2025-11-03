@@ -43,4 +43,37 @@ return {
 		},
 		config = true,
 	},
+
+	{
+		"ThePrimeagen/refactoring.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("refactoring").setup({})
+			local refactor = require("refactoring")
+
+			vim.keymap.set("x", "<leader>re", function()
+				refactor.refactor("Extract Function")
+			end, { desc = "Extract Function" })
+
+			vim.keymap.set("x", "<leader>rv", function()
+				refactor.refactor("Extract Variable")
+			end, { desc = "Extract Variable" })
+
+			vim.keymap.set("n", "<leader>ri", function()
+				refactor.refactor("Inline Variable")
+			end, { desc = "Inline Variable" })
+		end,
+	},
+
+	{
+		"MagicDuck/grug-far.nvim",
+		cmd = { "GrugFar" },
+		opts = {},
+		keys = {
+			{ "<leader>fr", "<cmd>GrugFar<cr>", desc = "Find & Replace Project" },
+		},
+	},
 }

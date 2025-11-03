@@ -20,7 +20,6 @@ map("n", "N", "Nzzzv", { desc = "Prev search result centered" })
 -- ╰──────────────────────────────────────────────╯
 map("n", "<leader>e", vim.cmd.Ex, { desc = "Explorer" })
 map("n", "<leader>fc", "<cmd>edit ~/.config/nvim/init.lua<cr>", { desc = "Edit config" })
-map("n", "<leader>rl", "<cmd>source ~/.config/nvim/init.lua<cr>", { desc = "Reload config" })
 
 -- ╭──────────────────────────────────────────────╮
 -- │ EDITING ENHANCEMENTS                         │

@@ -83,7 +83,6 @@ return {
 			MiniOperators.evaluate("n")
 		end, vim.tbl_extend("force", opts, { desc = "Evaluate text" }))
 
-		-- Fungsi otomatis ambil semua keymap <leader> yang punya desc
 		local function gen_leader_clues()
 			local clues = {}
 			for _, map in ipairs(vim.api.nvim_get_keymap("n")) do
@@ -113,22 +112,21 @@ return {
 				{ mode = "n", keys = "z" },
 				{ mode = "x", keys = "z" },
 				{ mode = "n", keys = "<C-w>" },
-
 				-- ctrl-based triggers
 				{ mode = "n", keys = "<C>" }, -- fallback general
-				{ mode = "n", keys = "<C-a>" },
-				{ mode = "n", keys = "<C-x>" },
-				{ mode = "n", keys = "<C-r>" },
-				{ mode = "x", keys = "<C-r>" },
-				{ mode = "i", keys = "<C-r>" },
-				{ mode = "c", keys = "<C-r>" },
+				{ mode = "n", keys = "<C-A>" },
+				{ mode = "n", keys = "<C-X>" },
+				{ mode = "n", keys = "<C-R>" },
+				{ mode = "x", keys = "<C-R>" },
+				{ mode = "i", keys = "<C-R>" },
+				{ mode = "c", keys = "<C-R>" },
 
 				-- alt/meta-based triggers
 				{ mode = "n", keys = "<M>" }, -- fallback general
-				{ mode = "n", keys = "<M-a>" },
-				{ mode = "n", keys = "<M-x>" },
-				{ mode = "n", keys = "<M-f>" },
-				{ mode = "x", keys = "<M-f>" },
+				{ mode = "n", keys = "<M-A>" },
+				{ mode = "n", keys = "<M-X>" },
+				{ mode = "n", keys = "<M-F>" },
+				{ mode = "x", keys = "<M-F>" },
 
 				-- plugin-related triggers
 				{ mode = "n", keys = "s" },

@@ -133,7 +133,7 @@ return {
 				{ mode = "x", keys = "s" },
 			},
 
-			clues = vim.list_extend({
+			clues = vim.list_extend({}, {
 				gen_leader_clues(),
 
 				clue.gen_clues.builtin_completion(),
@@ -142,7 +142,7 @@ return {
 				clue.gen_clues.registers(),
 				clue.gen_clues.windows(),
 				clue.gen_clues.z(),
-			}, {}),
+			}),
 
 			window = {
 				config = { border = "rounded", width = 40 },

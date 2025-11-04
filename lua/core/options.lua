@@ -10,8 +10,8 @@ opts.number = true
 opts.relativenumber = true
 
 -- Tabs & indentation
-opts.tabstop = 4
-opts.shiftwidth = 4
+opts.tabstop = 2
+opts.shiftwidth = 2
 opts.expandtab = true
 opts.autoindent = true
 opts.smartindent = true
@@ -36,7 +36,7 @@ opts.wrap = false
 -- Statusline / cmdline
 opts.laststatus = 3 -- global statusline
 opts.showmode = false
-opts.showcmd = false
+opts.showcmdloc = "statusline"
 opts.ruler = false
 opts.laststatus = 3
 opts.cmdheight = 1
@@ -92,3 +92,7 @@ opts.backspace = "indent,eol,start"
 
 -- Spell
 opts.spelllang = { "en" }
+
+-- Netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

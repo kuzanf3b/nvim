@@ -35,4 +35,18 @@ return {
 			require("nvim-highlight-colors").setup({})
 		end,
 	},
+	{
+		"olrtg/nvim-emmet",
+		config = function()
+			vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+			vim.g.user_emmet_settings = {
+				javascript = {
+					extends = "jsx",
+				},
+				typescript = {
+					extends = "tsx",
+				},
+			}
+		end,
+	},
 }

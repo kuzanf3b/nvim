@@ -15,6 +15,7 @@ return {
 					json = { "prettier" },
 					python = { "isort", "black" },
 					php = { "php-cs-fixer" },
+					java = { "google-java-format" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
@@ -44,6 +45,7 @@ return {
 				python = { "flake8" },
 				lua = { "luacheck" },
 				php = { "phpcs" },
+				java = { "ast-grep" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {

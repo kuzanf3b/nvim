@@ -1,4 +1,3 @@
--- TODO: maybe change logos
 return {
 	"nvimdev/dashboard-nvim",
 	event = "VimEnter",

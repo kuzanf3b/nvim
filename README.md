@@ -22,7 +22,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | 🎥 **Smooth Animations**    | Seamless scroll and cursor effects using `neoscroll.nvim` and `smear-cursor.nvim` |
 | 🚀 **Motion Enhancements**  | Faster navigation with `flash.nvim`, faster code with mini.nvim using `mini.ai`, `mini.operator`, `mini.surround` |
 | 🪶 **UI Enhancements**      | Clean statusline, notifications, cmdline, and key hints with `lualine.nvim`, `nvim-notify`, `noice.nvim`, `mini.clue` |
-| 🧭 **File Jumper**          | File and git tree navigation using `neo-tree.nvim` and jump between file using 'harpoon' |
+| 🧭 **File Jumper**          | File and git tree navigation using `oil.nvim` and jump between file using `harpoon` |
 | 🔍 **Search Everything**    | Powerful fuzzy finder via `telescope.nvim` |
 | 🌳 **Syntax Tree**          | Advanced syntax highlighting and textobjects using `nvim-treesitter` |
 | 💾 **Quality of Life**      | Git tools, undo tree, Discord presence, and color highlighting |
@@ -86,7 +86,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | `<leader>hc` | Clear all harpoon files |
 | `<leader>hp` | Previous harpoon files |
 | `<leader>hn` | Next harpoon files |
-| `<leader>e`  | Toggle Neo-Tree |
+| `<leader>e`  | Toggle Oil Explorer |
 | `<leader>ca` | Code action |
 | `gd`         | Go to definition |
 | `gr`         | List references |
@@ -102,6 +102,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 - Plugins are locked via lazy-lock.json to maintain reproducibility — but you’re free to update versions & test.
 - Because you’re engineering the setup, occasional breaking changes may happen (especially on plugin upgrades) — treat it as an ongoing lab.
 - Performance is a priority: features load when you need them, no bloat.
+- Theming & UI aim to be subtle and distraction‑free — your code should shine.
 - Theming & UI aim to be subtle and distraction‑free — your code should shine.
 
 ---
@@ -130,7 +131,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       ├── harpoon.lua
 │       ├── mini.lua
 │       ├── motions.lua
-│       ├── neo-tree.lua
+│       ├── oil.lua
 │       ├── one-liners.lua
 │       ├── statusline.lua
 │       ├── telescope.lua
@@ -150,7 +151,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 
 | **Neo-Tree** | **Coding** |
 |-----------|-----------|
-| <img src="assets/screenshots/neotree.png" width="auto"/> | <img src="assets/screenshots/coding.png" width="auto"/> |
+| <img src="assets/screenshots/oil.png" width="auto"/> | <img src="assets/screenshots/coding.png" width="auto"/> |
 
 
 

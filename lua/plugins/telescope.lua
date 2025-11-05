@@ -29,11 +29,11 @@ return {
 				path_display = { "truncate" },
 				layout_strategy = "flex",
 				layout_config = {
-					prompt_position = "top",
+					prompt_position = "bottom",
 					horizontal = { preview_width = 0.55 },
 					vertical = { mirror = false },
 				},
-				sorting_strategy = "ascending",
+				sorting_strategy = "descending",
 				file_ignore_patterns = { "node_modules", "%.git/", "venv/", "build/" },
 				mappings = {
 					i = {

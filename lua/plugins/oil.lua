@@ -1,4 +1,5 @@
 return {
+	-- FIX: fix opening file in vim . or nvim .
 	"stevearc/oil.nvim",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",

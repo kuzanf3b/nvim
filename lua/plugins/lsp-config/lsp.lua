@@ -1,4 +1,5 @@
 return {
+	-- FIX: maybe fix some lspconfig issues later
 	"neovim/nvim-lspconfig",
 	lazy = false,
 	dependencies = {
@@ -81,7 +82,7 @@ return {
 				},
 			},
 
-			html = { filetypes = { "html" } },
+			html = { filetypes = { "html", "php" } },
 
 			cssls = {
 				settings = {
@@ -93,10 +94,11 @@ return {
 
 			ts_ls = {
 				filetypes = {
-					"typescript",
-					"typescriptreact",
 					"javascript",
+					"typescript",
 					"javascriptreact",
+					"typescriptreact",
+					"html",
 				},
 				root_dir = vim.fs.root(0, { "package.json", "tsconfig.json", ".git" }),
 				settings = {
@@ -111,7 +113,7 @@ return {
 
 			intelephense = {
 				cmd = { "intelephense", "--stdio" },
-				filetypes = { "php" },
+				filetypes = { "php", "html" },
 				root_dir = vim.fs.root(0, { "composer.json", ".git" }),
 				settings = {
 					intelephense = {

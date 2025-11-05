@@ -1,4 +1,5 @@
 return {
+	-- TODO: maybe change to heirline later
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -28,7 +29,7 @@ return {
 					globalstatus = true,
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },
-					disabled_filetypes = { "dashboard", "NvimTree", "alpha", "starter" },
+					disabled_filetypes = { "dashboard", "NvimTree", "alpha", "starter", "lazy", "oil" },
 				},
 
 				sections = {

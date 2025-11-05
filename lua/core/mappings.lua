@@ -144,7 +144,8 @@ map("n", "<leader>so", "<C-w>o", { desc = "Close other splits" })
 -- ╭──────────────────────────────────────────────╮
 -- │ PLUGIN INTEGRATIONS                          │
 -- ╰──────────────────────────────────────────────╯
-map("n", "<leader>ll", vim.cmd.Lazy, { desc = "Lazy" })
+map("n", "<leader>ol", vim.cmd.Lazy, { desc = "Lazy" })
+map("n", "<leader>om", ":Mason<CR>", { desc = "Mason" })
 map("n", "<leader>dg", "<cmd>DogeGenerate<cr>", { desc = "Generate Doc (Doge)" })
 map("n", "<leader>cc", "<cmd>!php-cs-fixer fix % --using-cache=no<cr>", { desc = "Run PHP-CS-Fixer" })
 map("n", "<leader>li", ":checkhealth vim.lsp<CR>", { desc = "LSP info" })

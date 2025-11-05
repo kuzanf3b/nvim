@@ -62,8 +62,8 @@ return {
 							colored = true,
 							symbols = { added = " ", modified = " ", removed = " " },
 						},
-						{ "filetype" },
 						{ "encoding" },
+						{ "filetype" },
 					},
 
 					lualine_y = { "progress" },

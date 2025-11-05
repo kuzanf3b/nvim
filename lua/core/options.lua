@@ -25,7 +25,6 @@ opts.inccommand = "nosplit" -- modern live substitution preview
 
 -- Appearance
 opts.termguicolors = true
-opts.background = "dark"
 opts.cursorline = true
 opts.colorcolumn = "120"
 opts.signcolumn = "yes"

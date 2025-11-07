@@ -112,19 +112,6 @@ map("n", "<leader>X", function()
 end, { desc = "Make current file executable" })
 
 -- ╭──────────────────────────────────────────────╮
--- │ DIAGNOSTICS / QUICKFIX / TROUBLE             │
--- ╰──────────────────────────────────────────────╯
-map("n", "<leader>xx", "<cmd>copen<cr>", { desc = "Open Quickfix list" })
-map("n", "<leader>xX", "<cmd>cclose<cr>", { desc = "Close Quickfix list" })
-map("n", "<leader>xn", "<cmd>cnext<cr>zz", { desc = "Next Quickfix" })
-map("n", "<leader>xp", "<cmd>cprev<cr>zz", { desc = "Previous Quickfix" })
-map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Open Location list" })
-map("n", "<leader>xL", "<cmd>lclose<cr>", { desc = "Close Location list" })
-map("n", "<leader>xj", "<cmd>lnext<cr>zz", { desc = "Next Location" })
-map("n", "<leader>xk", "<cmd>lprev<cr>zz", { desc = "Previous Location" })
-map("n", "<leader>xd", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
-
--- ╭──────────────────────────────────────────────╮
 -- │ TERMINAL MODE                                │
 -- ╰──────────────────────────────────────────────╯
 map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

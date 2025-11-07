@@ -37,11 +37,9 @@ return {
 				center = {
 					{ icon = "  ", desc = "New File", action = "ene | startinsert", key = "e" },
 					{ icon = "  ", desc = "Find File", action = "Telescope find_files", key = "f" },
-                    { icon = "  ", desc = "Find text", action = "Telescope live_grep", key = "g" },
+          { icon = "  ", desc = "Find text", action = "Telescope live_grep", key = "g" },
 					{ icon = "  ", desc = "Recent File", action = "Telescope oldfiles", key = "r" },
-                    { icon = "  ", desc = "Config", action = function()
-                        require("telescope.builtin").find_files({ cwd = "~/.config/nvim" })
-                    end, key = "c" },
+          { icon = "  ", desc = "Config", action = function() require("telescope.builtin").find_files({ cwd = "~/.config/nvim" }) end, key = "c" },
 					{ icon = "󰒲  ", desc = "Lazy", action = "Lazy", key = "l" },
 					{ icon = "  ", desc = "Quit", action = "qa", key = "q" },
 				},

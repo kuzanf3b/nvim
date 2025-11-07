@@ -34,11 +34,10 @@ opts.wrap = false
 
 -- Statusline / cmdline
 opts.laststatus = 3 -- global statusline
-opts.showmode = false
+-- opts.showmode = false
 opts.showcmdloc = "statusline"
 opts.ruler = false
 opts.laststatus = 3
-opts.cmdheight = 1
 opts.statuscolumn = "%s %C %=%{v:relnum?v:relnum:v:lnum} "
 
 -- Clipboard

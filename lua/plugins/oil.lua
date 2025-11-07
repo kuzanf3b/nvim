@@ -1,5 +1,5 @@
 return {
-	{ -- FIX: fix opening file in vim . or nvim .
+	{
 		"stevearc/oil.nvim",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
@@ -64,8 +64,8 @@ return {
 			require("oil-git").setup({
 				ignore_git_signs = true,
 				highlights = {
-					OilGitAdded = { fg = "#9ccfd8" },
 					OilGitDeleted = { fg = "#eb6f92" },
+					OilGitAdded = { fg = "#9ccfd8" },
 					OilGitModified = { fg = "#f6c177" },
 					OilGitRenamed = { fg = "#c4a7e7" },
 					OilGitUntracked = { fg = "#31748f" },

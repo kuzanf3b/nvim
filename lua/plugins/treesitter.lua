@@ -46,8 +46,6 @@ return {
 				"astro",
 				"toml",
 				"ini",
-				"conf",
-				"sh",
 				"kdl",
 				"make",
 				"cmake",

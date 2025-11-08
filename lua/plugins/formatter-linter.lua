@@ -15,6 +15,7 @@ return {
 					json = { "prettier" },
 					python = { "isort", "black" },
 					php = { "php-cs-fixer" },
+					dart = { "dcm" },
 					java = { "google-java-format" },
 				},
 				format_on_save = {
@@ -44,8 +45,8 @@ return {
 				typescript = { "eslint_d" },
 				python = { "flake8" },
 				lua = { "luacheck" },
+				dart = { "dcm" },
 				php = { "phpcs" },
-				java = { "ast-grep" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {

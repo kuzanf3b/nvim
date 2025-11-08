@@ -27,7 +27,6 @@ return {
 					"html",
 					"cssls",
 					"jdtls",
-					"dartls",
 				},
 				automatic_installation = true,
 			})

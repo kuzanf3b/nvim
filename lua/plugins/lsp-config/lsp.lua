@@ -100,7 +100,7 @@ return {
 				root_dir = vim.fs.root(0, { "pom.xml", "build.gradle", ".git" }),
 			},
 
-			dartls = {
+			dcm = {
 				cmd = { "dcm", "language-server" },
 				filetypes = { "dart" },
 				root_dir = vim.fs.root(0, { "pubspec.yaml", ".git" }),
@@ -112,6 +112,62 @@ return {
 					},
 				},
 			},
+
+			omnisharp = {
+				cmd = { "omnisharp" },
+				filetypes = { "cs", "vb" },
+				root_dir = vim.fs.root(0, { "*.sln", "*.csproj", ".git" }),
+				enable_roslyn_analyzers = true,
+				enable_import_completion = true,
+				organize_imports_on_format = true,
+				settings = {
+					FormattingOptions = {
+						EnableEditorConfigSupport = true,
+						OrganizeImports = true,
+					},
+					RoslynExtensionsOptions = {
+						EnableAnalyzersSupport = true,
+						EnableImportCompletion = true,
+						AnalyzeOpenDocumentsOnly = false,
+					},
+				},
+			},
+
+			emmet_ls = {
+				cmd = { "emmet-ls", "--stdio" },
+				filetypes = {
+					"html",
+					"css",
+					"javascript",
+					"javascriptreact",
+					"typescriptreact",
+					"typescript",
+					"php",
+					"vue",
+					"xml",
+					"svelte",
+					"astro",
+					"twig",
+				},
+				root_dir = vim.fs.root(0, { ".git", "package.json", "composer.json" }),
+				settings = {
+					emmet = {
+						showExpandedAbbreviation = "always",
+						showAbbreviationSuggestions = true,
+						syntaxProfiles = {
+							html = { attr_quotes = "double" },
+						},
+						variables = { lang = "en" },
+					},
+				},
+			},
+
+			-- NOTE: maybe turn on later
+			-- gdscript = {
+			-- 	cmd = { "nc", "127.0.0.1", "6005" },
+			-- 	filetypes = { "gd", "gdscript" },
+			-- 	root_dir = vim.fs.root(0, { "project.godot", ".git" }),
+			-- },
 		}
 
 		for name, config in pairs(servers) do

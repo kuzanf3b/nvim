@@ -138,7 +138,28 @@ map("n", "<leader>cc", "<cmd>!php-cs-fixer fix % --using-cache=no<cr>", { desc =
 map("n", "<leader>li", ":checkhealth vim.lsp<CR>", { desc = "LSP info" })
 
 -- ╭──────────────────────────────────────────────╮
+-- │ COPILOT TOGGLE ON / OFF                      │
+-- ╰──────────────────────────────────────────────╯
+-- Toggle GitHub Copilot on/off
+map("n", "<leader>cp", function()
+	local copilot_status = vim.g.copilot_enabled
+	if copilot_status == nil then
+		copilot_status = true
+	end
+	vim.g.copilot_enabled = not copilot_status
+
+	if vim.g.copilot_enabled then
+		vim.cmd("Copilot enable")
+		vim.notify(" Copilot enabled", vim.log.levels.INFO)
+	else
+		vim.cmd("Copilot disable")
+		vim.notify(" Copilot disabled", vim.log.levels.WARN)
+	end
+end, { desc = "Toggle GitHub Copilot" })
+
+-- ╭──────────────────────────────────────────────╮
 -- │ AESTHETIC & UTILITY                          │
 -- ╰──────────────────────────────────────────────╯
 map("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
+map("n", "<leader>m", ":messages<CR>", { desc = "Show :messages log" })

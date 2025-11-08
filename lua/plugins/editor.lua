@@ -3,6 +3,9 @@ return {
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
+			-- list todo comments in the project
+			-- FIX, FiXME, NOTE, TODO, BUG, HACK
+			-- WARN, WARNING, PERF, OPTIMIZE, INFO, TEST, CHANGED, CHANGEME
 			colors = {
 				error = { "DiagnosticError", "ErrorMsg" },
 				warning = { "DiagnosticWarn", "WarningMsg" },

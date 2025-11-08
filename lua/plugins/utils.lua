@@ -18,28 +18,51 @@ return {
 
 			debounce_timeout = 15, -- update every 15s
 		},
+	},
 
-		{
-			"toppair/peek.nvim",
-			event = { "VeryLazy" },
-			build = "deno task --quiet build:fast",
-			config = function()
-				require("peek").setup({
-					filetype = { "markdown", "conf", "txt" },
-					app = "floorp",
-				})
-				vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-				vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+	{
+		"toppair/peek.nvim",
+		event = { "VeryLazy" },
+		build = "deno task --quiet build:fast",
+		config = function()
+			require("peek").setup({
+				filetype = { "markdown", "conf", "txt" },
+				app = "floorp",
+			})
+			vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+			vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
 
-				-- Keymaps for Peek
-				vim.keymap.set("n", "<leader>po", function()
-					require("peek").open()
-				end, { desc = "Open Peek Preview" })
+			-- Keymaps for Peek
+			vim.keymap.set("n", "<leader>po", function()
+				require("peek").open()
+			end, { desc = "Open Peek Preview" })
 
-				vim.keymap.set("n", "<leader>pc", function()
-					require("peek").close()
-				end, { desc = "Close Peek Preview" })
-			end,
+			vim.keymap.set("n", "<leader>pc", function()
+				require("peek").close()
+			end, { desc = "Close Peek Preview" })
+		end,
+	},
+
+	{
+		"kkoomen/vim-doge",
+		ft = {
+			"php",
+			"python",
+			"javascript",
+			"typescript",
+			"java",
+			"c",
+			"cpp",
+			"lua",
+			"c#",
+			"html",
+			"bash",
+			"rust",
 		},
+		build = ":call doge#install()",
+		config = function()
+			vim.g.doge_enable_mappings = 1
+			vim.g.doge_mapping_generate = "<Leader>D"
+		end,
 	},
 }

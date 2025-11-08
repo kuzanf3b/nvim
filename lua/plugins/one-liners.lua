@@ -1,17 +1,7 @@
 return {
-	{ -- PHP/HTML indentation support
-		"captbaritone/better-indent-support-for-php-with-html",
-	},
-
 	{ -- Clipboard integration (OS copy)
 		"ojroques/vim-oscyank",
 		ft = { "php", "javascript", "html" },
-	},
-
-	{ -- Generate docblocks
-		"kkoomen/vim-doge",
-		event = "CmdlineEnter",
-		build = ":call doge#install()",
 	},
 
 	{ -- Git integration

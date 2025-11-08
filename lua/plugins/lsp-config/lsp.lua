@@ -16,7 +16,7 @@ return {
 		)
 
 		vim.diagnostic.config({
-			virtual_text = { prefix = "●", spacing = 4 },
+			virtual_text = { prefix = "", spacing = 4 },
 			severity_sort = true,
 			signs = false,
 			float = { border = "rounded" },
@@ -139,9 +139,9 @@ return {
 					"html",
 					"css",
 					"javascript",
+					"typescript",
 					"javascriptreact",
 					"typescriptreact",
-					"typescript",
 					"php",
 					"vue",
 					"xml",

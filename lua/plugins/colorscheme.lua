@@ -1,13 +1,13 @@
-local function set_transparency()
+local function MyCrayon()
 	local lineNrColor = "#44415a"
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 	vim.api.nvim_set_hl(0, "Statusline", { bg = "NONE" })
 	vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE", fg = lineNrColor })
-	vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-	vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE", fg = "#2a273f" })
-	vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
+	-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+	-- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE", fg = "#2a273f" })
+	-- vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
 end
 
 return {
@@ -29,7 +29,8 @@ return {
 			})
 
 			vim.cmd.colorscheme("tokyonight")
-			set_transparency()
+
+			MyCrayon()
 		end,
 	},
 
@@ -47,7 +48,6 @@ return {
 				floats = "transparent",
 			},
 		},
-		set_transparency(),
 	},
 
 	{

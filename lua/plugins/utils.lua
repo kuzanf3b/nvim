@@ -26,7 +26,7 @@ return {
 			config = function()
 				require("peek").setup({
 					filetype = { "markdown", "conf", "txt" },
-					app = "brave",
+					app = "floorp",
 				})
 				vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
 				vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})

@@ -46,16 +46,6 @@ return {
 			require("harpoon"):list():next()
 		end, { desc = "Next Harpoon file" })
 
-		vim.keymap.set("n", "<leader>hr", function()
-			require("harpoon"):list():remove()
-			vim.notify("Removed current file from Harpoon", vim.log.levels.INFO)
-		end, { desc = "Remove current Harpoon file" })
-
-		vim.keymap.set("n", "<leader>hc", function()
-			require("harpoon"):list():clear()
-			vim.notify("Harpoon list cleared!", vim.log.levels.INFO)
-		end, { desc = "Clear all Harpoon files" })
-
 		vim.keymap.set("n", "<C-e>", function()
 			require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
 		end, { desc = "Harpoon quick menu" })

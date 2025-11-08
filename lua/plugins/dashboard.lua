@@ -28,33 +28,41 @@ return {
 
 		logo = string.rep("\n", 4) .. logo .. "\n\n"
 
-        -- stylua: ignore
-		local opts = {
-			theme = "doom",
-			hide = { statusline = true },
-			config = {
-				header = vim.split(logo, "\n"),
-				center = {
-					{ icon = "  ", desc = "New File", action = "ene | startinsert", key = "e" },
-					{ icon = "  ", desc = "Find File", action = "Telescope find_files", key = "f" },
+    -- stylua: ignore
+    local opts = {
+      theme = "doom",
+      hide = { statusline = true },
+      config = {
+        header = vim.split(logo, "\n"),
+        center = {
+          { icon = "  ", desc = "New File", action = "ene | startinsert", key = "e" },
+          { icon = "  ", desc = "Find File", action = "Telescope find_files", key = "f" },
           { icon = "  ", desc = "Find text", action = "Telescope live_grep", key = "g" },
-					{ icon = "  ", desc = "Recent File", action = "Telescope oldfiles", key = "r" },
+          { icon = "  ", desc = "Recent File", action = "Telescope oldfiles", key = "r" },
           -- { icon = "  ", desc = "Config", action = function() require("telescope.builtin").find_files({ cwd = "~/.config/nvim" }) end, key = "c" },
-					{ icon = "󰒲  ", desc = "Lazy", action = "Lazy", key = "l" },
-					{ icon = "  ", desc = "Mason", action = "Mason", key = "m" },
-					{ icon = "  ", desc = "Quit", action = "qa", key = "q" },
-				},
-				footer = function()
-					local ok, lazy = pcall(require, "lazy")
-					if not ok then
-						return { "⚡ ready." }
-					end
-					local stats = lazy.stats()
-					local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
-					return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
-				end,
-			},
-		}
+          {
+            icon = "  ",
+            desc = "TODO comments",
+            action = function()
+              require("telescope").extensions["todo-comments"].todo()
+            end,
+            key = "t"
+          },
+          { icon = "󰒲  ", desc = "Lazy", action = "Lazy", key = "l" },
+          -- { icon = "  ", desc = "Mason", action = "Mason", key = "m" },
+          { icon = "  ", desc = "Quit", action = "qa", key = "q" },
+        },
+        footer = function()
+          local ok, lazy = pcall(require, "lazy")
+          if not ok then
+            return { "⚡ ready." }
+          end
+          local stats = lazy.stats()
+          local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
+          return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+        end,
+      },
+    }
 
 		-- Pad descriptions to align neatly
 		for _, button in ipairs(opts.config.center) do

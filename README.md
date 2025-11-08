@@ -22,6 +22,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | 🧹 **Formatting & Linting** | Automatic formatting and linting via `conform.nvim`, `nvim-lint` |
 | 🎥 **Smooth Animations**    | Seamless scroll using `neoscroll.nvim` |
 | 🚀 **Motion Enhancements**  | Faster navigation with `flash.nvim`, faster code with mini.nvim using `mini.ai`, `mini.operator`, `mini.surround` |
+| 🧪 **Testing**              | Faster testing with `neotest.nvim` |
 | 🪶 **UI Enhancements**      | Clean statusline, notifications, cmdline, and key hints with `lualine.nvim`, `nvim-notify`, `noice.nvim`, `mini.clue` |
 | 🧭 **File Jumper**          | File and git tree navigation using `oil.nvim` and jump between file using `harpoon` |
 | 🔍 **Search Everything**    | Powerful fuzzy finder via `telescope.nvim` |
@@ -82,13 +83,11 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | `<leader>fg` | Live grep |
 | `<leader>ha` | Add file to harpoon |
 | `<C-e>`      | Harpoon menu |
-| `<C-p>`      | Previous harpoon files |
-| `<C-n>`      | Next harpoon files |
-| `<leader>e`  | Toggle Oil Explorer |
+| `<leader>e`  | Toggle Oil explorer |
 | `<leader>ca` | Code action |
 | `gd`         | Go to definition |
-| `gr`         | List references |
 | `<leader>u`  | Toggle undo history |
+| `<leader>cp` | Toggle Copilot |
 
 ---
 
@@ -126,6 +125,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       ├── harpoon.lua
 │       ├── mini.lua
 │       ├── motions.lua
+│       ├── neotest.lua
 │       ├── oil.lua
 │       ├── one-liners.lua
 │       ├── statusline.lua

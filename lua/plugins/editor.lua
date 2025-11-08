@@ -1,6 +1,7 @@
 return {
 	{
 		"folke/todo-comments.nvim",
+		event = "BufReadPost",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			-- list todo comments in the project
@@ -40,6 +41,7 @@ return {
 
 	{
 		"ThePrimeagen/refactoring.nvim",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",

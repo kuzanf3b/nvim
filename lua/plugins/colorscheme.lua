@@ -14,7 +14,6 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
-		lazy = false,
 		priority = 1000,
 		config = function()
 			require("rose-pine").setup({
@@ -36,6 +35,7 @@ return {
 
 	{
 		"folke/tokyonight.nvim",
+		name = "tokyonight",
 		lazy = true,
 		opts = {
 			style = "moon", --  'storm', 'night', 'day', 'moon'
@@ -52,6 +52,7 @@ return {
 
 	{
 		"rebelot/kanagawa.nvim",
+		name = "kanagawa",
 		lazy = true,
 		config = function()
 			require("kanagawa").setup({

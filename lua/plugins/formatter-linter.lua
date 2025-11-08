@@ -68,6 +68,7 @@ return {
 
 	{
 		"zapling/mason-conform.nvim",
+		event = "CmdLineEnter",
 		dependencies = { "williamboman/mason.nvim", "stevearc/conform.nvim" },
 		config = function()
 			require("mason-conform").setup({

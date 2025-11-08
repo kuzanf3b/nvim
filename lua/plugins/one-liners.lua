@@ -10,6 +10,7 @@ return {
 
 	{ -- Generate docblocks
 		"kkoomen/vim-doge",
+		event = "CmdlineEnter",
 		build = ":call doge#install()",
 	},
 
@@ -37,6 +38,7 @@ return {
 	},
 	{
 		"olrtg/nvim-emmet",
+		event = "InsertEnter",
 		config = function()
 			vim.keymap.set(
 				{ "n", "v" },

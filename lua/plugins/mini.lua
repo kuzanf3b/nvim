@@ -25,7 +25,6 @@ return {
 		-- Operators
 		require("mini.operators").setup()
 
-		-- Keymaps manual (agar which-key / mini.clue bisa mendeteksi)
 		local keymap = vim.keymap.set
 		local opts = { noremap = true, silent = true }
 

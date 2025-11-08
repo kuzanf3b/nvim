@@ -4,7 +4,7 @@
 [![Lua](https://img.shields.io/badge/Lua-5.1-blue?logo=lua)](https://www.lua.org/)
 [![Lazy.nvim](https://img.shields.io/badge/Plugin%20Manager-Lazy.nvim-orange)](https://github.com/folke/lazy.nvim)
 [![Tokyo Night](https://img.shields.io/badge/Theme-TokyoNight-purple)](https://github.com/folke/tokyonight.nvim)
-[![Rose Pine](https://img.shields.io/badge/Theme-Rosepine-cyan)](https://github.com/folke/tokyonight.nvim)
+[![Rose Pine](https://img.shields.io/badge/Theme-Rosepine-cyan)](https://github.com/rose-pine/neovim)
 
 
 ## ✨ Overview 

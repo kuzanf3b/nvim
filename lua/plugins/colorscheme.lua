@@ -28,7 +28,7 @@ return {
 				},
 			})
 
-			vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("vesper")
 
 			MyCrayon()
 		end,
@@ -70,6 +70,29 @@ return {
 						VertSplit = { fg = colors.fujiGray },
 					}
 				end,
+			})
+		end,
+	},
+
+	{
+		"datsfilipe/vesper.nvim",
+		name = "vesper",
+		lazy = true,
+		opts = {
+			style = "dark", -- bisa juga 'light' kalau mau
+		},
+		config = function()
+			require("vesper").setup({
+				transparent = false, -- Boolean: Sets the background to transparent
+				italics = {
+					comments = true, -- Boolean: Italicizes comments
+					keywords = true, -- Boolean: Italicizes keywords
+					functions = true, -- Boolean: Italicizes functions
+					strings = true, -- Boolean: Italicizes strings
+					variables = true, -- Boolean: Italicizes variables
+				},
+				overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
+				palette_overrides = {},
 			})
 		end,
 	},

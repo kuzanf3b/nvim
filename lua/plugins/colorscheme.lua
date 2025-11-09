@@ -1,15 +1,10 @@
 function MyCrayon(color)
 	color = color or "tokyonight"
 	vim.cmd.colorscheme(color)
-	-- local lineNrColor = "#44415a"
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 	vim.api.nvim_set_hl(0, "Statusline", { bg = "NONE" })
-	-- vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE", fg = lineNrColor })
-	-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-	-- vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE", fg = "#2a273f" })
-	-- vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
 end
 
 return {
@@ -56,6 +51,7 @@ return {
 		lazy = true,
 		config = function()
 			require("kanagawa").setup({
+				colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
 				transparent = true,
 				theme = "wave", -- wave, dragon, lotus
 				background = {
@@ -66,7 +62,6 @@ return {
 					return {
 						Normal = { bg = "none" },
 						NormalFloat = { bg = "none" },
-						SignColumn = { bg = "none" },
 						VertSplit = { fg = colors.fujiGray },
 					}
 				end,
@@ -75,24 +70,21 @@ return {
 	},
 
 	{
-		"datsfilipe/vesper.nvim",
-		name = "vesper",
+		"wtfox/jellybeans.nvim",
+		name = "jellybeans",
 		lazy = true,
-		opts = {
-			style = "dark", -- bisa juga 'light' kalau mau
-		},
 		config = function()
-			require("vesper").setup({
-				transparent = true, -- Boolean: Sets the background to transparent
-				italics = {
-					comments = true, -- Boolean: Italicizes comments
-					keywords = true, -- Boolean: Italicizes keywords
-					functions = true, -- Boolean: Italicizes functions
-					strings = true, -- Boolean: Italicizes strings
-					variables = true, -- Boolean: Italicizes variables
-				},
-				overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
-				palette_overrides = {},
+			require("jellybeans").setup({
+				transparent = true,
+				italics = true,
+				bold = true,
+				flat_ui = true,
+				on_highlights = function(hl, c)
+					hl.Normal = { bg = "none", fg = c.fg }
+					hl.NormalFloat = { bg = "none" }
+					hl.SignColumn = { bg = "none" }
+					hl.VertSplit = { fg = c.comment }
+				end,
 			})
 		end,
 	},

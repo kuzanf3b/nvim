@@ -120,6 +120,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       ├── colorscheme.lua
 │       ├── completions.lua
 │       ├── dashboard.lua
+│       ├── dadbod.lua
 │       ├── editor.lua
 │       ├── formatter-linter.lua
 │       ├── harpoon.lua
@@ -142,11 +143,11 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 
 | **Dashboard** | **Telescope** |
 |-----------|-----------|
-| <img src="assets/screenshots/dashboard.png" width="auto"/> | <img src="assets/screenshots/telescope.png" width="auto"/> | 
+| <img src="assets/dashboard.png" width="auto"/> | <img src="assets/telescope.png" width="auto"/> | 
 
-| **Neo-Tree** | **Coding** |
+| **Oil** | **Coding** |
 |-----------|-----------|
-| <img src="assets/screenshots/oil.png" width="auto"/> | <img src="assets/screenshots/coding.png" width="auto"/> |
+| <img src="assets/oil.png" width="auto"/> | <img src="assets/coding.png" width="auto"/> |
 
 
 

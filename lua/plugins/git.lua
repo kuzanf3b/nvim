@@ -46,13 +46,13 @@ return {
 					return "<Ignore>"
 				end, opts)
 
-				map("n", "<leader>hs", gs.stage_hunk, opts)
-				map("n", "<leader>hu", gs.undo_stage_hunk, opts)
-				map("n", "<leader>hr", gs.reset_hunk, opts)
-				map("n", "<leader>hp", gs.preview_hunk, opts)
+				map("n", "<leader>hs", gs.stage_hunk, { desc = "Stage hunk", unpack(opts) })
+				map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Undo stage hunk", unpack(opts) })
+				map("n", "<leader>hr", gs.reset_hunk, { desc = "Reset hunk", unpack(opts) })
+				map("n", "<leader>hp", gs.preview_hunk, { desc = "Preview hunk", unpack(opts) })
 				map("n", "<leader>hb", function()
 					gs.blame_line({ full = true })
-				end, opts)
+				end, { desc = "Blame line", unpack(opts) })
 			end,
 		},
 	},

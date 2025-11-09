@@ -79,7 +79,7 @@ return {
 		map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 		map("n", "<leader>fo", builtin.oldfiles, { desc = "Recent files" })
 		map("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
-		map("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
+		map("n", "<leader>fH", builtin.help_tags, { desc = "Help tags" })
 		map("n", "<leader>fq", builtin.quickfix, { desc = "Quickfix list" })
 		map("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
 		map("n", "<leader>fm", builtin.commands, { desc = "Find commands" })

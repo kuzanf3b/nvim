@@ -190,9 +190,9 @@ return {
 				map("n", "gr", vim.lsp.buf.references, "List References")
 				map("n", "<F2>", vim.lsp.buf.rename, "Rename Symbol")
 				map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
-				map("n", "<leader>lf", function()
+				map("n", "<leader>gl", function()
 					vim.lsp.buf.format({ async = true })
-				end, "Format Buffer")
+				end, "Format Buffer (LSP)")
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if client and client:supports_method("textDocument_inlayHint") then

@@ -1,80 +1,106 @@
--- OPTIONS
-local opts = vim.opt
+-- ╭──────────────────────────────────────────────╮
+-- │ OPTIONS - ZenVim Core Settings               │
+-- ╰──────────────────────────────────────────────╯
+local opt = vim.opt
+local g = vim.g
 
--- Leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+-- ╭──────────────────────────────────────────────╮
+-- │ LEADER KEYS                                  │
+-- ╰──────────────────────────────────────────────╯
+g.mapleader = " "
+g.maplocalleader = "\\"
 
--- Line numbers
-opts.number = true
-opts.relativenumber = true
+-- ╭──────────────────────────────────────────────╮
+-- │ LINE NUMBERS                                 │
+-- ╰──────────────────────────────────────────────╯
+opt.number = true
+opt.relativenumber = true
 
--- Tabs & indentation
-opts.tabstop = 2
-opts.shiftwidth = 2
-opts.expandtab = true
-opts.autoindent = true
-opts.smartindent = true
-opts.shiftround = true
+-- ╭──────────────────────────────────────────────╮
+-- │ TABS & INDENTATION                           │
+-- ╰──────────────────────────────────────────────╯
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.autoindent = true
+opt.smartindent = true
+opt.shiftround = true
 
--- Search
-opts.ignorecase = true
-opts.smartcase = true
-opts.incsearch = true
-opts.inccommand = "nosplit" -- modern live substitution preview
+-- ╭──────────────────────────────────────────────╮
+-- │ SEARCH                                        │
+-- ╰──────────────────────────────────────────────╯
+opt.ignorecase = true
+opt.smartcase = true
+opt.incsearch = true
+opt.inccommand = "nosplit" -- live substitution preview
 
--- Appearance
-opts.termguicolors = true
-opts.cursorline = true
-opts.colorcolumn = "120"
-opts.signcolumn = "yes"
-opts.scrolloff = 4
-opts.sidescrolloff = 8
-opts.wrap = false
+-- ╭──────────────────────────────────────────────╮
+-- │ APPEARANCE                                   │
+-- ╰──────────────────────────────────────────────╯
+opt.termguicolors = true
+opt.cursorline = true
+opt.colorcolumn = "120"
+opt.signcolumn = "yes"
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.wrap = false
 
--- Statusline / cmdline
-opts.laststatus = 3 -- global statusline
--- opts.showmode = false
-opts.showcmdloc = "statusline"
-opts.ruler = false
-opts.laststatus = 3
-opts.cmdheight = 1
-opts.statuscolumn = "%s %C %=%{v:relnum?v:relnum:v:lnum} "
+-- ╭──────────────────────────────────────────────╮
+-- │ STATUSLINE / CMDLINE                         │
+-- ╰──────────────────────────────────────────────╯
+opt.laststatus = 3 -- global statusline
+opt.showcmdloc = "statusline"
+opt.ruler = false
+opt.cmdheight = 1
+opt.statuscolumn = "%s %C %=%{v:relnum?v:relnum:v:lnum} "
 
--- Clipboard
-opts.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
+-- ╭──────────────────────────────────────────────╮
+-- │ CLIPBOARD                                    │
+-- ╰──────────────────────────────────────────────╯
+-- Disable clipboard sync over SSH for safety
+opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 
--- Undo / Swap / Backup
-opts.undofile = true
-opts.undodir = os.getenv("HOME") .. "/.vim/undodir"
-opts.swapfile = false
-opts.backup = false
-opts.updatetime = 100 -- responsive CursorHold
+-- ╭──────────────────────────────────────────────╮
+-- │ UNDO / SWAP / BACKUP                         │
+-- ╰──────────────────────────────────────────────╯
+opt.undofile = true
+opt.undodir = vim.fn.stdpath("data") .. "/undo"
+opt.swapfile = false
+opt.backup = false
+opt.updatetime = 100 -- faster CursorHold events
 
--- Mouse
-opts.mouse = "a"
+-- ╭──────────────────────────────────────────────╮
+-- │ MOUSE                                        │
+-- ╰──────────────────────────────────────────────╯
+opt.mouse = "a"
 
--- Completion
-opts.completeopt = { "menuone", "noselect" }
-opts.pumblend = 10
-opts.pumheight = 10
+-- ╭──────────────────────────────────────────────╮
+-- │ COMPLETION                                   │
+-- ╰──────────────────────────────────────────────╯
+opt.completeopt = { "menuone", "noselect" }
+opt.pumblend = 10
+opt.pumheight = 10
 
--- Splits
-opts.splitbelow = true
-opts.splitright = true
-opts.splitkeep = "screen"
+-- ╭──────────────────────────────────────────────╮
+-- │ SPLITS                                       │
+-- ╰──────────────────────────────────────────────╯
+opt.splitbelow = true
+opt.splitright = true
+opt.splitkeep = "screen"
 
--- Cursor & scrolling
-opts.virtualedit = "block"
-opts.scrolloff = 8
-opts.sidescrolloff = 8
-opts.jumpoptions = "view"
+-- ╭──────────────────────────────────────────────╮
+-- │ CURSOR & SCROLLING                           │
+-- ╰──────────────────────────────────────────────╯
+opt.virtualedit = "block"
+opt.jumpoptions = "view"
 
--- Folding
-opts.foldmethod = "indent"
-opts.foldlevel = 99
-opts.foldtext = ""
-opts.fillchars = {
+-- ╭──────────────────────────────────────────────╮
+-- │ FOLDING                                      │
+-- ╰──────────────────────────────────────────────╯
+opt.foldmethod = "indent"
+opt.foldlevel = 99
+opt.foldtext = ""
+opt.fillchars = {
 	foldopen = "",
 	foldclose = "",
 	fold = " ",
@@ -83,15 +109,15 @@ opts.fillchars = {
 	eob = " ",
 }
 
--- Keywords
-opts.iskeyword:append("-")
+-- ╭──────────────────────────────────────────────╮
+-- │ MISC                                         │
+-- ╰──────────────────────────────────────────────╯
+opt.iskeyword:append("-")
+opt.backspace = "indent,eol,start"
+opt.spelllang = { "en" }
 
--- Backspace
-opts.backspace = "indent,eol,start"
-
--- Spell
-opts.spelllang = { "en" }
-
--- Netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- ╭──────────────────────────────────────────────╮
+-- │ DISABLE NETRW (for modern file explorers)    │
+-- ╰──────────────────────────────────────────────╯
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1

@@ -81,7 +81,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 |--------------|--------|
 | `<leader>ff` | Find files |
 | `<leader>fg` | Live grep |
-| `<leader>ha` | Add file to harpoon |
+| `<leader>a`  | Add file to harpoon |
 | `<C-e>`      | Harpoon menu |
 | `<leader>e`  | Toggle Oil explorer |
 | `<leader>ca` | Code action |

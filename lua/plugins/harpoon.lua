@@ -29,12 +29,12 @@ return {
 		end
 
 		-- Keymaps (auto-load via lazy.nvim)
-		vim.keymap.set("n", "<leader>ha", function()
+		vim.keymap.set("n", "<leader>a", function()
 			require("harpoon"):list():add()
 			vim.notify("File added to Harpoon", vim.log.levels.INFO)
 		end, { desc = "Add file to Harpoon" })
 
-		vim.keymap.set("n", "<leader>hl", function()
+		vim.keymap.set("n", "<leader>fh", function()
 			toggle_telescope(require("harpoon"):list())
 		end, { desc = "List Harpoon files (Telescope)" })
 

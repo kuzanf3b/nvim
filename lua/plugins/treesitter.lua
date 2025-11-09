@@ -4,12 +4,15 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/nvim-treesitter-context",
+		"windwp/nvim-ts-autotag",
 	},
 	config = function()
 		local configs = require("nvim-treesitter.configs")
 
-		-- Treesitter setup
 		configs.setup({
+			highlight = { enable = true },
+			indent = { enable = true },
+			autotag = { enable = true },
 			textobjects = {
 				select = {
 					enable = true,
@@ -20,9 +23,6 @@ return {
 					},
 				},
 			},
-			highlight = { enable = true },
-			indent = { enable = true },
-			autotag = { enable = true },
 			ensure_installed = {
 				"json",
 				"python",
@@ -54,19 +54,21 @@ return {
 				"graphql",
 				"nix",
 			},
-			auto_install = false,
+			auto_install = true,
 		})
 
-		-- Treesitter Context setup
-		require("treesitter-context").setup({
-			enable = true,
-			max_lines = 2,
-			multiline_threshold = 4,
-			trim_scope = "outer",
-			mode = "cursor",
-			separator = nil,
-			line_numbers = false,
-			zindex = 20,
-		})
+		local ok, context = pcall(require, "treesitter-context")
+		if ok then
+			context.setup({
+				enable = true,
+				max_lines = 2,
+				multiline_threshold = 4,
+				trim_scope = "outer",
+				mode = "cursor",
+				separator = nil,
+				line_numbers = false,
+				zindex = 20,
+			})
+		end
 	end,
 }

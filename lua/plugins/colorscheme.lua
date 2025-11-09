@@ -26,7 +26,7 @@ return {
 				styles = {
 					bold = true,
 					italic = true,
-					transparency = false,
+					transparency = true,
 				},
 			})
 
@@ -83,7 +83,7 @@ return {
 		},
 		config = function()
 			require("vesper").setup({
-				transparent = false, -- Boolean: Sets the background to transparent
+				transparent = true, -- Boolean: Sets the background to transparent
 				italics = {
 					comments = true, -- Boolean: Italicizes comments
 					keywords = true, -- Boolean: Italicizes keywords

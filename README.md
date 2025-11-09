@@ -88,6 +88,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | `gd`         | Go to definition |
 | `<leader>u`  | Toggle undo history |
 | `<leader>cp` | Toggle Copilot |
+| `<leader>gg` | Toggle LazyGit |
 
 ---
 
@@ -123,6 +124,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       ├── dadbod.lua
 │       ├── editor.lua
 │       ├── formatter-linter.lua
+│       ├── git.lua
 │       ├── harpoon.lua
 │       ├── mini.lua
 │       ├── motions.lua

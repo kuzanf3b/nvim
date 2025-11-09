@@ -29,11 +29,11 @@ return {
 				path_display = { "truncate" },
 				layout_strategy = "flex",
 				layout_config = {
-					prompt_position = "bottom",
+					prompt_position = "bottom", -- top or bottom
 					horizontal = { preview_width = 0.55 },
 					vertical = { mirror = false },
 				},
-				sorting_strategy = "descending",
+				sorting_strategy = "descending", -- ascending or descending
 				file_ignore_patterns = { "node_modules", "%.git/", "venv/", "build/" },
 				mappings = {
 					i = {
@@ -62,7 +62,6 @@ return {
 
 			extensions = {
 				["ui-select"] = require("telescope.themes").get_dropdown({
-					winblend = 10,
 					previewer = true,
 					layout_config = { width = 0.4, height = 0.3 },
 				}),
@@ -78,9 +77,7 @@ return {
 		local map = vim.keymap.set
 		map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 		map("n", "<leader>fo", builtin.oldfiles, { desc = "Recent files" })
-		map("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
 		map("n", "<leader>fH", builtin.help_tags, { desc = "Help tags" })
-		map("n", "<leader>fq", builtin.quickfix, { desc = "Quickfix list" })
 		map("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
 		map("n", "<leader>fm", builtin.commands, { desc = "Find commands" })
 		map("n", "<leader>fc", builtin.colorscheme, { desc = "Find Colorscheme" })
@@ -97,20 +94,6 @@ return {
 		map("n", "<leader>fi", function()
 			builtin.find_files({ cwd = vim.fn.expand("~/.config/nvim/") })
 		end, { desc = "Find in Neovim config" })
-
-		map("n", "<leader>fd", function()
-			local ok = pcall(builtin.diagnostics)
-			if not ok then
-				vim.notify("Telescope: failed to open diagnostics (invalid buffer id)", vim.log.levels.WARN)
-			end
-		end, { desc = "Diagnostics (safe)" })
-
-		map("n", "<leader>f/", function()
-			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-				winblend = 10,
-				previewer = false,
-			}))
-		end, { desc = "Find in current buffer" })
 
 		map("n", "<leader>ft", function()
 			require("telescope").extensions["todo-comments"].todo()

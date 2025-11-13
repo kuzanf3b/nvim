@@ -76,18 +76,14 @@ return {
 				["<S-CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_next_item()
-					elseif luasnip.expand_or_jumpable() then
+					if luasnip.expand_or_jumpable() then
 						luasnip.expand_or_jump()
 					else
 						fallback()
 					end
 				end, { "i", "s" }),
 				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					elseif luasnip.jumpable(-1) then
+					if luasnip.jumpable(-1) then
 						luasnip.jump(-1)
 					else
 						fallback()
@@ -131,9 +127,6 @@ return {
 
 			experimental = {
 				ghost_text = { hl_group = "CmpGhostText" },
-			},
-			view = {
-				entries = { name = "custom", selection_order = "near_cursor" },
 			},
 		})
 

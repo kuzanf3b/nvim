@@ -50,7 +50,7 @@ opt.wrap = false
 -- ╰──────────────────────────────────────────────╯
 opt.laststatus = 3 -- global statusline
 opt.showcmdloc = "statusline"
-opt.ruler = false
+opt.ruler = true
 opt.cmdheight = 1
 opt.statuscolumn = "%s %C %=%{v:relnum?v:relnum:v:lnum} "
 

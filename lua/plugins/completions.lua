@@ -126,7 +126,8 @@ return {
 			},
 
 			experimental = {
-				ghost_text = { hl_group = "CmpGhostText" },
+				-- FIXME: maybe fix this ghost_text
+				ghost_text = false,
 			},
 		})
 

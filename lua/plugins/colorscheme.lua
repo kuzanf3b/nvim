@@ -68,24 +68,14 @@ return {
 			})
 		end,
 	},
-
 	{
-		"wtfox/jellybeans.nvim",
-		name = "jellybeans",
+		"sainnhe/everforest",
+		name = "everforest",
 		lazy = true,
 		config = function()
-			require("jellybeans").setup({
-				transparent = true,
-				italics = true,
-				bold = true,
-				flat_ui = true,
-				on_highlights = function(hl, c)
-					hl.Normal = { bg = "none", fg = c.fg }
-					hl.NormalFloat = { bg = "none" }
-					hl.SignColumn = { bg = "none" }
-					hl.VertSplit = { fg = c.comment }
-				end,
-			})
+			vim.g.everforest_background = "soft" -- soft, medium, hard
+			vim.g.everforest_enable_italic = true
+			vim.g.everforest_transparent_background = 2 -- 0=none, 1=bg main, 2=full
 		end,
 	},
 }

@@ -34,11 +34,20 @@ return {
 				delete_to_trash = true,
 				constrain_cursor = "editable",
 				view_options = {
-					show_hidden = false,
+					show_hidden = true,
 					natural_order = true,
 					is_always_hidden = function(name)
 						return name == ".git"
 					end,
+					is_hidden_file = function(name)
+						return name:match("^%.") ~= nil
+					end,
+				},
+				columns = {
+					"icon",
+					-- "permissions",
+					-- "size",
+					-- "mtime",
 				},
 				float = {
 					padding = 2,
@@ -50,8 +59,10 @@ return {
 					["<CR>"] = "actions.select",
 					["q"] = "actions.close",
 					["R"] = "actions.refresh",
-					["l"] = "actions.select",
-					["h"] = "actions.parent",
+				},
+				win_options = {
+					signcolumn = "no",
+					cursorcolumn = false,
 				},
 			})
 		end,

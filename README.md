@@ -23,7 +23,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | 🎥 **Smooth Animations**    | Seamless scroll using `neoscroll.nvim` |
 | 🚀 **Motion Enhancements**  | Faster navigation with `flash.nvim`, faster code with mini.nvim using `mini.ai`, `mini.operator`, `mini.surround` |
 | 🧪 **Testing**              | Faster testing with `neotest.nvim` |
-| 🪶 **UI Enhancements**      | Clean statusline, notifications, cmdline, and key hints with `lualine.nvim`, `nvim-notify`, `noice.nvim`, `mini.clue` |
+| 🪶 **UI Enhancements**      | Clean statusline and key hints with `lualine.nvim` and `mini.clue` |
 | 🧭 **File Jumper**          | File and git tree navigation using `oil.nvim` and jump between file using `harpoon` |
 | 🔍 **Search Everything**    | Powerful fuzzy finder via `telescope.nvim` |
 | 🌳 **Syntax Tree**          | Advanced syntax highlighting and textobjects using `nvim-treesitter` |
@@ -88,7 +88,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | `gd`         | Go to definition |
 | `<leader>u`  | Toggle undo history |
 | `<leader>cp` | Toggle Copilot |
-| `<leader>gg` | Toggle LazyGit |
+| `<leader>gg` | Toggle Fugitive |
 
 ---
 
@@ -118,22 +118,27 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       │       ├── lsp.lua
 │       │       └── mason.lua
 │       ├── animations.lua
+│       ├── autorpairs.lua
 │       ├── colorscheme.lua
 │       ├── completions.lua
 │       ├── dashboard.lua
-│       ├── dadbod.lua
 │       ├── editor.lua
+│       ├── flash.lua
 │       ├── formatter-linter.lua
 │       ├── git.lua
+│       ├── grug-far.lua
 │       ├── harpoon.lua
+│       ├── lualine.lua
 │       ├── mini.lua
-│       ├── motions.lua
+│       ├── neo-tree.lua
 │       ├── neotest.lua
 │       ├── oil.lua
 │       ├── one-liners.lua
-│       ├── statusline.lua
+│       ├── peek.lua
+│       ├── presence.lua
 │       ├── telescope.lua
 │       ├── treesitter.lua
+│       ├── trouble.lua
 │       └── ui.lua
 │       └── utils.lua
 └── README.md

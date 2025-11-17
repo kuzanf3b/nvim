@@ -56,11 +56,4 @@ return {
 			end,
 		},
 	},
-
-	{
-		"tpope/vim-fugitive",
-		keys = {
-			{ "<leader>gg", "<cmd>Git difftool<cr>" },
-		},
-	},
 }

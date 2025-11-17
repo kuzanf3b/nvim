@@ -118,7 +118,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       │       ├── lsp.lua
 │       │       └── mason.lua
 │       ├── animations.lua
-│       ├── autorpairs.lua
+│       ├── autopairs.lua
 │       ├── colorscheme.lua
 │       ├── completions.lua
 │       ├── dashboard.lua

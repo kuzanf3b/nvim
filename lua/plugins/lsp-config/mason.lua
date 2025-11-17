@@ -26,7 +26,7 @@ return {
 					"intelephense",
 					"html",
 					"cssls",
-					"jdtls",
+					-- "jdtls",
 				},
 				automatic_installation = true,
 			})

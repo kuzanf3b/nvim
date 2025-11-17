@@ -111,11 +111,11 @@ return {
 						show_labelDetails = true,
 						symbol_map = { Copilot = "" },
 						menu = {
+							copilot = "[AI]",
+							luasnip = "[Snip]",
 							buffer = "[Buf]",
 							nvim_lsp = "[LSP]",
-							luasnip = "[Snip]",
 							path = "[Path]",
-							copilot = "[AI]",
 							nvim_lsp_signature_help = "[Sig]",
 						},
 					})(entry, vim_item)

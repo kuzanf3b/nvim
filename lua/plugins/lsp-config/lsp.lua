@@ -94,11 +94,12 @@ return {
 				}),
 			},
 
-			jdtls = {
-				cmd = { "jdtls" },
-				filetypes = { "java" },
-				root_dir = vim.fs.root(0, { "pom.xml", "build.gradle", ".git" }),
-			},
+			-- NOTE: maybe use later
+			-- jdtls = {
+			-- 	cmd = { "jdtls" },
+			-- 	filetypes = { "java" },
+			-- 	root_dir = vim.fs.root(0, { "pom.xml", "build.gradle", ".git" }),
+			-- },
 
 			dartls = {
 				cmd = { "dcm", "language-server" },

@@ -35,8 +35,8 @@ return {
       config = {
         header = vim.split(logo, "\n"),
         center = {
-          -- { icon = "  ", desc = "New File", action = "ene | startinsert", key = "e" },
-          { icon = "  ", desc = "Lazy Git", action = "LazyGit", key = "g" },
+          { icon = "  ", desc = "New File", action = "ene | startinsert", key = "e" },
+          -- { icon = "  ", desc = "Lazy Git", action = "LazyGit", key = "g" },
           { icon = "  ", desc = "Find File", action = "Telescope find_files", key = "f" },
           { icon = "  ", desc = "Find text", action = "Telescope live_grep", key = "r" },
           { icon = "  ", desc = "Recent File", action = "Telescope oldfiles", key = "o" },

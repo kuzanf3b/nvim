@@ -33,56 +33,26 @@ return {
 			require("todo-comments").setup(opts)
 		end,
 	},
-
 	{
-		"smjonas/inc-rename.nvim",
-		cmd = "IncRename",
-		keys = {
-			{
-				"<leader>rn",
-				function()
-					return ":IncRename " .. vim.fn.expand("<cword>")
-				end,
-				desc = "Incremental rename",
-				mode = "n",
-				noremap = true,
-				expr = true,
-			},
+		"kkoomen/vim-doge",
+		ft = {
+			"php",
+			"python",
+			"javascript",
+			"typescript",
+			"java",
+			"c",
+			"cpp",
+			"lua",
+			"c#",
+			"html",
+			"bash",
+			"rust",
 		},
-		config = true,
-	},
-
-	{
-		"ThePrimeagen/refactoring.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
+		build = ":call doge#install()",
 		config = function()
-			require("refactoring").setup({})
-			local refactor = require("refactoring")
-
-			vim.keymap.set("x", "<leader>re", function()
-				refactor.refactor("Extract Function")
-			end, { desc = "Extract Function" })
-
-			vim.keymap.set("x", "<leader>rv", function()
-				refactor.refactor("Extract Variable")
-			end, { desc = "Extract Variable" })
-
-			vim.keymap.set("n", "<leader>ri", function()
-				refactor.refactor("Inline Variable")
-			end, { desc = "Inline Variable" })
+			vim.g.doge_enable_mappings = 1
+			vim.g.doge_mapping_generate = "<Leader>D"
 		end,
-	},
-
-	{
-		"MagicDuck/grug-far.nvim",
-		cmd = { "GrugFar" },
-		opts = {},
-		keys = {
-			{ "<leader>fr", "<cmd>GrugFar<cr>", desc = "Find & Replace Project" },
-		},
 	},
 }

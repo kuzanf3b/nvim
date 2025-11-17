@@ -16,7 +16,7 @@ return {
 		)
 
 		vim.diagnostic.config({
-			virtual_text = { prefix = "󰧞", spacing = 4 },
+			virtual_text = { prefix = "󰄯", spacing = 4 },
 			severity_sort = true,
 			signs = false,
 			float = { border = "rounded" },
@@ -100,7 +100,7 @@ return {
 				root_dir = vim.fs.root(0, { "pom.xml", "build.gradle", ".git" }),
 			},
 
-			dcm = {
+			dartls = {
 				cmd = { "dcm", "language-server" },
 				filetypes = { "dart" },
 				root_dir = vim.fs.root(0, { "pubspec.yaml", ".git" }),

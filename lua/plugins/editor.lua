@@ -19,7 +19,6 @@ return {
 			-- TEST
 			-- CHANGED
 			-- CHANGEME
-			--
 			colors = {
 				error = { "DiagnosticError", "ErrorMsg" },
 				warning = { "DiagnosticWarn", "WarningMsg" },
@@ -33,6 +32,7 @@ return {
 			require("todo-comments").setup(opts)
 		end,
 	},
+
 	{
 		"kkoomen/vim-doge",
 		ft = {

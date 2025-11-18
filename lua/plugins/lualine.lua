@@ -32,18 +32,19 @@ return {
 
 			sections = {
 				-- lualine_a = { short_mode },
-				lualine_a = {},
-
-				lualine_b = {
+				lualine_a = {
 					"branch",
 				},
 
-				lualine_c = {
+				lualine_b = {
 					{
 						"diagnostics",
 						sources = { "nvim_diagnostic" },
 						symbols = { error = " ", warn = " ", info = " ", hint = " " },
 					},
+				},
+
+				lualine_c = {
 					{
 						"filetype",
 						icon_only = true,

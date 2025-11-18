@@ -51,7 +51,6 @@ return {
 				javascript = { "eslint_d" },
 				typescript = { "eslint_d" },
 				python = { "flake8" },
-				php = { "phpcs" },
 				-- dart = { "dcm" },
 				-- java = { "checkstyle" },
 				csharp = { "roslynator" },

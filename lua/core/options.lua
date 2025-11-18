@@ -4,21 +4,15 @@
 local opt = vim.opt
 local g = vim.g
 
--- ╭──────────────────────────────────────────────╮
--- │ LEADER KEYS                                  │
--- ╰──────────────────────────────────────────────╯
+-- LEADER KEYS
 g.mapleader = " "
 g.maplocalleader = "\\"
 
--- ╭──────────────────────────────────────────────╮
--- │ LINE NUMBERS                                 │
--- ╰──────────────────────────────────────────────╯
+-- LINE NUMBERS
 opt.number = true
 opt.relativenumber = true
 
--- ╭──────────────────────────────────────────────╮
--- │ TABS & INDENTATION                           │
--- ╰──────────────────────────────────────────────╯
+-- TABS & INDENTATION
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
@@ -26,17 +20,13 @@ opt.autoindent = true
 opt.smartindent = true
 opt.shiftround = true
 
--- ╭──────────────────────────────────────────────╮
--- │ SEARCH                                        │
--- ╰──────────────────────────────────────────────╯
+-- SEARCH
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
 opt.inccommand = "nosplit" -- live substitution preview
 
--- ╭──────────────────────────────────────────────╮
--- │ APPEARANCE                                   │
--- ╰──────────────────────────────────────────────╯
+-- APPEARANCE
 opt.termguicolors = true
 opt.cursorline = true
 opt.colorcolumn = "120"
@@ -45,58 +35,42 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.wrap = false
 
--- ╭──────────────────────────────────────────────╮
--- │ STATUSLINE / CMDLINE                         │
--- ╰──────────────────────────────────────────────╯
+-- STATUSLINE / CMDLINE
 opt.laststatus = 3 -- global statusline
 opt.showcmdloc = "statusline"
-opt.ruler = true
+opt.ruler = false
 opt.cmdheight = 1
 opt.statuscolumn = "%s %C %=%{v:relnum?v:relnum:v:lnum} "
 
--- ╭──────────────────────────────────────────────╮
--- │ CLIPBOARD                                    │
--- ╰──────────────────────────────────────────────╯
+-- CLIPBOARD
 -- Disable clipboard sync over SSH for safety
 opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 
--- ╭──────────────────────────────────────────────╮
--- │ UNDO / SWAP / BACKUP                         │
--- ╰──────────────────────────────────────────────╯
+--  UNDO / SWAP / BACKUP
 opt.undofile = true
 opt.undodir = vim.fn.stdpath("data") .. "/undo"
 opt.swapfile = false
 opt.backup = false
 opt.updatetime = 100 -- faster CursorHold events
 
--- ╭──────────────────────────────────────────────╮
--- │ MOUSE                                        │
--- ╰──────────────────────────────────────────────╯
+-- MOUSE
 opt.mouse = "a"
 
--- ╭──────────────────────────────────────────────╮
--- │ COMPLETION                                   │
--- ╰──────────────────────────────────────────────╯
+-- COMPLETION
 opt.completeopt = { "menuone", "noselect" }
 opt.pumblend = 10
 opt.pumheight = 10
 
--- ╭──────────────────────────────────────────────╮
--- │ SPLITS                                       │
--- ╰──────────────────────────────────────────────╯
+-- SPLITS
 opt.splitbelow = true
 opt.splitright = true
 opt.splitkeep = "screen"
 
--- ╭──────────────────────────────────────────────╮
--- │ CURSOR & SCROLLING                           │
--- ╰──────────────────────────────────────────────╯
+-- CURSOR & SCROLLING
 opt.virtualedit = "block"
 opt.jumpoptions = "view"
 
--- ╭──────────────────────────────────────────────╮
--- │ FOLDING                                      │
--- ╰──────────────────────────────────────────────╯
+-- FOLDING
 opt.foldmethod = "indent"
 opt.foldlevel = 99
 opt.foldtext = ""
@@ -109,15 +83,11 @@ opt.fillchars = {
 	eob = " ",
 }
 
--- ╭──────────────────────────────────────────────╮
--- │ MISC                                         │
--- ╰──────────────────────────────────────────────╯
+-- MISC
 opt.iskeyword:append("-")
 opt.backspace = "indent,eol,start"
 opt.spelllang = { "en" }
 
--- ╭──────────────────────────────────────────────╮
--- │ DISABLE NETRW (for modern file explorers)    │
--- ╰──────────────────────────────────────────────╯
+-- DISABLE NETRW (for modern file explorers)
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1

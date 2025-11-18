@@ -25,13 +25,15 @@ return {
 		telescope.setup({
 			defaults = {
 				prompt_prefix = "  ",
-				selection_caret = " ",
+				selection_caret = " ",
 				path_display = { "truncate" },
-				layout_strategy = "flex",
+				layout_strategy = "vertical", -- horizontal, vertical, center, cursor, flex
 				layout_config = {
+					height = 0.90,
+					width = 0.70,
 					prompt_position = "bottom", -- top or bottom
-					horizontal = { preview_width = 0.55 },
-					vertical = { mirror = false },
+					-- horizontal = { preview_width = 0.55 },
+					vertical = { mirror = false, preview_height = 0.50 },
 				},
 				sorting_strategy = "descending", -- ascending or descending
 				file_ignore_patterns = { "node_modules", "%.git/", "venv/", "build/" },

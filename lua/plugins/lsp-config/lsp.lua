@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"rachartier/tiny-code-action.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 	},
@@ -190,7 +191,9 @@ return {
 				map("n", "gi", vim.lsp.buf.implementation, "Go to Implementation")
 				map("n", "gr", vim.lsp.buf.references, "List References")
 				map("n", "<F2>", vim.lsp.buf.rename, "Rename Symbol")
-				map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
+				map({ "n", "v" }, "<leader>ca", function()
+					require("tiny-code-action").code_action()
+				end, "Code Action (Tiny)")
 				map("n", "<leader>gl", function()
 					vim.lsp.buf.format({ async = true })
 				end, "Format Buffer (LSP)")

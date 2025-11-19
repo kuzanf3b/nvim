@@ -17,11 +17,11 @@ return {
 		neotest.setup({
 			adapters = {
 				require("neotest-jest")({
-					jestCommand = "npm test --",
+					jestCommand = "npx jest --",
 					jestConfigFile = "jest.config.js",
 					env = { CI = true },
 					cwd = function(path)
-						return vim.fn.getcwd()
+						return require("neotest-jest").root(path)
 					end,
 				}),
 				-- require("neotest-dotnet")({

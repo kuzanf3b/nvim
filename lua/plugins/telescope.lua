@@ -79,7 +79,7 @@ return {
 		local map = vim.keymap.set
 		map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 		map("n", "<leader>fo", builtin.oldfiles, { desc = "Recent files" })
-		map("n", "<leader>fH", builtin.help_tags, { desc = "Help tags" })
+		map("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
 		map("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
 		map("n", "<leader>fm", builtin.commands, { desc = "Find commands" })
 		map("n", "<leader>fc", builtin.colorscheme, { desc = "Find Colorscheme" })

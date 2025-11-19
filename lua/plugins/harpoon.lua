@@ -34,7 +34,7 @@ return {
 			vim.notify("File added to Harpoon", vim.log.levels.INFO)
 		end, { desc = "Add file to Harpoon" })
 
-		vim.keymap.set("n", "<leader>fh", function()
+		vim.keymap.set("n", "<leader>fH", function()
 			toggle_telescope(require("harpoon"):list())
 		end, { desc = "List Harpoon files (Telescope)" })
 

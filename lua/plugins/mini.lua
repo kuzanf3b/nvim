@@ -28,8 +28,10 @@ return {
 		local keymap = vim.keymap.set
 		local opts = { noremap = true, silent = true }
 
-        -- stylua: ignore
-		keymap( { "n", "x" }, "sa", "<cmd>lua MiniSurround.add()<CR>",
+		keymap(
+			{ "n", "x" },
+			"sa",
+			"<cmd>lua MiniSurround.add()<CR>",
 			vim.tbl_extend("force", opts, { desc = "Add surround" })
 		)
 		keymap(
@@ -111,21 +113,6 @@ return {
 				{ mode = "n", keys = "z" },
 				{ mode = "x", keys = "z" },
 				{ mode = "n", keys = "<C-w>" },
-				-- ctrl-based triggers
-				{ mode = "n", keys = "<C>" }, -- fallback general
-				{ mode = "n", keys = "<C-A>" },
-				{ mode = "n", keys = "<C-X>" },
-				{ mode = "n", keys = "<C-R>" },
-				{ mode = "x", keys = "<C-R>" },
-				{ mode = "i", keys = "<C-R>" },
-				{ mode = "c", keys = "<C-R>" },
-
-				-- alt/meta-based triggers
-				{ mode = "n", keys = "<M>" }, -- fallback general
-				{ mode = "n", keys = "<M-A>" },
-				{ mode = "n", keys = "<M-X>" },
-				{ mode = "n", keys = "<M-F>" },
-				{ mode = "x", keys = "<M-F>" },
 
 				-- plugin-related triggers
 				{ mode = "n", keys = "s" },

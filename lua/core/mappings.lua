@@ -121,10 +121,10 @@ map("n", "<leader>cp", function()
 	vim.g.copilot_enabled = not vim.g.copilot_enabled
 	if vim.g.copilot_enabled then
 		vim.cmd("Copilot enable")
-		vim.notify(" Copilot enabled", vim.log.levels.INFO)
+		vim.notify(" Copilot disabled", vim.log.levels.INFO)
 	else
 		vim.cmd("Copilot disable")
-		vim.notify(" Copilot disabled", vim.log.levels.WARN)
+		vim.notify(" Copilot enabled ", vim.log.levels.WARN)
 	end
 end, { desc = "Toggle GitHub Copilot" })
 

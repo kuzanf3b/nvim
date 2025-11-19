@@ -8,7 +8,6 @@ return {
 
 		"haydenmeade/neotest-jest",
 		"nvim-neotest/neotest-vim-test",
-		"rcasia/neotest-java",
 		-- "Issafalcon/neotest-dotnet",
 		-- "nvim-neotest/neotest-plenary",
 	},
@@ -24,9 +23,6 @@ return {
 					cwd = function(path)
 						return vim.fn.getcwd()
 					end,
-				}),
-				require("neotest-java")({
-					-- auto-detect Maven atau Gradle
 				}),
 				-- require("neotest-dotnet")({
 				-- 	discovery_root = "tests",

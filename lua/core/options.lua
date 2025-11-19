@@ -27,6 +27,7 @@ opt.incsearch = true
 opt.inccommand = "nosplit" -- live substitution preview
 
 -- APPEARANCE
+opt.guicursor = ""
 opt.termguicolors = true
 opt.cursorline = true
 opt.colorcolumn = "120"

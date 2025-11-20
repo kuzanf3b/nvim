@@ -106,8 +106,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	desc = "Enable wrap and spell-checking in text-related files",
 	pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
 	callback = function()
-		vim.opt_local.wrap = true
-		vim.opt_local.spell = true
+		vim.o_local.wrap = true
+		vim.o_local.spell = true
 	end,
 })
 
@@ -117,7 +117,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	desc = "Disable conceal in JSON files for clarity",
 	pattern = { "json", "jsonc", "json5" },
 	callback = function()
-		vim.opt_local.conceallevel = 0
+		vim.o_local.conceallevel = 0
 	end,
 })
 

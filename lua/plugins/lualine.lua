@@ -1,4 +1,5 @@
 return {
+	-- OPTIMIZE: later change to heirline
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	event = "VeryLazy",
@@ -64,7 +65,6 @@ return {
 						colored = true,
 						symbols = { added = " ", modified = " ", removed = " " },
 					},
-
 					-- "filetype",
 					-- "encoding",
 				},

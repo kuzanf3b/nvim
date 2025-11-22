@@ -20,7 +20,14 @@ return {
 			virtual_text = { prefix = "󰄯", spacing = 4 },
 			severity_sort = true,
 			signs = false,
-			float = { border = "rounded" },
+			float = {
+				focusable = false,
+				style = "minimal",
+				border = "rounded",
+				source = "always",
+				header = "",
+				prefix = "",
+			},
 		})
 
 		local servers = {

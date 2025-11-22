@@ -73,3 +73,7 @@ opt.jumpoptions = "view"
 opt.iskeyword:append("-")
 opt.backspace = "indent,eol,start"
 opt.spelllang = { "en" }
+
+-- DISABLE NETRW (for modern file explorers)
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1

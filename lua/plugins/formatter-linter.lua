@@ -15,6 +15,7 @@ return {
 					javascript = { "prettier" },
 					typescript = { "prettier" },
 					json = { "prettier" },
+					jsonc = { "prettier" },
 					python = { "isort", "black" },
 					php = { "php-cs-fixer" },
 					dart = { "dcm" },
@@ -47,13 +48,12 @@ return {
 
 			lint.linters_by_ft = {
 				lua = { "luacheck" },
-				sh = { "shellcheck" },
 				javascript = { "eslint_d" },
 				typescript = { "eslint_d" },
 				python = { "flake8" },
+				csharp = { "roslynator" },
 				-- dart = { "dcm" },
 				-- java = { "checkstyle" },
-				csharp = { "roslynator" },
 				-- gdscript = { "gdtoolkit" },
 			}
 

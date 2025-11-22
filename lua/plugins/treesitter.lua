@@ -67,7 +67,6 @@ return {
 				trim_scope = "outer",
 				mode = "cursor",
 				separator = nil,
-				line_numbers = false,
 				zindex = 20,
 			})
 		end

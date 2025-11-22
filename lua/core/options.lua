@@ -40,10 +40,8 @@ opt.laststatus = 3 -- global statusline
 opt.showcmdloc = "statusline"
 opt.ruler = false
 opt.cmdheight = 1
-opt.statuscolumn = "%s %C %=%{v:relnum?v:relnum:v:lnum} "
 
 -- CLIPBOARD
--- Disable clipboard sync over SSH for safety
 opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 
 --  UNDO / SWAP / BACKUP
@@ -70,19 +68,6 @@ opt.splitkeep = "screen"
 opt.virtualedit = "block"
 opt.jumpoptions = "view"
 -- opt.guicursor = "" -- vim OG cursor
-
--- FOLDING
-opt.foldmethod = "indent"
-opt.foldlevel = 99
-opt.foldtext = ""
-opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	fold = " ",
-	foldsep = " ",
-	diff = "╱",
-	eob = " ",
-}
 
 -- MISC
 opt.iskeyword:append("-")

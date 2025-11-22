@@ -32,7 +32,7 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		name = "tokyonight",
-		lazy = true,
+		lazy = false,
 		opts = {
 			style = "moon", --  'storm', 'night', 'day', 'moon'
 			transparent = true,
@@ -48,7 +48,7 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		name = "kanagawa",
-		lazy = true,
+		lazy = false,
 		config = function()
 			require("kanagawa").setup({
 				colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
@@ -72,7 +72,7 @@ return {
 	{
 		"sainnhe/everforest",
 		name = "everforest",
-		lazy = true,
+		lazy = false,
 		config = function()
 			vim.g.everforest_background = "soft" -- soft, medium, hard
 			vim.g.everforest_enable_italic = true

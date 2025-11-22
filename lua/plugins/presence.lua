@@ -1,7 +1,7 @@
 return {
 	{
 		"andweeb/presence.nvim",
-		lazy = false,
+		event = "VeryLazy",
 		opts = {
 			neovim_image_text = "Writing code, bending time.",
 			main_image = "neovim", -- "neovim" or "file"

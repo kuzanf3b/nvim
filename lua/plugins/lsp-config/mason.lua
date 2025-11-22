@@ -1,20 +1,19 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		event = "VeryLazy",
+		cmd = "Mason",
 		build = ":MasonUpdate",
 		config = function()
 			require("mason").setup({
-				ui = {
-					border = "rounded",
-				},
+				ui = { border = "rounded" },
 			})
 		end,
 	},
 
 	{
 		"williamboman/mason-lspconfig.nvim",
-		event = "VeryLazy",
+		-- Load hanya ketika lspconfig dipakai
+		event = "BufReadPre",
 		dependencies = { "williamboman/mason.nvim" },
 		config = function()
 			require("mason-lspconfig").setup({
@@ -26,7 +25,6 @@ return {
 					"intelephense",
 					"html",
 					"cssls",
-					-- "jdtls",
 				},
 				automatic_installation = true,
 			})
@@ -35,7 +33,11 @@ return {
 
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		event = "VeryLazy",
+		cmd = {
+			"MasonToolsInstall",
+			"MasonToolsUpdate",
+			"MasonToolsClean",
+		},
 		dependencies = { "williamboman/mason.nvim" },
 		config = function()
 			require("mason-tool-installer").setup({
@@ -46,6 +48,8 @@ return {
 					"eslint_d",
 					"prettier",
 				},
+				auto_update = false,
+				run_on_start = false,
 			})
 		end,
 	},

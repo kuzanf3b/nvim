@@ -24,7 +24,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | 🚀 **Motion Enhancements**  | Faster navigation with `flash.nvim`, faster code with mini.nvim using `mini.ai`, `mini.operator`, `mini.surround` |
 | 🧪 **Testing**              | Faster testing with `neotest.nvim` |
 | 🪶 **UI Enhancements**      | Clean statusline and key hints with `lualine.nvim` and `mini.clue` |
-| 🧭 **File Jumper**          | File and git tree navigation using `oil.nvim` and jump between file using `harpoon` |
+| 🧭 **File Jumper**          | Jump between file using `harpoon` |
 | 🔍 **Search Everything**    | Powerful fuzzy finder via `telescope.nvim` |
 | 🌳 **Syntax Tree**          | Advanced syntax highlighting and textobjects using `nvim-treesitter` |
 | 💾 **Quality of Life**      | Git tools, undo tree, Discord presence, and color highlighting |
@@ -83,7 +83,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | `<leader>fg` | Live grep |
 | `<leader>a`  | Add file to harpoon |
 | `<C-e>`      | Harpoon menu |
-| `<leader>e`  | Toggle Oil explorer |
+| `<leader>e`  | Toggle Netrw explorer |
 | `<leader>ca` | Code action |
 | `gd`         | Go to definition |
 | `<leader>u`  | Toggle undo history |
@@ -132,7 +132,6 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       ├── mini.lua
 │       ├── neo-tree.lua
 │       ├── neotest.lua
-│       ├── oil.lua
 │       ├── one-liners.lua
 │       ├── peek.lua
 │       ├── presence.lua

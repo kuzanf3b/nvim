@@ -115,6 +115,7 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │   │   └── options.lua
 │   └── plugins
 │       │   └── lsp-config/
+│       │       ├── fidget.lua
 │       │       ├── lsp.lua
 │       │       └── mason.lua
 │       ├── animations.lua

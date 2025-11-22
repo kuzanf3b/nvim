@@ -106,8 +106,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	desc = "Enable wrap and spell-checking in text-related files",
 	pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
 	callback = function()
-		vim.o_local.wrap = true
-		vim.o_local.spell = true
+		vim.opt_local.wrap = true
+		vim.opt_local.spell = true
 	end,
 })
 

@@ -117,7 +117,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	desc = "Disable conceal in JSON files for clarity",
 	pattern = { "json", "jsonc", "json5" },
 	callback = function()
-		vim.o_local.conceallevel = 0
+		vim.opt_local.conceallevel = 0
 	end,
 })
 

@@ -27,7 +27,6 @@ opt.incsearch = true
 opt.inccommand = "nosplit" -- live substitution preview
 
 -- APPEARANCE
-opt.guicursor = ""
 opt.termguicolors = true
 opt.cursorline = true
 opt.colorcolumn = "120"
@@ -70,6 +69,7 @@ opt.splitkeep = "screen"
 -- CURSOR & SCROLLING
 opt.virtualedit = "block"
 opt.jumpoptions = "view"
+-- opt.guicursor = "" -- vim OG cursor
 
 -- FOLDING
 opt.foldmethod = "indent"
@@ -90,5 +90,5 @@ opt.backspace = "indent,eol,start"
 opt.spelllang = { "en" }
 
 -- DISABLE NETRW (for modern file explorers)
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0

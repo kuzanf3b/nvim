@@ -15,7 +15,7 @@ map("n", "n", "nzzzv", { desc = "Next search result centered" })
 map("n", "N", "Nzzzv", { desc = "Prev search result centered" })
 
 -- FILES, CONFIG, & SESSION
--- map("n", "<leader>e", vim.cmd.Ex, { desc = "File explorer" })
+map("n", "<leader>e", vim.cmd.Ex, { desc = "File explorer" })
 
 -- EDITING ENHANCEMENTS
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })

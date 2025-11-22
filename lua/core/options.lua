@@ -88,7 +88,3 @@ opt.fillchars = {
 opt.iskeyword:append("-")
 opt.backspace = "indent,eol,start"
 opt.spelllang = { "en" }
-
--- DISABLE NETRW (for modern file explorers)
-vim.g.loaded_netrw = 0
-vim.g.loaded_netrwPlugin = 0

@@ -32,17 +32,13 @@ return {
 	config = function()
 		require("oil").setup({
 			default_file_explorer = true,
-			skip_confirm_for_simple_edits = true,
 			delete_to_trash = true,
 			constrain_cursor = "editable",
 			view_options = {
 				show_hidden = true,
 				natural_order = true,
 				is_always_hidden = function(name)
-					return name == ".git"
-				end,
-				is_hidden_file = function(name)
-					return name:match("^%.") ~= nil
+					return name == ".git", name == ".."
 				end,
 			},
 			columns = { "icon" },

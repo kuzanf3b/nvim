@@ -1,5 +1,5 @@
 function MyCrayon(color)
-	color = color or "kanagawa"
+	color = color or "vague"
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
@@ -70,13 +70,13 @@ return {
 	},
 
 	{
-		"sainnhe/everforest",
-		name = "everforest",
+		"vague-theme/vague.nvim",
+		name = "vague",
 		lazy = false,
 		config = function()
-			vim.g.everforest_background = "soft" -- soft, medium, hard
-			vim.g.everforest_enable_italic = true
-			vim.g.everforest_transparent_background = 2 -- 0=none, 1=bg main, 2=full
+			require("vague").setup({
+				transparent = true,
+			})
 		end,
 	},
 }

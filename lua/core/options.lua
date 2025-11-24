@@ -34,7 +34,6 @@ opt.signcolumn = "yes"
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.wrap = false
-opt.statuscolumn = "%s %C %=%{v:relnum?v:relnum:v:lnum} "
 
 -- STATUSLINE / CMDLINE
 opt.laststatus = 3 -- global statusline

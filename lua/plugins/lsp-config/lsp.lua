@@ -17,7 +17,7 @@ return {
 		)
 
 		vim.diagnostic.config({
-			virtual_text = { prefix = "󰄯", spacing = 4 },
+			virtual_text = true,
 			severity_sort = true,
 			signs = false,
 			float = {

@@ -22,8 +22,27 @@ return {
 			search_method = "cover_or_next",
 		})
 
-		-- Operators
-		require("mini.operators").setup()
+		-- Files (file explorer)
+		require("mini.files").setup({
+			windows = {
+				max_number = 2,
+				preview = true,
+				width_focus = 40,
+				width_nofocus = 50,
+			},
+			options = {
+				permanent_delete = false,
+				use_as_default_explorer = true,
+			},
+		})
+
+		vim.keymap.set("n", "<leader>e", function()
+			require("mini.files").open(vim.api.nvim_buf_get_name(0))
+		end, { desc = "MiniFiles open" })
+
+		vim.keymap.set("n", "<leader>E", function()
+			require("mini.files").open()
+		end, { desc = "MiniFiles (cwd)" })
 
 		local keymap = vim.keymap.set
 		local opts = { noremap = true, silent = true }
@@ -70,19 +89,6 @@ return {
 			"<cmd>lua MiniSurround.update_n_lines()<CR>",
 			vim.tbl_extend("force", opts, { desc = "Update n_lines" })
 		)
-
-		keymap("n", "gx", function()
-			MiniOperators.exchange("n")
-		end, vim.tbl_extend("force", opts, { desc = "Exchange text" }))
-		keymap("n", "gr", function()
-			MiniOperators.replace("n")
-		end, vim.tbl_extend("force", opts, { desc = "Replace text" }))
-		keymap("n", "gs", function()
-			MiniOperators.sort("n")
-		end, vim.tbl_extend("force", opts, { desc = "Sort text" }))
-		keymap("n", "ge", function()
-			MiniOperators.evaluate("n")
-		end, vim.tbl_extend("force", opts, { desc = "Evaluate text" }))
 
 		local function gen_leader_clues()
 			local clues = {}

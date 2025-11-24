@@ -32,27 +32,4 @@ return {
 			require("todo-comments").setup(opts)
 		end,
 	},
-
-	{
-		"kkoomen/vim-doge",
-		ft = {
-			"php",
-			"python",
-			"javascript",
-			"typescript",
-			"java",
-			"c",
-			"cpp",
-			"lua",
-			"c#",
-			"html",
-			"bash",
-			"rust",
-		},
-		build = ":call doge#install()",
-		config = function()
-			vim.g.doge_enable_mappings = 1
-			vim.g.doge_mapping_generate = "<Leader>D"
-		end,
-	},
 }

@@ -49,6 +49,57 @@ return {
 				filetypes = { "html", "php" },
 			},
 
+			tailwindcss = {
+				cmd = { "tailwindcss-language-server", "--stdio" },
+				filetypes = {
+					"html",
+					"css",
+					"scss",
+					"sass",
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact",
+					"vue",
+					"svelte",
+					"php",
+					"twig",
+					"jsx",
+					"tsx",
+				},
+				root_dir = vim.fs.root(0, {
+					"tailwind.config.js",
+					"tailwind.config.cjs",
+					"postcss.config.js",
+					"package.json",
+					".git",
+				}),
+				settings = {
+					tailwindCSS = {
+						includeLanguages = {
+							typescript = "javascript",
+							typescriptreact = "javascript",
+							html = "html",
+							php = "html",
+						},
+						experimental = {
+							classRegex = {
+								'class\\s*[:=]\\s*"([^"]*)"',
+								'className\\s*[:=]\\s*"([^"]*)"',
+							},
+						},
+						validate = true,
+						lint = {
+							cssConflict = "warning",
+							invalidApply = "error",
+							invalidScreen = "error",
+							invalidVariant = "error",
+							invalidConfigPath = "error",
+						},
+					},
+				},
+			},
+
 			cssls = {
 				settings = {
 					css = { validate = true },

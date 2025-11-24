@@ -34,6 +34,7 @@ opt.signcolumn = "yes"
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.wrap = false
+opt.statuscolumn = "%s %C %=%{v:relnum?v:relnum:v:lnum} "
 
 -- STATUSLINE / CMDLINE
 opt.laststatus = 3 -- global statusline
@@ -75,5 +76,5 @@ opt.backspace = "indent,eol,start"
 opt.spelllang = { "en" }
 
 -- DISABLE NETRW (for modern file explorers)
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
+-- g.loaded_netrw = 1
+-- g.loaded_netrwPlugin = 1

@@ -27,7 +27,7 @@ return {
 				globalstatus = true,
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
-				disabled_filetypes = { "Snacks", "netrw", "dashboard", "NvimTree", "alpha", "starter", "oil" },
+				disabled_filetypes = { "snacks_dashboard", "netrw", "dashboard", "NvimTree", "alpha", "starter", "oil" },
 			},
 
 			sections = {

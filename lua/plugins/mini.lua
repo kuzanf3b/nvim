@@ -1,6 +1,6 @@
 return {
 	"echasnovski/mini.nvim",
-	version = "*",
+	version = false,
 	event = "VeryLazy",
 	config = function()
 		-- Surround
@@ -16,13 +16,16 @@ return {
 			},
 		})
 
-		-- AI (textobjects)
+		-- Textobjects
 		require("mini.ai").setup({
 			n_lines = 500,
 			search_method = "cover_or_next",
 		})
 
-		-- Files (file explorer)
+		-- Splitjoin
+		require("mini.splitjoin").setup()
+
+		-- Files
 		require("mini.files").setup({
 			windows = {
 				max_number = 2,
@@ -36,17 +39,23 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>e", function()
-			require("mini.files").open(vim.api.nvim_buf_get_name(0))
-		end, { desc = "MiniFiles open" })
-
-		vim.keymap.set("n", "<leader>E", function()
-			require("mini.files").open()
-		end, { desc = "MiniFiles (cwd)" })
-
+		-- Keymaps
 		local keymap = vim.keymap.set
 		local opts = { noremap = true, silent = true }
 
+		keymap("n", "gS", function()
+			require("mini.splitjoin").toggle()
+		end, { desc = "Toggle split/join" })
+
+		keymap("n", "<leader>e", function()
+			require("mini.files").open(vim.api.nvim_buf_get_name(0))
+		end, { desc = "MiniFiles open" })
+
+		keymap("n", "<leader>E", function()
+			require("mini.files").open()
+		end, { desc = "MiniFiles (cwd)" })
+
+		-- Surround explicit maps
 		keymap(
 			{ "n", "x" },
 			"sa",
@@ -90,6 +99,7 @@ return {
 			vim.tbl_extend("force", opts, { desc = "Update n_lines" })
 		)
 
+		-- Leader clues generator
 		local function gen_leader_clues()
 			local clues = {}
 			for _, map in ipairs(vim.api.nvim_get_keymap("n")) do
@@ -106,28 +116,21 @@ return {
 		end
 
 		local clue = require("mini.clue")
-
 		clue.setup({
 			triggers = {
-				-- leader
 				{ mode = "n", keys = "<leader>" },
 				{ mode = "x", keys = "<leader>" },
-
-				-- g, z, windows, dsb.
 				{ mode = "n", keys = "g" },
 				{ mode = "x", keys = "g" },
 				{ mode = "n", keys = "z" },
 				{ mode = "x", keys = "z" },
 				{ mode = "n", keys = "<C-w>" },
-
-				-- plugin-related triggers
 				{ mode = "n", keys = "s" },
 				{ mode = "x", keys = "s" },
 			},
 
 			clues = vim.list_extend({}, {
 				gen_leader_clues(),
-
 				clue.gen_clues.builtin_completion(),
 				clue.gen_clues.g(),
 				clue.gen_clues.marks(),

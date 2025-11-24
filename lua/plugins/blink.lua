@@ -1,7 +1,6 @@
--- return {}
-
 return {
 	"saghen/blink.cmp",
+	event = "InsertEnter",
 	dependencies = {
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
@@ -22,6 +21,7 @@ return {
 				},
 			},
 			documentation = { auto_show = true },
+			ghost_text = { enabled = true },
 		},
 		signature = { enabled = true },
 		fuzzy = { implementation = "lua" },

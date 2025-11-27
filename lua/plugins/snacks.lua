@@ -6,6 +6,10 @@ return {
 		bigfile = { enabled = true },
 		quickfile = { enabled = true },
 		scroll = { enabled = true },
+		explorer = {
+			enabled = true,
+			trash = true,
+		},
 		notifier = {
 			enabled = true,
 			timeout = 3000,
@@ -24,6 +28,15 @@ return {
 			max_height = 10,
 			merge_duplicates = false,
 			background_colour = "#000000",
+		},
+	},
+	keys = {
+		{
+			"<leader>e",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "File Explorer",
 		},
 	},
 

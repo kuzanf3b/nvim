@@ -25,19 +25,8 @@ return {
 		-- Splitjoin
 		require("mini.splitjoin").setup()
 
-		-- Files
-		require("mini.files").setup({
-			windows = {
-				max_number = 2,
-				preview = true,
-				width_focus = 40,
-				width_nofocus = 50,
-			},
-			options = {
-				permanent_delete = false,
-				use_as_default_explorer = true,
-			},
-		})
+		-- Splitjoin
+		require("mini.operators").setup()
 
 		-- Keymaps
 		local keymap = vim.keymap.set
@@ -46,14 +35,6 @@ return {
 		keymap("n", "gS", function()
 			require("mini.splitjoin").toggle()
 		end, { desc = "Toggle split/join" })
-
-		keymap("n", "<leader>e", function()
-			require("mini.files").open(vim.api.nvim_buf_get_name(0))
-		end, { desc = "MiniFiles open" })
-
-		keymap("n", "<leader>E", function()
-			require("mini.files").open()
-		end, { desc = "MiniFiles (cwd)" })
 
 		-- Surround explicit maps
 		keymap(

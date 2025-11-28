@@ -143,3 +143,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
 	end,
 })
+
+-- Remove the ~ sign on column
+vim.api.nvim_create_autocmd("User", {
+	pattern = "VeryLazy",
+	callback = function()
+		vim.opt.fillchars:append({ eob = " " })
+	end,
+})

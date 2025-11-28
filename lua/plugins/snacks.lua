@@ -5,11 +5,6 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		quickfile = { enabled = true },
-		scroll = { enabled = true },
-		explorer = {
-			enabled = true,
-			trash = true,
-		},
 		notifier = {
 			enabled = true,
 			timeout = 3000,
@@ -30,15 +25,6 @@ return {
 			background_colour = "#000000",
 		},
 	},
-	keys = {
-		{
-			"<leader>e",
-			function()
-				Snacks.explorer()
-			end,
-			desc = "File Explorer",
-		},
-	},
 
 	config = function(_, opts)
 		require("snacks").setup(opts)
@@ -47,18 +33,7 @@ return {
 		vim.api.nvim_create_autocmd("LspProgress", {
 			---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
 			callback = function(ev)
-				local spinner = {
-					"⠋",
-					"⠙",
-					"⠹",
-					"⠸",
-					"⠼",
-					"⠴",
-					"⠦",
-					"⠧",
-					"⠇",
-					"⠏",
-				}
+				local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
 
 				vim.notify(vim.lsp.status(), "info", {
 					id = "lsp_progress",

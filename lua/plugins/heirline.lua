@@ -40,9 +40,9 @@ return {
 			diag_info = hl_fg("DiagnosticInfo"),
 			diag_hint = hl_fg("DiagnosticHint"),
 
-			git_add = hl_fg("diffAdded", hl_fg("String")),
-			git_del = hl_fg("diffDeleted", hl_fg("DiagnosticError")),
-			git_change = hl_fg("diffChanged", hl_fg("DiagnosticWarn")),
+			git_add = hl_fg("DiffAdd", hl_fg("Special")),
+			git_del = hl_fg("DiffDelete", hl_fg("DiagnosticError")),
+			git_change = hl_fg("DiffChange", hl_fg("DiagnosticWarn")),
 
 			mode = {
 				normal = "#7aa2f7",
@@ -143,88 +143,38 @@ return {
 			},
 		}
 
+		local FileType = {
+			provider = function()
+				return string.upper(vim.bo.filetype)
+			end,
+			hl = { fg = hl_fg("Type"), bold = true },
+		}
+
 		--------------------------------------------------------
 		-- GIT
 		--------------------------------------------------------
+		-- FIXME: later fix the git issue
 		local Git = {
 			condition = conditions.is_git_repo,
 
 			init = function(self)
-				local g = vim.b.gitsigns_status_dict or {}
-				self.head = g.head or nil
-				self.added = g.added or 0
-				self.changed = g.changed or 0
-				self.removed = g.removed or 0
+				-- branch
+				self.branch = vim.trim(vim.fn.system("git branch --show-current"))
+
+				-- stats
+				local ok, stats = pcall(MiniDiff.get_buf_stats, 0)
+				stats = ok and stats or { added = 0, changed = 0, removed = 0 }
+
+				self.added = stats.added or 0
+				self.changed = stats.changed or 0
+				self.removed = stats.removed or 0
 			end,
 
-			-- entire git segment
-			{
-				-- icon + branch
-				condition = function(self)
-					return self.head ~= nil
-				end,
+			provider = function(self)
+				return string.format(" %s +%d ~%d -%d ", self.branch, self.added, self.changed, self.removed)
+			end,
 
-				provider = function(self)
-					return " " .. self.head
-				end,
-				hl = { fg = colors.orange, bold = true },
-			},
-
-			-- diff stats grouped in ONE parenthesis set
-			{
-				condition = function(self)
-					return (self.added + self.changed + self.removed) > 0
-				end,
-
-				provider = function()
-					return "("
-				end,
-				hl = { fg = colors.gray },
-			},
-
-			-- +added
-			{
-				condition = function(self)
-					return self.added > 0
-				end,
-				provider = function(self)
-					return "+" .. self.added
-				end,
-				hl = { fg = colors.git_add },
-			},
-
-			-- -removed
-			{
-				condition = function(self)
-					return self.removed > 0
-				end,
-				provider = function(self)
-					return "-" .. self.removed
-				end,
-				hl = { fg = colors.git_del },
-			},
-
-			-- ~changed
-			{
-				condition = function(self)
-					return self.changed > 0
-				end,
-				provider = function(self)
-					return "~" .. self.changed
-				end,
-				hl = { fg = colors.git_change },
-			},
-
-			-- close parenthesis
-			{
-				condition = function(self)
-					return (self.added + self.changed + self.removed) > 0
-				end,
-				provider = ") ",
-				hl = { fg = colors.gray },
-			},
-
-			update = { "BufEnter", "BufWritePost", "User" },
+			hl = { fg = colors.orange, bold = true },
 		}
 
 		--------------------------------------------------------
@@ -232,7 +182,14 @@ return {
 		--------------------------------------------------------
 		local Diagnostics = {
 			condition = conditions.has_diagnostics,
-
+			on_click = {
+				callback = function()
+					require("trouble").toggle({ mode = "diagnostics" })
+					-- or
+					-- vim.diagnostic.setqflist()
+				end,
+				name = "heirline_diagnostics",
+			},
 			init = function(self)
 				local d = vim.diagnostic
 				self.errors = #d.get(0, { severity = d.severity.ERROR })
@@ -285,8 +242,16 @@ return {
 		-- LSP ACTIVE
 		--------------------------------------------------------
 		local LSPActive = {
+			on_click = {
+				callback = function()
+					vim.defer_fn(function()
+						vim.cmd("LspInfo")
+					end, 100)
+				end,
+				name = "heirline_LSP",
+			},
 			condition = conditions.lsp_attached,
-			provider = " [LSP]",
+			provider = " [LSP]",
 			hl = { fg = colors.cyan, bold = true },
 		}
 
@@ -294,7 +259,24 @@ return {
 		-- RULER + SCROLLBAR
 		--------------------------------------------------------
 		local Ruler = {
-			provider = "%7(%l/%3L%):%2c %P",
+			provider = function()
+				local pos = vim.api.nvim_win_get_cursor(0)
+				local line = pos[1]
+				local col = pos[2] + 1
+				local total = vim.api.nvim_buf_line_count(0)
+
+				local percent
+				if line == 1 then
+					percent = "Top"
+				elseif line == total then
+					percent = "Bot"
+				else
+					percent = string.format("%d%%%%", math.floor(line / total * 100))
+				end
+
+				return string.format("%d:%d  %s", line, col, percent)
+			end,
+
 			update = { "CursorMoved", "WinScrolled" },
 		}
 
@@ -339,7 +321,7 @@ return {
 			end,
 
 			provider = function()
-				return "  " .. vim.fn.reg_recording()
+				return "  " .. vim.fn.reg_recording()
 			end,
 
 			hl = { fg = colors.orange, bold = true },
@@ -360,6 +342,7 @@ return {
 				ModeIndicator,
 				MacroRec,
 				Spacer,
+				Spacer,
 				FileIcon,
 				FileName,
 				FileFlags,
@@ -373,6 +356,8 @@ return {
 
 				-- RIGHT
 				LSPActive,
+				Spacer,
+				FileType,
 				Spacer,
 				SearchCount,
 				Spacer,

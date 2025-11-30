@@ -22,16 +22,16 @@ return {
 			search_method = "cover_or_next",
 		})
 
-		-- require("mini.diff").setup({
-		-- 	view = {
-		-- 		style = "sign",
-		-- 		signs = {
-		-- 			add = "▎",
-		-- 			change = "▎",
-		-- 			delete = "",
-		-- 		},
-		-- 	},
-		-- })
+		require("mini.diff").setup({
+			view = {
+				style = "sign",
+				signs = {
+					add = "▎",
+					change = "▎",
+					delete = "",
+				},
+			},
+		})
 
 		-- Splitjoin
 		require("mini.splitjoin").setup()

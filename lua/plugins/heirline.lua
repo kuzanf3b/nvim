@@ -178,7 +178,7 @@ return {
 		}
 
 		--------------------------------------------------------
-		-- DIAGNOSTICS (CLEAN VSCode-ish)
+		-- DIAGNOSTICS
 		--------------------------------------------------------
 		local Diagnostics = {
 			condition = conditions.has_diagnostics,
@@ -205,7 +205,7 @@ return {
 					return self.errors > 0
 				end,
 				provider = function(self)
-					return " " .. self.errors .. " "
+					return " " .. self.errors .. " "
 				end,
 				hl = { fg = colors.diag_error },
 			},
@@ -214,7 +214,7 @@ return {
 					return self.warns > 0
 				end,
 				provider = function(self)
-					return " " .. self.warns .. " "
+					return " " .. self.warns .. " "
 				end,
 				hl = { fg = colors.diag_warn },
 			},
@@ -223,7 +223,7 @@ return {
 					return self.info > 0
 				end,
 				provider = function(self)
-					return " " .. self.info .. " "
+					return "󰋼 " .. self.info .. " "
 				end,
 				hl = { fg = colors.diag_info },
 			},
@@ -232,7 +232,7 @@ return {
 					return self.hints > 0
 				end,
 				provider = function(self)
-					return "󰌶 " .. self.hints .. " "
+					return "󰌵 " .. self.hints .. " "
 				end,
 				hl = { fg = colors.diag_hint },
 			},
@@ -335,7 +335,7 @@ return {
 		}
 
 		--------------------------------------------------------
-		-- FINAL STATUSLINE
+		-- STATUSLINE
 		--------------------------------------------------------
 		local Statusline = {
 			fallthrough = false,

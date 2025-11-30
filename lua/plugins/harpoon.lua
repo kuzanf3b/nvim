@@ -7,8 +7,6 @@ return {
 		local harpoon = require("harpoon")
 		harpoon:setup()
 
-		local list = harpoon:list()
-
 		-- Harpoon Telescope toggle
 		local conf = require("telescope.config").values
 		local themes = require("telescope.themes")

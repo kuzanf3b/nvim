@@ -12,7 +12,6 @@ return {
 
 	{
 		"williamboman/mason-lspconfig.nvim",
-		-- Load hanya ketika lspconfig dipakai
 		event = "BufReadPre",
 		dependencies = { "williamboman/mason.nvim" },
 		config = function()

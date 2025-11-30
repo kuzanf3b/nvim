@@ -83,7 +83,6 @@ return {
 					nvimtree = true,
 					telescope = true,
 					which_key = true,
-					cmp = true,
 					treesitter = true,
 				},
 			})

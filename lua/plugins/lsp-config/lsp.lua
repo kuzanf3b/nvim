@@ -6,14 +6,14 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"rachartier/tiny-code-action.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		"hrsh7th/cmp-nvim-lsp",
+		"saghen/blink.cmp",
 	},
 
 	config = function()
 		local capabilities = vim.tbl_deep_extend(
 			"force",
 			vim.lsp.protocol.make_client_capabilities(),
-			require("cmp_nvim_lsp").default_capabilities()
+			require("blink.cmp").get_lsp_capabilities()
 		)
 
 		vim.diagnostic.config({
@@ -153,13 +153,6 @@ return {
 				}),
 			},
 
-			-- NOTE: maybe use later
-			-- jdtls = {
-			-- 	cmd = { "jdtls" },
-			-- 	filetypes = { "java" },
-			-- 	root_dir = vim.fs.root(0, { "pom.xml", "build.gradle", ".git" }),
-			-- },
-
 			dartls = {
 				cmd = { "dcm", "language-server" },
 				filetypes = { "dart" },
@@ -221,13 +214,6 @@ return {
 					},
 				},
 			},
-
-			-- NOTE: maybe turn on later
-			-- gdscript = {
-			-- 	cmd = { "nc", "127.0.0.1", "6005" },
-			-- 	filetypes = { "gd", "gdscript" },
-			-- 	root_dir = vim.fs.root(0, { "project.godot", ".git" }),
-			-- },
 		}
 
 		for name, config in pairs(servers) do

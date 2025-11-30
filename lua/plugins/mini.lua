@@ -22,35 +22,49 @@ return {
 			search_method = "cover_or_next",
 		})
 
+		require("mini.diff").setup({
+			view = {
+				style = "sign",
+				signs = {
+					add = "▎",
+					change = "▎",
+					delete = "",
+				},
+			},
+		})
+
 		-- Splitjoin
 		require("mini.splitjoin").setup()
 
-		-- Splitjoin
+		-- Operators
 		require("mini.operators").setup()
 
-		-- Keymaps
-		local keymap = vim.keymap.set
+		-- Notify
+		require("mini.notify").setup({
+			content = {
+				format = function(notif)
+					return notif.msg
+				end,
+			},
 
-		keymap("n", "gS", function()
-			require("mini.splitjoin").toggle()
-		end, { desc = "Toggle split/join" })
+			window = {
+				winblend = 0,
 
-		-- Leader clues generator
-		local function gen_leader_clues()
-			local clues = {}
-			for _, map in ipairs(vim.api.nvim_get_keymap("n")) do
-				if map.lhs:match("^" .. vim.g.mapleader) and map.desc then
-					table.insert(clues, { mode = "n", keys = map.lhs, desc = map.desc })
-				end
-			end
-			for _, map in ipairs(vim.api.nvim_get_keymap("x")) do
-				if map.lhs:match("^" .. vim.g.mapleader) and map.desc then
-					table.insert(clues, { mode = "x", keys = map.lhs, desc = map.desc })
-				end
-			end
-			return clues
-		end
+				config = function()
+					return {
+						border = "rounded",
+						anchor = "NE",
+						col = vim.o.columns,
+						row = 1,
+						title = "",
+					}
+				end,
+			},
+		})
 
+		vim.notify = require("mini.notify").make_notify()
+
+		-- Clue
 		local clue = require("mini.clue")
 		clue.setup({
 			triggers = {
@@ -66,7 +80,6 @@ return {
 			},
 
 			clues = vim.list_extend({}, {
-				gen_leader_clues(),
 				clue.gen_clues.builtin_completion(),
 				clue.gen_clues.g(),
 				clue.gen_clues.marks(),
@@ -82,5 +95,12 @@ return {
 				scroll_up = "<C-u>",
 			},
 		})
+
+		-- Keymaps
+		local keymap = vim.keymap.set
+
+		keymap("n", "gS", function()
+			require("mini.splitjoin").toggle()
+		end, { desc = "Toggle split/join" })
 	end,
 }

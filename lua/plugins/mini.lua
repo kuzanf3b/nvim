@@ -30,55 +30,10 @@ return {
 
 		-- Keymaps
 		local keymap = vim.keymap.set
-		local opts = { noremap = true, silent = true }
 
 		keymap("n", "gS", function()
 			require("mini.splitjoin").toggle()
 		end, { desc = "Toggle split/join" })
-
-		-- Surround explicit maps
-		keymap(
-			{ "n", "x" },
-			"sa",
-			"<cmd>lua MiniSurround.add()<CR>",
-			vim.tbl_extend("force", opts, { desc = "Add surround" })
-		)
-		keymap(
-			"n",
-			"sd",
-			"<cmd>lua MiniSurround.delete()<CR>",
-			vim.tbl_extend("force", opts, { desc = "Delete surround" })
-		)
-		keymap(
-			"n",
-			"sr",
-			"<cmd>lua MiniSurround.replace()<CR>",
-			vim.tbl_extend("force", opts, { desc = "Replace surround" })
-		)
-		keymap(
-			"n",
-			"sf",
-			"<cmd>lua MiniSurround.find()<CR>",
-			vim.tbl_extend("force", opts, { desc = "Find surround (right)" })
-		)
-		keymap(
-			"n",
-			"sF",
-			"<cmd>lua MiniSurround.find_left()<CR>",
-			vim.tbl_extend("force", opts, { desc = "Find surround (left)" })
-		)
-		keymap(
-			"n",
-			"sh",
-			"<cmd>lua MiniSurround.highlight()<CR>",
-			vim.tbl_extend("force", opts, { desc = "Highlight surround" })
-		)
-		keymap(
-			"n",
-			"sn",
-			"<cmd>lua MiniSurround.update_n_lines()<CR>",
-			vim.tbl_extend("force", opts, { desc = "Update n_lines" })
-		)
 
 		-- Leader clues generator
 		local function gen_leader_clues()

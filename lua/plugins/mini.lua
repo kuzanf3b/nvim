@@ -53,9 +53,6 @@ return {
 				config = function()
 					return {
 						border = "rounded",
-						anchor = "NE",
-						col = vim.o.columns,
-						row = 1,
 						title = "",
 					}
 				end,

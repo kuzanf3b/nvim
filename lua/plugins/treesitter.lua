@@ -35,6 +35,7 @@ return {
 				"yaml",
 				"html",
 				"css",
+				"scss",
 				"markdown",
 				"markdown_inline",
 				"bash",

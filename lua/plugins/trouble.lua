@@ -17,8 +17,8 @@ return {
 			"<cmd>Trouble lsp toggle focus=false<cr>",
 			desc = "LSP references/definitions/... (Trouble)",
 		},
-		{ "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
-		{ "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
+		{ "<leader>xl", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
+		{ "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
 
 		-- Navigation integration
 		{

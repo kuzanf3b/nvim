@@ -327,6 +327,7 @@ return {
 				local s = self.search
 				return string.format("[%d/%d]", s.current, math.min(s.total, s.maxcount))
 			end,
+			hl = { fg = colors.purple },
 		}
 
 		--------------------------------------------------------

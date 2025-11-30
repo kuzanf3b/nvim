@@ -13,25 +13,6 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 
 ---
 
-## 🤖 Core Features
-
-| Area                        | Description |
-|-----------------------------|--------------|
-| 🧠 **LSP**                  | Language Server Protocol support with `nvim-lspconfig` + `mason.nvim` |
-| 🪄 **Completion**           | Autocompletion via `nvim-cmp` and `LuaSnip` |
-| 🧹 **Formatting & Linting** | Automatic formatting and linting via `conform.nvim`, `nvim-lint` |
-| 🎥 **Smooth Animations**    | Seamless scroll using `neoscroll.nvim` |
-| 🚀 **Motion Enhancements**  | Faster navigation with `flash.nvim`, faster code with mini.nvim using `mini.ai`, `mini.operator`, `mini.surround` |
-| 🧪 **Testing**              | Faster testing with `neotest.nvim` |
-| 🪶 **UI Enhancements**      | Clean statusline and key hints with `lualine.nvim` and `mini.clue` |
-| 🧭 **File Jumper**          | File and git tree navigation using `oil.nvim` and jump between file using `harpoon` |
-| 🔍 **Search Everything**    | Powerful fuzzy finder via `telescope.nvim` |
-| 🌳 **Syntax Tree**          | Advanced syntax highlighting and textobjects using `nvim-treesitter` |
-| 💾 **Quality of Life**      | Git tools, undo tree, Discord presence, and color highlighting |
-
----
-
-
 ## 🔒 Key Features
 - Fully modular Lua configuration for Neovim (no messy Vimscript legacy)  
 - Minimal dependencies: you build and configure each piece yourself, so you know exactly what’s running  
@@ -88,7 +69,6 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | `gd`         | Go to definition |
 | `<leader>u`  | Toggle undo history |
 | `<leader>cp` | Toggle Copilot |
-| `<leader>gg` | Toggle Fugitive |
 
 ---
 
@@ -112,53 +92,52 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       └── netrw.lua
 ├── lua
 │   ├── core
+│   │   ├── abbrev.lua
 │   │   ├── autocmds.lua
 │   │   ├── lazy.lua
 │   │   ├── mappings.lua
 │   │   └── options.lua
 │   └── plugins
 │       │   └── lsp-config/
-│       │       ├── fidget.lua
 │       │       ├── lsp.lua
 │       │       └── mason.lua
-│       ├── animations.lua
 │       ├── autopairs.lua
+│       ├── blink.lua
 │       ├── colorscheme.lua
-│       ├── completions.lua
-│       ├── dashboard.lua
-│       ├── editor.lua
+│       ├── copilot.lua
+│       ├── emmet.lua
 │       ├── flash.lua
 │       ├── formatter-linter.lua
-│       ├── git.lua
-│       ├── grug-far.lua
+│       ├── gitsigns.lua
 │       ├── harpoon.lua
-│       ├── lualine.lua
+│       ├── heirline.lua
 │       ├── mini.lua
 │       ├── neotest.lua
 │       ├── oil.lua
 │       ├── one-liners.lua
 │       ├── peek.lua
 │       ├── presence.lua
+│       ├── quicker.lua
 │       ├── telescope.lua
+│       ├── todo-comments.lua
 │       ├── treesitter.lua
 │       ├── trouble.lua
+│       ├── ufo.lua
 │       └── ui.lua
 └── README.md
 ```
 
----
-
-## 🖱️ Screenshots
-
-| **Dashboard** | **Telescope** |
-|-----------|-----------|
-| <img src="assets/dashboard.png" width="auto"/> | <img src="assets/telescope.png" width="auto"/> | 
-
-| **Oil** | **Coding** |
-|-----------|-----------|
-| <img src="assets/oil.png" width="auto"/> | <img src="assets/coding.png" width="auto"/> |
-
-
+<!-- --- -->
+<!---->
+<!-- ## 🖱️ Screenshots -->
+<!---->
+<!-- | **Dashboard** | **Telescope** | -->
+<!-- |-----------|-----------| -->
+<!-- | <img src="assets/dashboard.png" width="auto"/> | <img src="assets/telescope.png" width="auto"/> |  -->
+<!---->
+<!-- | **Oil** | **Coding** | -->
+<!-- |-----------|-----------| -->
+<!-- | <img src="assets/oil.png" width="auto"/> | <img src="assets/coding.png" width="auto"/> | -->
 
 ---
 
@@ -173,16 +152,3 @@ Whether it's bug reports, feature requests, or pull requests, please feel free t
 3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
 4.  Push to the branch (`git push origin feature/AmazingFeature`).
 5.  Open a Pull Request.
-
----
-
-## 🧘 Project Philosophy
-
-> “A tool should fade away and leave the work in front of you.”<br>
-> ZenVim embraces this through three guiding truths:
-
-1. **Clarity** — The config should be readable, navigable, and understandable.
-
-2. **Control** — You always know what’s happening; you decide what gets loaded and when.
-
-3. **Flow** — Your editor is a launchpad, not a barrier. No unnecessary friction, just momentum.

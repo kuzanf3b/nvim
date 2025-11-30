@@ -303,6 +303,8 @@ return {
 				local ok, search = pcall(vim.fn.searchcount)
 				if ok and search.total then
 					self.search = search
+				else
+					self.search = { current = "", total = "", maxcount = "" }
 				end
 			end,
 			provider = function(self)

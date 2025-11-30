@@ -32,7 +32,7 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		name = "kanagawa",
-		lazy = false,
+		event = "VeryLazy",
 		config = function()
 			require("kanagawa").setup({
 				colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
@@ -56,7 +56,7 @@ return {
 	{
 		"vague-theme/vague.nvim",
 		name = "vague",
-		lazy = false,
+		event = "VeryLazy",
 		config = function()
 			require("vague").setup({
 				transparent = true,
@@ -65,34 +65,25 @@ return {
 	},
 
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		lazy = false,
-		config = function()
-			require("catppuccin").setup({
-				flavour = "mocha", -- latte, frappe, macchiato, mocha
-				transparent_background = true,
-				styles = {
-					comments = { "italic" },
-					keywords = { "italic" },
-					functions = {},
-					variables = {},
-				},
-				integrations = {
-					nvimtree = true,
-					telescope = true,
-					which_key = true,
-					treesitter = true,
-				},
-			})
-		end,
+		"folke/tokyonight.nvim",
+		name = "tokyonight",
+		event = "VeryLazy",
+		opts = {
+			style = "moon", --  'storm', 'night', 'day', 'moon'
+			transparent = true,
+			styles = {
+				comments = { italic = true },
+				keywords = { italic = true },
+				sidebars = "transparent",
+				floats = "transparent",
+			},
+		},
 	},
 
 	{
 		"Mofiqul/vscode.nvim",
 		name = "vscode",
-		lazy = false,
+		event = "VeryLazy",
 		config = function()
 			require("vscode").setup({
 				transparent = true,

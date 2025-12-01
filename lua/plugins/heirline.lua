@@ -68,7 +68,7 @@ return {
 				self.mode = vim.fn.mode()
 			end,
 
-			provider = " ", -- bubble kecil
+			provider = " ",
 
 			hl = function(self)
 				local m = self.mode:sub(1, 1)
@@ -100,30 +100,52 @@ return {
 		--------------------------------------------------------
 		-- FILE ICON + NAME
 		--------------------------------------------------------
-		local FileIcon = {
+		local FilePathShort = {
 			init = function(self)
-				local filename = vim.api.nvim_buf_get_name(0)
-				local ext = vim.fn.fnamemodify(filename, ":e")
-				self.icon, self.icon_color =
-					require("nvim-web-devicons").get_icon_color(filename, ext, { default = true })
-			end,
-			provider = function(self)
-				return self.icon and (self.icon .. " ")
-			end,
-			hl = function(self)
-				return { fg = self.icon_color }
-			end,
-		}
+				local path = vim.api.nvim_buf_get_name(0)
 
-		local FileName = {
-			init = function(self)
-				local filename = vim.api.nvim_buf_get_name(0)
-				self.filename = (filename ~= "" and vim.fn.fnamemodify(filename, ":t")) or "[No Name]"
+				if path == "" then
+					self.folder = ""
+					self.filename = "[No Name]"
+					return
+				end
+
+				self.folder = vim.fn.fnamemodify(path, ":h:t")
+				self.filename = vim.fn.fnamemodify(path, ":t")
+
+				local ext = vim.fn.fnamemodify(path, ":e")
+				self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(path, ext, { default = true })
 			end,
-			provider = function(self)
-				return self.filename
-			end,
-			hl = { bold = true },
+
+			hl = { fg = hl_fg("Directory"), bold = true },
+
+			-- folder icon
+			{
+				provider = function(self)
+					if self.folder ~= "" then
+						return " " .. self.folder .. "/ "
+					end
+					return ""
+				end,
+				hl = { fg = colors.blue, bold = true },
+			},
+
+			-- file icon
+			{
+				provider = function(self)
+					return self.icon and (self.icon .. " ")
+				end,
+				hl = function(self)
+					return { fg = self.icon_color }
+				end,
+			},
+
+			-- filename
+			{
+				provider = function(self)
+					return self.filename .. ""
+				end,
+			},
 		}
 
 		local FileFlags = {
@@ -153,28 +175,31 @@ return {
 		--------------------------------------------------------
 		-- GIT
 		--------------------------------------------------------
-		-- FIXME: later fix the git issue
 		local Git = {
 			condition = conditions.is_git_repo,
 
 			init = function(self)
-				-- branch
-				self.branch = vim.trim(vim.fn.system("git branch --show-current"))
-
-				-- stats
-				local ok, stats = pcall(MiniDiff.get_buf_stats, 0)
-				stats = ok and stats or { added = 0, changed = 0, removed = 0 }
-
-				self.added = stats.added or 0
-				self.changed = stats.changed or 0
-				self.removed = stats.removed or 0
+				local g = vim.b.gitsigns_status_dict or {}
+				self.head = g.head or nil
+				self.added = g.added or 0
+				self.changed = g.changed or 0
+				self.removed = g.removed or 0
 			end,
 
-			provider = function(self)
-				return string.format(" %s +%d ~%d -%d ", self.branch, self.added, self.changed, self.removed)
-			end,
+			-- entire git segment
+			{
+				-- icon + branch
+				condition = function(self)
+					return self.head ~= nil
+				end,
 
-			hl = { fg = colors.orange, bold = true },
+				provider = function(self)
+					return " " .. self.head
+				end,
+				hl = { fg = colors.orange, bold = true },
+			},
+
+			update = { "BufEnter", "BufWritePost", "User" },
 		}
 
 		--------------------------------------------------------
@@ -205,7 +230,7 @@ return {
 					return self.errors > 0
 				end,
 				provider = function(self)
-					return " " .. self.errors .. " "
+					return " " .. self.errors .. " "
 				end,
 				hl = { fg = colors.diag_error },
 			},
@@ -214,7 +239,7 @@ return {
 					return self.warns > 0
 				end,
 				provider = function(self)
-					return " " .. self.warns .. " "
+					return " " .. self.warns .. " "
 				end,
 				hl = { fg = colors.diag_warn },
 			},
@@ -223,7 +248,7 @@ return {
 					return self.info > 0
 				end,
 				provider = function(self)
-					return "󰋼 " .. self.info .. " "
+					return " " .. self.info .. " "
 				end,
 				hl = { fg = colors.diag_info },
 			},
@@ -232,7 +257,7 @@ return {
 					return self.hints > 0
 				end,
 				provider = function(self)
-					return "󰌵 " .. self.hints .. " "
+					return "󰌶 " .. self.hints .. " "
 				end,
 				hl = { fg = colors.diag_hint },
 			},
@@ -334,40 +359,58 @@ return {
 			},
 		}
 
+		local DefaultStatusline = {
+
+			-- LEFT
+			ModeIndicator,
+			MacroRec,
+			Spacer,
+			FilePathShort,
+			FileFlags,
+			Spacer,
+			Spacer,
+			Git,
+			Spacer,
+			Spacer,
+			Diagnostics,
+
+			-- CENTER
+			{ provider = "%=" },
+
+			-- RIGHT
+			LSPActive,
+			Spacer,
+			Spacer,
+			FileType,
+			Spacer,
+			SearchCount,
+			Spacer,
+			Ruler,
+			Spacer,
+			ScrollBar,
+			Spacer,
+		}
+
+		local SpecialStatusline = {
+			condition = function()
+				return conditions.buffer_matches({
+					buftype = { "nofile", "prompt", "help", "quickfix" },
+					filetype = { "^git.*", "fugitive" },
+				})
+			end,
+
+			FileType,
+			Spacer,
+		}
+
 		--------------------------------------------------------
 		-- STATUSLINE
 		--------------------------------------------------------
 		local Statusline = {
 			fallthrough = false,
-			{
-				-- LEFT
-				ModeIndicator,
-				MacroRec,
-				Spacer,
-				Spacer,
-				FileIcon,
-				FileName,
-				FileFlags,
-				Spacer,
-				Git,
-				Spacer,
-				Diagnostics,
 
-				-- CENTER
-				{ provider = "%=" },
-
-				-- RIGHT
-				LSPActive,
-				Spacer,
-				FileType,
-				Spacer,
-				SearchCount,
-				Spacer,
-				Ruler,
-				Spacer,
-				ScrollBar,
-				Spacer,
-			},
+			SpecialStatusline,
+			DefaultStatusline,
 		}
 
 		--------------------------------------------------------

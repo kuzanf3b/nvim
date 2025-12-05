@@ -32,7 +32,7 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		name = "kanagawa",
-		event = "VeryLazy",
+		lazy = false,
 		config = function()
 			require("kanagawa").setup({
 				colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
@@ -56,7 +56,7 @@ return {
 	{
 		"vague-theme/vague.nvim",
 		name = "vague",
-		event = "VeryLazy",
+		lazy = false,
 		config = function()
 			require("vague").setup({
 				transparent = true,
@@ -67,7 +67,7 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		name = "tokyonight",
-		event = "VeryLazy",
+		lazy = false,
 		opts = {
 			style = "moon", --  'storm', 'night', 'day', 'moon'
 			transparent = true,
@@ -83,7 +83,7 @@ return {
 	{
 		"Mofiqul/vscode.nvim",
 		name = "vscode",
-		event = "VeryLazy",
+		lazy = false,
 		config = function()
 			require("vscode").setup({
 				transparent = true,

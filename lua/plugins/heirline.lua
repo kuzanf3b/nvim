@@ -58,7 +58,8 @@ return {
 		--------------------------------------------------------
 		-- SPACER HELPER
 		--------------------------------------------------------
-		local Spacer = { provider = " " }
+		local OneSpacer = { provider = " " }
+		local TwoSpacer = { provider = "  " }
 
 		--------------------------------------------------------
 		-- MODE INDICATOR (BUBBLE)
@@ -100,52 +101,30 @@ return {
 		--------------------------------------------------------
 		-- FILE ICON + NAME
 		--------------------------------------------------------
-		local FilePathShort = {
+		local FileIcon = {
 			init = function(self)
-				local path = vim.api.nvim_buf_get_name(0)
-
-				if path == "" then
-					self.folder = ""
-					self.filename = "[No Name]"
-					return
-				end
-
-				self.folder = vim.fn.fnamemodify(path, ":h:t")
-				self.filename = vim.fn.fnamemodify(path, ":t")
-
-				local ext = vim.fn.fnamemodify(path, ":e")
-				self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(path, ext, { default = true })
+				local filename = vim.api.nvim_buf_get_name(0)
+				local ext = vim.fn.fnamemodify(filename, ":e")
+				self.icon, self.icon_color =
+					require("nvim-web-devicons").get_icon_color(filename, ext, { default = true })
 			end,
+			provider = function(self)
+				return self.icon and (self.icon .. " ")
+			end,
+			hl = function(self)
+				return { fg = self.icon_color }
+			end,
+		}
 
-			hl = { fg = hl_fg("Directory"), bold = true },
-
-			-- folder icon
-			{
-				provider = function(self)
-					if self.folder ~= "" then
-						return " " .. self.folder .. "/ "
-					end
-					return ""
-				end,
-				hl = { fg = colors.blue, bold = true },
-			},
-
-			-- file icon
-			{
-				provider = function(self)
-					return self.icon and (self.icon .. " ")
-				end,
-				hl = function(self)
-					return { fg = self.icon_color }
-				end,
-			},
-
-			-- filename
-			{
-				provider = function(self)
-					return self.filename .. ""
-				end,
-			},
+		local FileName = {
+			init = function(self)
+				local filename = vim.api.nvim_buf_get_name(0)
+				self.filename = (filename ~= "" and vim.fn.fnamemodify(filename, ":t")) or "[No Name]"
+			end,
+			provider = function(self)
+				return self.filename
+			end,
+			hl = { bold = true },
 		}
 
 		local FileFlags = {
@@ -277,7 +256,7 @@ return {
 			},
 			condition = conditions.lsp_attached,
 			provider = " [LSP]",
-			hl = { fg = colors.cyan, bold = true },
+			hl = { fg = colors.green, bold = true },
 		}
 
 		--------------------------------------------------------
@@ -336,7 +315,7 @@ return {
 				local s = self.search
 				return string.format("[%d/%d]", s.current, math.min(s.total, s.maxcount))
 			end,
-			hl = { fg = colors.purple },
+			hl = { fg = colors.red },
 		}
 
 		--------------------------------------------------------
@@ -364,14 +343,13 @@ return {
 			-- LEFT
 			ModeIndicator,
 			MacroRec,
-			Spacer,
-			FilePathShort,
+			OneSpacer,
+			FileIcon,
+			FileName,
 			FileFlags,
-			Spacer,
-			Spacer,
+			TwoSpacer,
 			Git,
-			Spacer,
-			Spacer,
+			TwoSpacer,
 			Diagnostics,
 
 			-- CENTER
@@ -379,16 +357,15 @@ return {
 
 			-- RIGHT
 			LSPActive,
-			Spacer,
-			Spacer,
+			TwoSpacer,
 			FileType,
-			Spacer,
+			OneSpacer,
 			SearchCount,
-			Spacer,
+			OneSpacer,
 			Ruler,
-			Spacer,
+			OneSpacer,
 			ScrollBar,
-			Spacer,
+			OneSpacer,
 		}
 
 		local SpecialStatusline = {
@@ -400,7 +377,7 @@ return {
 			end,
 
 			FileType,
-			Spacer,
+			OneSpacer,
 		}
 
 		--------------------------------------------------------

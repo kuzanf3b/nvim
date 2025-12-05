@@ -1,7 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	event = "VeryLazy",
-	branch = "master",
 
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -25,25 +24,37 @@ return {
 		telescope.setup({
 			defaults = {
 				prompt_prefix = "  ",
-				selection_caret = " ",
+				selection_caret = " ",
 				path_display = { "truncate" },
+
 				layout_strategy = "flex",
 				layout_config = {
-					prompt_position = "bottom", -- top or bottom
+					prompt_position = "bottom",
 					horizontal = { preview_width = 0.55 },
 					vertical = { mirror = false },
 				},
-				sorting_strategy = "descending", -- ascending or descending
+
+				sorting_strategy = "descending",
 				file_ignore_patterns = { "node_modules", "%.git/", "venv/", "build/" },
+
 				mappings = {
 					i = {
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
-						["<C-q>"] = function(...)
-							actions.send_selected_to_qflist(...)
-							actions.open_qflist(...)
+
+						["<C-q>"] = function(prompt_bufnr)
+							actions.send_selected_to_qflist(prompt_bufnr)
+							actions.open_qflist()
 						end,
-						["<Esc>"] = actions.close,
+					},
+				},
+
+				extensions = {
+					fzf = {
+						fuzzy = true,
+						override_generic_sorter = true,
+						override_file_sorter = true,
+						case_mode = "smart_case",
 					},
 				},
 			},
@@ -53,8 +64,9 @@ return {
 					hidden = true,
 					previewer = true,
 				},
+
 				live_grep = {
-					additional_args = function(_)
+					additional_args = function()
 						return { "--hidden" }
 					end,
 				},
@@ -68,35 +80,36 @@ return {
 			},
 		})
 
-		-- Load extensions safely
 		pcall(telescope.load_extension, "fzf")
 		pcall(telescope.load_extension, "ui-select")
 		pcall(telescope.load_extension, "todo-comments")
 
-		-- Keymaps
 		local map = vim.keymap.set
+
 		map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 		map("n", "<leader>fo", builtin.oldfiles, { desc = "Recent files" })
 		map("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
 		map("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
 		map("n", "<leader>fm", builtin.commands, { desc = "Find commands" })
-		map("n", "<leader>fc", builtin.colorscheme, { desc = "Find Colorscheme" })
+		map("n", "<leader>fc", builtin.colorscheme, { desc = "Find colorscheme" })
+
 		map("n", "<leader>fg", function()
-			builtin.grep_string({ search = vim.fn.input("Grep > ") })
-		end, { desc = "Live grep (manual input)" })
+			builtin.live_grep({ prompt_title = "Live Grep (manual input)" })
+		end, { desc = "Live Grep input" })
 
 		map("n", "<leader>fp", function()
 			local filename = vim.fn.expand("%:t:r")
 			builtin.grep_string({ search = filename })
-		end, { desc = "Find current file name across project" })
+		end, { desc = "Search current filename" })
 
-		map("n", "<leader>fs", builtin.grep_string, { desc = "Find current word" })
+		map("n", "<leader>fs", builtin.grep_string, { desc = "Search word under cursor" })
+
 		map("n", "<leader>fi", function()
 			builtin.find_files({ cwd = vim.fn.expand("~/.config/nvim/") })
 		end, { desc = "Find in Neovim config" })
 
 		map("n", "<leader>ft", function()
-			require("telescope").extensions["todo-comments"].todo()
-		end, { desc = "Find TODO comments" })
+			telescope.extensions["todo-comments"].todo()
+		end, { desc = "Find TODOs" })
 	end,
 }

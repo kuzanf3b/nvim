@@ -1,18 +1,15 @@
--- ╭──────────────────────────────────────────────╮
--- │ OPTIONS - ZenVim Core Settings               │
--- ╰──────────────────────────────────────────────╯
 local opt = vim.opt
 local g = vim.g
 
--- LEADER KEYS
+-- Leader keys
 g.mapleader = " "
 g.maplocalleader = "\\"
 
--- LINE NUMBERS
+-- Line numbers
 opt.number = true
 opt.relativenumber = true
 
--- TABS & INDENTATION
+-- Tabs & indentation
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
@@ -20,13 +17,13 @@ opt.autoindent = true
 opt.smartindent = true
 opt.shiftround = true
 
--- SEARCH
+-- Search
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
-opt.inccommand = "nosplit" -- live substitution preview
+opt.inccommand = "split"
 
--- APPEARANCE
+-- Appearance
 opt.termguicolors = true
 opt.cursorline = true
 opt.colorcolumn = "120"
@@ -36,45 +33,45 @@ opt.sidescrolloff = 8
 opt.wrap = false
 opt.winborder = "rounded"
 
--- STATUSLINE / CMDLINE
-opt.laststatus = 3 -- global statusline
+-- Statusline / command line
+opt.laststatus = 3
 opt.showcmdloc = "statusline"
 opt.ruler = false
 opt.cmdheight = 1
 
--- CLIPBOARD
+-- Clipboard
 opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 
---  UNDO / SWAP / BACKUP
+-- Undo / swap / backup
 opt.undofile = true
 opt.undodir = vim.fn.stdpath("data") .. "/undo"
 opt.swapfile = false
 opt.backup = false
-opt.updatetime = 100 -- faster CursorHold events
+opt.updatetime = 100
 
--- MOUSE
+-- Mouse
 opt.mouse = "a"
 
--- COMPLETION
+-- Completion menu
 opt.completeopt = "menu,menuone,noselect,preview"
 opt.pumblend = 10
 opt.pumheight = 10
 
--- SPLITS
+-- Splits
 opt.splitbelow = true
 opt.splitright = true
 opt.splitkeep = "screen"
 
--- CURSOR & SCROLLING
+-- Cursor & scrolling
 opt.virtualedit = "block"
 opt.jumpoptions = "view"
--- opt.guicursor = "" -- vim OG cursor
+-- opt.guicursor = ""
 
--- MISC
+-- Misc
 opt.iskeyword:append("-")
 opt.backspace = "indent,eol,start"
 opt.spelllang = { "en" }
 
--- DISABLE NETRW (for modern file explorers)
+-- Disable netrw (optional)
 -- g.loaded_netrw = 1
 -- g.loaded_netrwPlugin = 1

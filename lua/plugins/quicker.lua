@@ -34,11 +34,11 @@ return {
 		map("n", "<leader>qg", function()
 			local input = vim.fn.input("Grep > ")
 			if input ~= "" then
-				vim.fn.setqflist({}, "r", {
+				vim.fn.setloclist(0, {}, "r", {
 					title = "Ripgrep",
 					lines = vim.fn.systemlist("rg --vimgrep " .. vim.fn.shellescape(input)),
 				})
-				require("quicker").toggle() -- buka quickfix via quicker
+				require("quicker").toggle({ loclist = true }) -- buka quickfix via quicker
 			end
 		end, { desc = "Search with ripgrep (to quicker)" })
 	end,

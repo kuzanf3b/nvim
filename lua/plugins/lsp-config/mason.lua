@@ -25,7 +25,7 @@ return {
 					"html",
 					"cssls",
 				},
-				automatic_installation = true,
+				automatic_installation = false,
 			})
 		end,
 	},

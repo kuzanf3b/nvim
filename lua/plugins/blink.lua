@@ -1,6 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	event = "InsertEnter",
+	build = "cargo build --release",
 	dependencies = {
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
@@ -24,7 +25,7 @@ return {
 			ghost_text = { enabled = true },
 		},
 		signature = { enabled = true },
-		fuzzy = { implementation = "lua" },
+		fuzzy = { implementation = "prefer_rust" },
 		sources = {
 			default = {
 				"copilot",

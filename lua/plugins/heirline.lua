@@ -50,6 +50,7 @@ return {
 				visual = "#bb9af7",
 				replace = "#f7768e",
 				command = "#e0af68",
+				terminal = "#73daca",
 			},
 		}
 
@@ -60,32 +61,72 @@ return {
 		--------------------------------------------------------
 		local OneSpacer = { provider = " " }
 		local TwoSpacer = { provider = "  " }
+		local Align = { provider = "%=" }
 
 		--------------------------------------------------------
 		-- MODE INDICATOR (BUBBLE)
 		--------------------------------------------------------
-		local ModeIndicator = {
+		local mode_color = {
+			-- Normal variants
+			["n"] = colors.mode.normal,
+			["no"] = colors.mode.normal,
+			["nov"] = colors.mode.normal,
+			["noV"] = colors.mode.normal,
+			["no\22"] = colors.mode.normal,
+			["niI"] = colors.mode.normal,
+			["niR"] = colors.mode.normal,
+			["niV"] = colors.mode.normal,
+
+			-- Insert variants
+			["i"] = colors.mode.insert,
+			["ic"] = colors.mode.insert,
+			["ix"] = colors.mode.insert,
+
+			-- Visual variants
+			["v"] = colors.mode.visual,
+			["V"] = colors.mode.visual,
+			["\22"] = colors.mode.visual, -- CTRL-V
+
+			-- Select
+			["s"] = colors.mode.visual,
+			["S"] = colors.mode.visual,
+			["\19"] = colors.mode.visual,
+
+			-- Replace
+			["R"] = colors.mode.replace,
+			["Rc"] = colors.mode.replace,
+			["Rx"] = colors.mode.replace,
+			["Rv"] = colors.mode.replace,
+			["Rvc"] = colors.mode.replace,
+			["Rvx"] = colors.mode.replace,
+
+			-- Command-line modes
+			["c"] = colors.mode.command,
+			["cv"] = colors.mode.command,
+			["ce"] = colors.mode.command,
+
+			-- Prompt / More
+			["!"] = colors.mode.command,
+			["r"] = colors.mode.command,
+			["rm"] = colors.mode.command,
+			["r?"] = colors.mode.command,
+
+			-- Terminal
+			["t"] = colors.mode.terminal,
+		}
+
+		local ViMode = {
 			init = function(self)
 				self.mode = vim.fn.mode()
 			end,
 
-			provider = " ",
+			provider = function(self)
+				-- Kalau butuh ikon mode, bisa tambah di sini
+				return " "
+			end,
 
 			hl = function(self)
-				local m = self.mode:sub(1, 1)
-				local color = colors.mode.command
-				if m == "n" then
-					color = colors.mode.normal
-				end
-				if m == "i" then
-					color = colors.mode.insert
-				end
-				if m == "v" or m == "V" or m == "\22" then
-					color = colors.mode.visual
-				end
-				if m == "R" then
-					color = colors.mode.replace
-				end
+				local color = mode_color[self.mode] or colors.mode.command
 				return { bg = color }
 			end,
 
@@ -149,6 +190,17 @@ return {
 				return string.upper(vim.bo.filetype)
 			end,
 			hl = { fg = hl_fg("Type"), bold = true },
+		}
+
+		local HelpFileName = {
+			condition = function()
+				return vim.bo.filetype == "help"
+			end,
+			provider = function()
+				local filename = vim.api.nvim_buf_get_name(0)
+				return vim.fn.fnamemodify(filename, ":t")
+			end,
+			hl = { fg = colors.blue },
 		}
 
 		--------------------------------------------------------
@@ -339,9 +391,8 @@ return {
 		}
 
 		local DefaultStatusline = {
-
 			-- LEFT
-			ModeIndicator,
+			ViMode,
 			MacroRec,
 			OneSpacer,
 			FileIcon,
@@ -368,16 +419,41 @@ return {
 			OneSpacer,
 		}
 
+		local InactiveStatusline = {
+			condition = conditions.is_not_active,
+			FileType,
+			OneSpacer,
+			FileName,
+			Align,
+		}
+
+		local TerminalStatusline = {
+
+			condition = function()
+				return conditions.buffer_matches({ buftype = { "terminal" } })
+			end,
+
+			hl = { bg = "dark_red" },
+
+			-- Quickly add a condition to the ViMode to only show it when buffer is active!
+			{ condition = conditions.is_active, ViMode, Space },
+			FileType,
+			OneSpacer,
+			Align,
+		}
+
 		local SpecialStatusline = {
 			condition = function()
 				return conditions.buffer_matches({
 					buftype = { "nofile", "prompt", "help", "quickfix" },
-					filetype = { "^git.*", "fugitive" },
+					filetype = { "^git.*", "fugitive", "Trouble", "dashboard", "netrw" },
 				})
 			end,
 
 			FileType,
 			OneSpacer,
+			HelpFileName,
+			Align,
 		}
 
 		--------------------------------------------------------
@@ -385,9 +461,18 @@ return {
 		--------------------------------------------------------
 		local Statusline = {
 			fallthrough = false,
+			hl = function()
+				if conditions.is_active() then
+					return "StatusLine"
+				else
+					return "StatusLineNC"
+				end
+			end,
 
 			SpecialStatusline,
 			DefaultStatusline,
+			InactiveStatusline,
+			TerminalStatusline,
 		}
 
 		--------------------------------------------------------
@@ -397,6 +482,23 @@ return {
 			statusline = Statusline,
 			tabline = nil,
 			winbar = nil,
+			opts = {
+				disable_statusline_cb = function(args)
+					return require("heirline.conditions").buffer_matches({
+						buftype = { "nofile", "prompt", "help", "quickfix" },
+						filetype = {
+							"^git.*",
+							"fugitive",
+							"Trouble",
+							"dashboard",
+							"alpha",
+							"starter",
+							"lazy",
+							"neotree",
+						},
+					}, args.buf)
+				end,
+			},
 		})
 	end,
 }

@@ -142,52 +142,23 @@ return {
 				},
 			},
 
-			pyright = {
-				cmd = { "pyright-langserver", "--stdio" },
-				filetypes = { "python" },
-				root_dir = vim.fs.root(0, {
-					"pyproject.toml",
-					"setup.py",
-					"requirements.txt",
-					".git",
-				}),
-			},
+			-- pyright = {
+			-- 	cmd = { "pyright-langserver", "--stdio" },
+			-- 	filetypes = { "python" },
+			-- 	root_dir = vim.fs.root(0, {
+			-- 		"pyproject.toml",
+			-- 		"setup.py",
+			-- 		"requirements.txt",
+			-- 		".git",
+			-- 	}),
+			-- },
 
-			dartls = {
-				cmd = { "dcm", "language-server" },
-				filetypes = { "dart" },
-				root_dir = vim.fs.root(0, { "pubspec.yaml", ".git" }),
-				settings = {
-					dcm = {
-						linter = true,
-						formatter = true,
-						analysis = true,
-					},
-				},
-			},
+			-- dartls = {},
 
-			omnisharp = {
-				cmd = { "omnisharp" },
-				filetypes = { "cs", "vb" },
-				root_dir = vim.fs.root(0, { "*.sln", "*.csproj", ".git" }),
-				enable_roslyn_analyzers = true,
-				enable_import_completion = true,
-				organize_imports_on_format = true,
-				settings = {
-					FormattingOptions = {
-						EnableEditorConfigSupport = true,
-						OrganizeImports = true,
-					},
-					RoslynExtensionsOptions = {
-						EnableAnalyzersSupport = true,
-						EnableImportCompletion = true,
-						AnalyzeOpenDocumentsOnly = false,
-					},
-				},
-			},
+			-- omnisharp = {},
 
 			emmet_ls = {
-				cmd = { "emmet-ls", "--stdio" },
+				cmd = { "emmet-language-server", "--stdio" },
 				filetypes = {
 					"html",
 					"css",

@@ -9,5 +9,10 @@ return {
 			markdown = true,
 			help = true,
 		},
+
+		should_attach = function(bufnr)
+			local ft = vim.bo[bufnr].filetype
+			return not vim.tbl_contains({ "markdown", "text", "help" }, ft)
+		end,
 	},
 }

@@ -12,7 +12,7 @@ return {
 			changedelete = { text = "▎" },
 		},
 		signs_staged_enable = true,
-		current_line_blame = true,
+		current_line_blame = false,
 		current_line_blame_opts = {
 			delay = 500,
 			virt_text_pos = "eol",

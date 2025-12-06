@@ -88,5 +88,4 @@ end, { desc = "Copilot" })
 -- Misc
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Write" })
 map("n", "<leader>m", "<cmd>messages<cr>", { desc = "Messages" })
-map("n", "<leader>rl", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 map("n", "<leader>rs", "<cmd>source %<CR>", { desc = "Execute the current file" })

@@ -29,12 +29,12 @@ return {
 
 				layout_strategy = "flex",
 				layout_config = {
-					prompt_position = "bottom",
+					prompt_position = "top",
 					horizontal = { preview_width = 0.55 },
 					vertical = { mirror = false },
 				},
 
-				sorting_strategy = "descending",
+				sorting_strategy = "ascending",
 				file_ignore_patterns = { "node_modules", "%.git/", "venv/", "build/" },
 
 				mappings = {
@@ -61,6 +61,7 @@ return {
 
 			pickers = {
 				find_files = {
+					theme = "ivy",
 					hidden = true,
 					previewer = true,
 				},
@@ -93,6 +94,12 @@ return {
 		map("n", "<leader>fm", builtin.commands, { desc = "Find commands" })
 		map("n", "<leader>fc", builtin.colorscheme, { desc = "Find colorscheme" })
 
+		map("n", "<leader>fb", function()
+			builtin.buffers({
+				sort_mru = true,
+				ignore_current_buffer = true,
+			})
+		end, { desc = "Find buffers (MRU)" })
 		map("n", "<leader>fg", function()
 			builtin.live_grep({ prompt_title = "Live Grep (manual input)" })
 		end, { desc = "Live Grep input" })

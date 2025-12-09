@@ -187,7 +187,7 @@ return {
 
 		local FileType = {
 			provider = function()
-				return string.upper(vim.bo.filetype)
+				return vim.bo.filetype
 			end,
 			hl = { fg = hl_fg("Type"), bold = true },
 		}

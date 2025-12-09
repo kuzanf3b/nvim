@@ -21,7 +21,7 @@ opt.shiftround = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
-opt.inccommand = "split"
+opt.inccommand = "nosplit"
 
 -- Appearance
 opt.termguicolors = true

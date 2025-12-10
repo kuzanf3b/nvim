@@ -29,9 +29,16 @@ return {
 
 				layout_strategy = "flex",
 				layout_config = {
-					prompt_position = "top",
-					horizontal = { preview_width = 0.55 },
-					vertical = { mirror = false },
+					horizontal = {
+						prompt_position = "top",
+						preview_width = 0.50,
+					},
+					vertical = {
+						mirror = false,
+					},
+					width = 0.87,
+					height = 0.80,
+					preview_cutoff = 120,
 				},
 
 				sorting_strategy = "ascending",
@@ -60,11 +67,6 @@ return {
 			},
 
 			pickers = {
-				find_files = {
-					theme = "ivy",
-					hidden = true,
-					previewer = true,
-				},
 
 				live_grep = {
 					additional_args = function()

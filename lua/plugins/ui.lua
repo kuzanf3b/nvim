@@ -87,7 +87,6 @@ return {}
 -- 				level = vim.log.levels.INFO,
 -- 			})
 --
--- 			-- Override bawaan vim.notify biar seragam
 -- 			vim.notify = function(msg, log_level, opts)
 -- 				opts = opts or {}
 -- 				opts.level = opts.level or log_level or vim.log.levels.INFO

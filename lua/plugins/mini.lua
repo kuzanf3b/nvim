@@ -21,17 +21,6 @@ return {
 			search_method = "cover_or_next",
 		})
 
-		-- require("mini.diff").setup({
-		-- 	view = {
-		-- 		style = "sign",
-		-- 		signs = {
-		-- 			add = "▎",
-		-- 			change = "▎",
-		-- 			delete = "",
-		-- 		},
-		-- 	},
-		-- })
-
 		-- Splitjoin
 		require("mini.splitjoin").setup()
 
@@ -39,26 +28,26 @@ return {
 		require("mini.operators").setup()
 
 		-- Notify
-		require("mini.notify").setup({
-			content = {
-				format = function(notif)
-					return notif.msg
-				end,
-			},
-
-			window = {
-				winblend = 0,
-
-				config = function()
-					return {
-						border = "rounded",
-						title = "",
-					}
-				end,
-			},
-		})
-
-		vim.notify = require("mini.notify").make_notify()
+		-- require("mini.notify").setup({
+		-- 	content = {
+		-- 		format = function(notif)
+		-- 			return notif.msg
+		-- 		end,
+		-- 	},
+		--
+		-- 	window = {
+		-- 		winblend = 0,
+		--
+		-- 		config = function()
+		-- 			return {
+		-- 				border = "rounded",
+		-- 				title = "",
+		-- 			}
+		-- 		end,
+		-- 	},
+		-- })
+		--
+		-- vim.notify = require("mini.notify").make_notify()
 
 		-- Clue
 		local clue = require("mini.clue")

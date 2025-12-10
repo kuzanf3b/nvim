@@ -82,12 +82,11 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       ├── blink.lua
 │       ├── colorscheme.lua
 │       ├── copilot.lua
-│       ├── emmet.lua
-│       ├── flash.lua
 │       ├── formatter-linter.lua
 │       ├── gitsigns.lua
 │       ├── harpoon.lua
 │       ├── heirline.lua
+│       ├── leap.lua
 │       ├── mini.lua
 │       ├── neotest.lua
 │       ├── oil.lua
@@ -99,7 +98,6 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 │       ├── todo-comments.lua
 │       ├── treesitter.lua
 │       ├── trouble.lua
-│       ├── ufo.lua
 │       └── ui.lua
 └── README.md
 ```

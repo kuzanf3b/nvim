@@ -6,7 +6,7 @@ return {
 
 	opts = function()
 		local lib = require("heirline-components.all")
-		local my_nav = require("ui.heirline.components.nav") -- ← ini kuncinya
+		local ccomponent = require("ui.heirline.components.nav")
 
 		return {
 			opts = {
@@ -38,13 +38,13 @@ return {
 				lib.component.cmd_info({ showcmd = false }),
 				lib.component.fill(),
 
-				lib.component.lsp({ lsp_client_names = false }),
+				lib.component.lsp(),
 				lib.component.virtual_env(),
 
 				-- lib.component.nav(),
 
-				my_nav.Ruler,
-				my_nav.ScrollBar,
+				ccomponent.Ruler,
+				ccomponent.ScrollBar,
 
 				lib.component.mode({ surround = { separator = "right" } }),
 			},

@@ -1,4 +1,5 @@
-local colors = require("heirline-components.core.hl").get_colors()
+local hl = require("heirline-components.core.hl")
+local c = hl.get_colors()
 
 local M = {}
 
@@ -18,7 +19,7 @@ M.Ruler = {
 			percent = string.format("%d%%%%", math.floor(line / total * 100))
 		end
 
-		return string.format("%d:%d %s ", line, col, percent)
+		return string.format("   %d:%d %s ", line, col, percent)
 	end,
 
 	update = { "CursorMoved", "WinScrolled" },
@@ -38,8 +39,7 @@ M.ScrollBar = {
 	end,
 
 	hl = {
-		fg = colors.nav_fg,
-		bg = colors.nav_bg,
+		fg = c.diag_INFO,
 	},
 }
 

@@ -41,10 +41,10 @@ return {
 				lib.component.lsp(),
 				lib.component.virtual_env(),
 
-				-- lib.component.nav(),
+				lib.component.nav(),
 
-				ccomponent.Ruler,
-				ccomponent.ScrollBar,
+				-- ccomponent.Ruler,
+				-- ccomponent.ScrollBar,
 
 				lib.component.mode({ surround = { separator = "right" } }),
 			},

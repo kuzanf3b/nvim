@@ -39,7 +39,7 @@ M.ScrollBar = {
 	end,
 
 	hl = {
-		fg = c.diag_INFO,
+		fg = c.scrollbar,
 	},
 }
 

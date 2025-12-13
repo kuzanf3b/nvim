@@ -6,8 +6,8 @@ return {
 		local leapUser = require("leap.user")
 
 		local map = vim.keymap.set
-		-- map({ "n", "x", "o" }, "s", "<Plug>(leap)")
-		-- map("n", "S", "<Plug>(leap-from-window)")
+		map({ "n", "x", "o" }, "s", "<Plug>(leap)")
+		map("n", "S", "<Plug>(leap-from-window)")
 
 		leap.opts.safe_labels = ""
 

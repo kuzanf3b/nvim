@@ -44,16 +44,15 @@ return {
 
 		local servers = {
 			lua_ls = {
-				cmd = { "/usr/bin/lua-language-server" },
 				settings = {
 					Lua = {
 						runtime = { version = "LuaJIT" },
 						diagnostics = { globals = { "vim" } },
 						workspace = {
 							checkThirdParty = false,
-							library = vim.api.nvim_get_runtime_file("", true),
 						},
 						completion = { callSnippet = "Replace" },
+						telemetery = { enable = false },
 					},
 				},
 			},

@@ -19,6 +19,7 @@ require("lazy").setup({
 	{ import = "plugins" },
 	{ import = "plugins.lsp-config" },
 	{ import = "plugins.mini" },
+	{ import = "plugins.cmp" },
 }, {
 	ui = {
 		border = "rounded",

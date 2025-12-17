@@ -18,7 +18,7 @@ return {
 				auto_show = true,
 				draw = {
 					treesitter = { "lsp" },
-					columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind" } },
+					columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind", gap = 5 } },
 				},
 			},
 			documentation = { auto_show = true },
@@ -28,6 +28,7 @@ return {
 		fuzzy = { implementation = "prefer_rust" },
 		sources = {
 			default = {
+				"lazydev",
 				"copilot",
 				"lsp",
 				"path",
@@ -39,6 +40,12 @@ return {
 					name = "copilot",
 					module = "blink-copilot",
 					async = true,
+				},
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					-- make lazydev completions top priority (see `:h blink.cmp`)
+					score_offset = 100,
 				},
 			},
 		},

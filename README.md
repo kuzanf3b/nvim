@@ -1,11 +1,7 @@
-# 💤 ZenVim
-
-[![Neovim](https://img.shields.io/badge/Neovim-0.9+-green?logo=neovim)](https://neovim.io/)
-[![Lua](https://img.shields.io/badge/Lua-5.1-blue?logo=lua)](https://www.lua.org/)
-[![Lazy.nvim](https://img.shields.io/badge/Plugin%20Manager-Lazy.nvim-orange)](https://github.com/folke/lazy.nvim)
+# 💤 NEOVIM
 
 ## ✨ Overview 
-ZenVim is a thoughtfully curated Neovim configuration built manually from the ground up. It embraces minimalism, efficiency, and clarity — for devs who want their editor to feel alive yet streamlined.  
+It embraces minimalism, efficiency, and clarity — for devs who want their editor to feel alive yet powerfull.  
 This isn’t just a copy‑paste config; it’s a handcrafted setup for those who code, engineer and live in the zone.
 
 ---
@@ -24,10 +20,10 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 
 ## 🚀 Installation
 
-1. **Clone ZenVim:**
+1. **Clone neovim:**
 
    ```bash
-   git clone https://github.com/kuzanf3b/ZenVim ~/.config/nvim
+   git clone https://github.com/kuzanf3b/nvim.conf ~/.config/nvim
    ```
 
 2. **Enter config directory:**
@@ -56,51 +52,6 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | `gd`         | Go to definition |
 | `<leader>u`  | Toggle undo history |
 | `<leader>cp` | Toggle Copilot |
-
----
-
-## 🧩 Folder Structure
-
-```
-~/.config/nvim
-├── init.lua
-├── after
-│   └── ftplugin
-│       └── netrw.lua
-├── lua
-│   ├── core
-│   │   ├── abbrev.lua
-│   │   ├── autocmds.lua
-│   │   ├── lazy.lua
-│   │   ├── mappings.lua
-│   │   └── options.lua
-│   └── plugins
-│       │   └── lsp-config/
-│       │       ├── lsp.lua
-│       │       └── mason.lua
-│       ├── autopairs.lua
-│       ├── blink.lua
-│       ├── colorscheme.lua
-│       ├── copilot.lua
-│       ├── formatter-linter.lua
-│       ├── gitsigns.lua
-│       ├── harpoon.lua
-│       ├── heirline.lua
-│       ├── leap.lua
-│       ├── mini.lua
-│       ├── neotest.lua
-│       ├── oil.lua
-│       ├── one-liners.lua
-│       ├── peek.lua
-│       ├── presence.lua
-│       ├── quicker.lua
-│       ├── telescope.lua
-│       ├── todo-comments.lua
-│       ├── treesitter.lua
-│       ├── trouble.lua
-│       └── ui.lua
-└── README.md
-```
 
 <!-- --- -->
 <!---->

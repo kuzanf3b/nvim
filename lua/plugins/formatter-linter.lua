@@ -16,12 +16,6 @@ return {
 					typescript = { "prettier" },
 					json = { "prettier" },
 					jsonc = { "prettier" },
-					python = { "isort", "black" },
-					-- php = { "php-cs-fixer" },
-					-- dart = { "dcm" },
-					-- java = { "google-java-format" },
-					csharp = { "csharpier" },
-					gdscript = { "gdformat" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
@@ -50,11 +44,6 @@ return {
 				lua = { "luacheck" },
 				javascript = { "eslint_d" },
 				typescript = { "eslint_d" },
-				python = { "flake8" },
-				csharp = { "roslynator" },
-				-- dart = { "dcm" },
-				-- java = { "checkstyle" },
-				-- gdscript = { "gdtoolkit" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
@@ -77,10 +66,6 @@ return {
 					"prettier",
 					"isort",
 					"black",
-					-- "php-cs-fixer",
-					-- "google-java-format",
-					"csharpier",
-					-- "gdtoolkit",
 				},
 			})
 		end,

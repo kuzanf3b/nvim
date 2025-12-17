@@ -1,5 +1,5 @@
 function MyCrayon(color)
-	color = color or "tokyonight"
+	color = color or "rose-pine"
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
@@ -13,10 +13,8 @@ return {
 		priority = 1000,
 		config = function()
 			require("rose-pine").setup({
-				variant = "moon", -- 'rose', 'dawn', 'moon'
-				dark_variant = "moon",
-				disable_background = false,
-				dim_nc_background = false,
+				variant = "main", -- 'main', 'dawn', 'moon'
+				dark_variant = "main",
 				styles = {
 					bold = true,
 					italic = true,

@@ -1,10 +1,5 @@
 # 💤 NEOVIM
 
-## ✨ Overview 
-It embraces minimalism, efficiency, and clarity — for devs who want their editor to feel alive yet powerfull.  
-This isn’t just a copy‑paste config; it’s a handcrafted setup for those who code, engineer and live in the zone.
-
----
 
 ## 🧰 Requirements
 
@@ -47,34 +42,14 @@ This isn’t just a copy‑paste config; it’s a handcrafted setup for those wh
 | `<leader>fg` | Live grep |
 | `<leader>a`  | Add file to harpoon |
 | `<C-e>`      | Harpoon menu |
-| `<leader>e`  | Toggle Oil explorer |
+| `<leader>e`  | Toggle explorer |
 | `<leader>ca` | Code action |
 | `gd`         | Go to definition |
 | `<leader>u`  | Toggle undo history |
 | `<leader>cp` | Toggle Copilot |
 
-<!-- --- -->
-<!---->
-<!-- ## 🖱️ Screenshots -->
-<!---->
-<!-- | **Dashboard** | **Telescope** | -->
-<!-- |-----------|-----------| -->
-<!-- | <img src="assets/dashboard.png" width="auto"/> | <img src="assets/telescope.png" width="auto"/> |  -->
-<!---->
-<!-- | **Oil** | **Coding** | -->
-<!-- |-----------|-----------| -->
-<!-- | <img src="assets/oil.png" width="auto"/> | <img src="assets/coding.png" width="auto"/> | -->
-
 ---
 
-## 🤝 Contributions
+## 🖱️ Screenshots
 
-Contributions are always welcome!
-
-Whether it's bug reports, feature requests, or pull requests, please feel free to open an issue or PR.
-
-1.  Fork the repository.
-2.  Create your feature branch (`git checkout -b feature/AmazingFeature`).
-3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4.  Push to the branch (`git push origin feature/AmazingFeature`).
-5.  Open a Pull Request.
+<img src="./assets/screenshot_2025-12-20_12-10-14.png">

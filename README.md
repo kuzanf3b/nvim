@@ -52,4 +52,4 @@
 
 ## 🖱️ Screenshots
 
-<img src="./assets/screenshot_2025-12-20_12-10-14.png">
+<img src="./assets/code.png">

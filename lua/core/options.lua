@@ -37,7 +37,6 @@ opt.winborder = "rounded"
 opt.laststatus = 3
 opt.showcmdloc = "statusline"
 opt.ruler = false
-opt.cmdheight = 0
 
 -- Clipboard
 opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"

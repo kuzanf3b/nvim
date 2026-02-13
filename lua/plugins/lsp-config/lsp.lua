@@ -183,7 +183,7 @@ return {
 				},
 			},
 
-			volar = {
+			vue_ls = {
 				filetypes = { "vue" },
 				root_dir = vim.fs.root(0, {
 					"package.json",

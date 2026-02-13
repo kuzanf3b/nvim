@@ -36,17 +36,17 @@
 
 ## 🔑 Mappings Overview
 
-| Key          | Action |
-|--------------|--------|
-| `<leader>ff` | Find files |
-| `<leader>fg` | Live grep |
-| `<leader>a`  | Add file to harpoon |
-| `<C-e>`      | Harpoon menu |
-| `<leader>e`  | Toggle explorer |
-| `<leader>ca` | Code action |
-| `gd`         | Go to definition |
-| `<leader>u`  | Toggle undo history |
-| `<leader>cp` | Toggle Copilot |
+|Mode     | Key          | Action |
+|---------|--------------|--------|
+|`n`      | `<leader>ff` | Find files |
+|`n`      | `<leader>fg` | Live grep |
+|`n`      | `<leader>a`  | Add file to harpoon |
+|`n`      | `<C-e>`      | Harpoon menu |
+|`n`      | `<leader>e`  | Toggle explorer |
+|`n`, `v` | `<leader>ca` | Code action |
+|`n`      | `gd`         | Go to definition |
+|`n`      | `<leader>u`  | Toggle undo history |
+|`n`      | `<leader>cp` | Toggle Copilot |
 
 ---
 

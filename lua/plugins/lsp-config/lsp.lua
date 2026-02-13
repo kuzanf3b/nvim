@@ -183,6 +183,22 @@ return {
 				},
 			},
 
+			volar = {
+				filetypes = { "vue" },
+				root_dir = vim.fs.root(0, {
+					"package.json",
+					"tsconfig.json",
+					"jsconfig.json",
+					".git",
+				}),
+				init_options = {
+					typescript = {
+						tsdk = vim.fn.stdpath("data")
+							.. "/mason/packages/typescript-language-server/node_modules/typescript/lib",
+					},
+				},
+			},
+
 			gopls = {
 				settings = {
 					gopls = {

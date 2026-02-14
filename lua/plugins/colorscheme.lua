@@ -1,5 +1,5 @@
 local function MyCrayon(color)
-	color = color or "rose-pine"
+	color = color or "onedark"
 	vim.cmd.colorscheme(color)
 end
 
@@ -24,25 +24,12 @@ return {
 	},
 
 	{
-		"rebelot/kanagawa.nvim",
-		name = "kanagawa",
+		"vague-theme/vague.nvim",
+		name = "vague",
 		lazy = false,
 		config = function()
-			require("kanagawa").setup({
-				colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
+			require("vague").setup({
 				transparent = true,
-				theme = "wave", -- wave, dragon, lotus
-				background = {
-					dark = "wave",
-					light = "lotus",
-				},
-				overrides = function(colors)
-					return {
-						Normal = { bg = "none" },
-						NormalFloat = { bg = "none" },
-						VertSplit = { fg = colors.fujiGray },
-					}
-				end,
 			})
 		end,
 	},
@@ -52,7 +39,7 @@ return {
 		name = "tokyonight",
 		lazy = false,
 		opts = {
-			style = "moon", --  'storm', 'night', 'day', 'moon'
+			style = "moon", -- 'storm', 'night', 'day', 'moon'
 			transparent = true,
 			styles = {
 				comments = { italic = true },
@@ -61,5 +48,29 @@ return {
 				floats = "transparent",
 			},
 		},
+	},
+
+	{
+		"olimorris/onedarkpro.nvim",
+		name = "onedark",
+		lazy = false,
+		config = function()
+			require("onedarkpro").setup({
+				options = {
+					transparency = true,
+				},
+				highlights = {
+					Comment = { italic = true },
+					Directory = { bold = true },
+					ErrorMsg = { italic = true, bold = true },
+				},
+				styles = {
+					comments = "italic",
+					keywords = "bold,italic",
+					functions = "italic",
+					conditionals = "italic",
+				},
+			})
+		end,
 	},
 }

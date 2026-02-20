@@ -19,6 +19,8 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"pyright",
+					"vue_ls",
+					"emmet_ls",
 					"ts_ls",
 					"eslint",
 					"intelephense",

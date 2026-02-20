@@ -52,64 +52,13 @@ return {
 							checkThirdParty = false,
 						},
 						completion = { callSnippet = "Replace" },
-						telemetery = { enable = false },
+						telemetry = { enable = false },
 					},
 				},
 			},
 
 			html = {
 				filetypes = { "html", "php" },
-			},
-
-			tailwindcss = {
-				cmd = { "tailwindcss-language-server", "--stdio" },
-				filetypes = {
-					"html",
-					"css",
-					"scss",
-					"sass",
-					"javascript",
-					"javascriptreact",
-					"typescript",
-					"typescriptreact",
-					"vue",
-					"svelte",
-					"php",
-					"twig",
-					"jsx",
-					"tsx",
-				},
-				root_dir = vim.fs.root(0, {
-					"tailwind.config.js",
-					"tailwind.config.cjs",
-					"postcss.config.js",
-					"package.json",
-					".git",
-				}),
-				settings = {
-					tailwindCSS = {
-						includeLanguages = {
-							typescript = "javascript",
-							typescriptreact = "javascript",
-							html = "html",
-							php = "html",
-						},
-						experimental = {
-							classRegex = {
-								'class\\s*[:=]\\s*"([^"]*)"',
-								'className\\s*[:=]\\s*"([^"]*)"',
-							},
-						},
-						validate = true,
-						lint = {
-							cssConflict = "warning",
-							invalidApply = "error",
-							invalidScreen = "error",
-							invalidVariant = "error",
-							invalidConfigPath = "error",
-						},
-					},
-				},
 			},
 
 			cssls = {
@@ -127,8 +76,11 @@ return {
 					"javascriptreact",
 					"typescriptreact",
 					"html",
+					"vue",
 				},
-				root_dir = vim.fs.root(0, { "package.json", "tsconfig.json", ".git" }),
+				root_dir = function(fname)
+					return vim.fs.root(fname, { "package.json", "tsconfig.json", ".git" })
+				end,
 				settings = {
 					typescript = {
 						inlayHints = {
@@ -146,7 +98,9 @@ return {
 			intelephense = {
 				cmd = { "intelephense", "--stdio" },
 				filetypes = { "php", "html" },
-				root_dir = vim.fs.root(0, { "composer.json", ".git" }),
+				root_dir = function(fname)
+					return vim.fs.root(fname, { "composer.json", ".git" })
+				end,
 				settings = {
 					intelephense = {
 						files = { maxSize = 5000000 },
@@ -168,9 +122,10 @@ return {
 					"xml",
 					"svelte",
 					"astro",
-					"twig",
 				},
-				root_dir = vim.fs.root(0, { ".git", "package.json", "composer.json" }),
+				root_dir = function(fname)
+					return vim.fs.root(fname, { ".git", "package.json", "composer.json" })
+				end,
 				settings = {
 					emmet = {
 						showExpandedAbbreviation = "always",
@@ -185,12 +140,14 @@ return {
 
 			vue_ls = {
 				filetypes = { "vue" },
-				root_dir = vim.fs.root(0, {
-					"package.json",
-					"tsconfig.json",
-					"jsconfig.json",
-					".git",
-				}),
+				root_dir = function(fname)
+					return vim.fs.root(fname, {
+						"package.json",
+						"tsconfig.json",
+						"jsconfig.json",
+						".git",
+					})
+				end,
 				init_options = {
 					typescript = {
 						tsdk = vim.fn.stdpath("data")

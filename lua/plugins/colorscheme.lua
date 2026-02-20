@@ -1,5 +1,5 @@
 local function MyCrayon(color)
-	color = color or "onedark"
+	color = color or "tokyonight"
 	vim.cmd.colorscheme(color)
 end
 

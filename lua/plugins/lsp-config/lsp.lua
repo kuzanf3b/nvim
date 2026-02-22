@@ -75,10 +75,8 @@ return {
 					"typescript",
 					"javascriptreact",
 					"typescriptreact",
-					"html",
-					"vue",
 				},
-				root_dir = vim.fs.root(0, { "package.json", "tsconfig.json", ".git" }),
+				root_dir = require("lspconfig.util").root_pattern("package.json", "tsconfig.json", ".git"),
 				settings = {
 					typescript = {
 						inlayHints = {

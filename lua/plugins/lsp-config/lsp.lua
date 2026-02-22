@@ -76,7 +76,7 @@ return {
 					"javascriptreact",
 					"typescriptreact",
 				},
-				root_dir = require("lspconfig.util").root_pattern("package.json", "tsconfig.json", ".git"),
+				root_dir = vim.fs.root(0, { "package.json", "tsconfig.json", ".git" }),
 				settings = {
 					typescript = {
 						inlayHints = {
@@ -140,8 +140,7 @@ return {
 				}),
 				init_options = {
 					typescript = {
-						tsdk = vim.fn.stdpath("data")
-							.. "/mason/packages/typescript-language-server/node_modules/typescript/lib",
+						tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
 					},
 				},
 			},

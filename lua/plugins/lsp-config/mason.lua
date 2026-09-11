@@ -26,7 +26,7 @@ return {
 					"intelephense",
 					"html",
 					"cssls",
-					"gopls",
+					-- "gopls",
 				},
 				automatic_installation = false,
 			})

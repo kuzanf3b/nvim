@@ -68,6 +68,6 @@ return {
 			},
 		},
 
-		fuzzy = { implementation = "rust" }, -- change "lua" if dont wanna exercise
+		fuzzy = { implementation = "lua" }, -- change "lua" if dont wanna exercise
 	},
 }

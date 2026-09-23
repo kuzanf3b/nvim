@@ -1,7 +1,6 @@
 # 💤 NEOVIM
 
-
-## 🧰 Requirements
+## Requirements
 
 - Neovim 0.12+
 - Node.js ≥ 16 (JS/TS tools)  
@@ -12,8 +11,7 @@
 
 ---
 
-
-## 🚀 Installation
+## Installation
 
 1. **Clone neovim:**
 
@@ -34,7 +32,7 @@
    ```
 ---
 
-## 🔑 Mappings Overview
+## Mappings Overview
 
 |Mode     | Key          | Action |
 |---------|--------------|--------|
@@ -50,6 +48,6 @@
 
 ---
 
-## 🖱️ Screenshots
+## Screenshots
 
 <img src="./assets/code.png">

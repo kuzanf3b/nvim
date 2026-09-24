@@ -1,3 +1,6 @@
+> [!NOTE]
+> This repository has been moved to [Codeberg](https://codeberg.org/kuzanf3b/nvim-btw) and is no longer maintained on [GitHub](https://github.com/kuzanf3b/nvim).
+
 # 💤 NEOVIM
 
 ## Requirements
